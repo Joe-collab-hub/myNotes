@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            margin: 100px auto;
+            border-collapse: collapse;
+        }
+        td{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tbody>
+    <tr>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>年龄</th>
+        <th>职业</th>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+<script>
+    const arr = [
+        {
+            name: "张三",
+            gender: "男",
+            age: 25,
+            occupation: "前端"
+        },
+        {
+            name: "李四",
+            gender: "男",
+            age: 28,
+            occupation: "前端"
+        },
+        {
+            name: "王五",
+            gender: "女",
+            age: 23,
+            occupation: "UI"
+        },
+        {
+            name: "马六",
+            gender: "男",
+            age: 35,
+            occupation: "后台"
+        },
+    ];
+
+    const fun = () => {
+
+        let tbody = document.getElementsByTagName("tbody")[0];
+        for (let i=0;i<arr.length;i++){
+            let tr = document.createElement("tr");
+            tr.innerHTML = `
+            <td r = "${i}" c = "0">${arr[i].name}</td>
+            <td r = "${i}" c = "1">${arr[i].gender}</td>
+            <td r = "${i}" c = "2">${arr[i].age}</td>
+            <td r = "${i}" c = "3">${arr[i].occupation}</td>
+        `
+            tbody.appendChild(tr);
+        }
+
+    }
+    fun();
+
+    let td = document.getElementsByTagName("td");
+    let tr = document.getElementsByTagName("tr");
+
+    for (let i = 0; i<td.length;i++){
+        console.log(td[i]);
+        td[i].onmouseover = function () {
+            td[i].style.backgroundColor = "#c6faf1";
+        }
+        td[i].onmouseout = function () {
+            td[i].style.backgroundColor = "transparent";
+        }
+    }
+
+</script>

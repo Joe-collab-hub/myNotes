@@ -1,0 +1,70 @@
+<!--
+  ~ Time:2022/4/26 14:24 20
+  ~ Name:jsx语法规则.html
+  ~ Path:react基础/03_jsx语法规则
+  ~ ProjectName:react
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>jsx语法规则</title>
+	<style>
+		.box {
+			background-color: aqua;
+			width: 200px;
+			
+		}
+	</style>
+</head>
+<body>
+<div id="test"></div>
+</body>
+<!--引入react核心库-->
+<script src="../../js/旧版本/react.development.js"></script>
+
+<!--引入react-dom库,用来支持react操作DOM-->
+<script src="../../js/旧版本/react-dom.development.js"></script>
+
+<!--引入jsx语法解析器-->
+<script src="../../js/旧版本/babel.min.js"></script>
+
+<script type="text/babel"> // 此处一定要写babel，引入jsx语法解析器,用来解析jsx语法
+
+const myId = 'bot';
+const myData = 'hello React';
+
+// 1.创建虚拟DOM
+const element = (
+		<div>
+			<h1 className="box" id={myId}>
+				<span style={{ color: '#fff', fontSize: '20px' }}>{myData}</span>
+			</h1>
+			<label>
+				<input type="text"/>
+			</label>
+		</div>
+);// 此处一定不要写引号，因为不是字符串，用括号代表是一个整体
+
+// 2.渲染虚拟DOM到页面
+ReactDOM.render(element, document.getElementById('test'));
+
+/*
+	jsx语法规则：
+		1、定义虚拟DOM时，不要使用引号，而是使用括号，因为括号代表一个整体
+		2、标签中混入js语法，使用{}包裹
+		3、样式的类名指定不要用class，而是用className
+		4、内联样式，要用style={{ key: value }}的形式去写
+		5、只有一个根元素
+		6、标签必须闭合
+		7、标签首字母：
+			(1)、若是小写，则将该标签转化为html中同名标签，若html中无该标签对应的同名元素，则报错
+			(2)、若是大写，react就会去渲染对应的组件，若组件没有定义，则报错
+ */
+</script>
+</html>

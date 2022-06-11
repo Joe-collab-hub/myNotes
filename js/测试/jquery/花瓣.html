@@ -1,0 +1,89 @@
+<!--
+  ~ Time:2022/2/22 19:00 58
+  ~ Name:花瓣.html
+  ~ Path:js/笔记/09.js
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>花瓣</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			/* font: 500 15px YouYuan; */
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		#bot {
+			width: 1500px;
+			background-color: lightblue;
+			margin: auto;
+		}
+
+		#bot::after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+
+		.box {
+			width: 236px;
+			height: auto;
+			float: left;
+			margin-left: 12px;
+			background-color: #e3adaf;
+		}
+
+	</style>
+	<script src="花瓣网素材.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+<body>
+<div id="bot">
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+</div>
+</body>
+<script>
+
+	let date1 = JSON.parse(data);
+
+	for (let i = 0; i < date1.length; i++) {
+		let num = Infinity;
+		let minHeightDom = null;
+		$('.box').each(function (j,el) {
+			if ($(el).innerHeight() < num) {
+				num = $(el).innerHeight()
+				minHeightDom = $(el);
+			}
+		})
+		minHeightDom.append(
+				`<img src='${'https://hbimg.huabanimg.com/' + date1[i].file.key + '_fw236/format/webp'}' alt=""/>`,
+		);
+		minHeightDom.css({
+			height: num + ($('.box').width() / date1[i].file.width * date1[i].file.height),
+		});
+	}
+
+</script>
+</html>

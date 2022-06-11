@@ -1,0 +1,52 @@
+<!--
+  ~ Time:2022/4/11 12:32 57
+  ~ Name:localStorage.html
+  ~ Path:Vue/02 vue组件化/2 单文件组件/08 浏览器的本地存储
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>localStorage和sessionStorage</title>
+
+</head>
+<body>
+<h2>localStorage</h2>
+<button onclick="saveData()">点我保存一个数据</button>
+<button onclick="readData()">点我读取一个数据</button>
+<button onclick="deleteData()">点我删除一个数据</button>
+<button onclick="deleteAllData()">点我清空一个数据</button>
+</body>
+<script>
+
+	let p = {
+		name: '张三',
+		age: 18,
+	};
+
+	function saveData () {
+		localStorage.setItem('msg', 'hello');
+		localStorage.setItem('a', JSON.stringify(p));
+	}
+
+	function readData () {
+		console.log(localStorage.getItem('msg'));
+	}
+
+	function deleteData () {
+		localStorage.removeItem('msg');
+	}
+	function deleteAllData () {
+		localStorage.clear()
+	}
+
+	// sessionStorage会话存储，浏览器关闭之后存储的数据将被清空，操作方式和localStorage完全相同
+	sessionStorage.name = '会话储存';
+</script>
+</html>

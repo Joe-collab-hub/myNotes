@@ -1,0 +1,79 @@
+<!--
+  ~ Time:2022/3/16 11:44 47
+  ~ Name:canvas合成与裁切.html
+  ~ Path:html5/画
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>canvas合成与裁切</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		canvas {
+			border: 1px solid red;
+		}
+
+
+	</style>
+</head>
+<body>
+<canvas width="500" height="500"></canvas>
+</body>
+<script>
+	// 默认情况下，后面的图形会在绘制之前的图形之上
+
+	const canvasDom = document.querySelector('canvas');
+	const context = canvasDom.getContext('2d');
+
+	context.fillStyle = 'red';
+	context.fillRect(10, 10, 100, 100);
+
+	context.fillStyle = 'green';
+	context.fillRect(60, 60, 100, 100);
+
+	/*
+	*  可以通过一些设置来调整新绘制图形的位置
+	*  global  全局的
+	*  Composite 合成
+	*  Operation 操作
+	*  */
+	// 新图形绘制在之前图形下面
+	context.globalCompositeOperation = 'destination-over';
+	context.fillStyle = 'blue';
+	context.fillRect(120, 120, 100, 100);
+	context.fillStyle = 'pink';
+	context.fillRect(170, 170, 100, 100);
+
+	// destination-out 绘制区域会清除该区域中所有区域内容（类似橡皮擦操作）
+	context.globalCompositeOperation = 'destination-out';
+	context.fillRect(150, 150, 100, 100);
+
+	// 清除矩形区域
+	context.clearRect(0, 0, 100, 100);
+	// 清除圆形区域
+	context.globalCompositeOperation = 'destination-out';
+	context.arc(120, 120, 20, 0, Math.PI `` * 2);
+	context.fill();
+
+</script>
+</html>

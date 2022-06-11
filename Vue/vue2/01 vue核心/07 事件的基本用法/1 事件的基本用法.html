@@ -1,0 +1,60 @@
+<!--
+  ~ Time:2022/4/3 14:44 27
+  ~ Name:1 事件的基本用法.html
+  ~ Path:VUE/dey01/07 事件的基本用法
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>事件的基本用法</title>
+	<script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<h2>欢迎来到{{ name }}</h2>
+	<button v-on:click="showInfo">点我提示信息</button>
+	<button @click="showInfo">点我提示信息</button>
+	<button @click="showInfo2($event,66)">点我提示信息2</button>
+</div>
+</body>
+<script>
+
+	/*
+		事件的基本用法：
+			1、使用 v-on:xxx 或 @xxx 绑定事件，其中xxx是事件名
+			2、事件的回调需要配置在 methods 对象中，最终会在 vm 上
+			3、methods中配置的函数，不要用箭头函数！否则this就不是 vm，而是 window
+			4、methods中配置的函数，都是被Vue所管理的函数，this的指向是vm 或 组件实例对象
+			5、@click="demo"和 @click="demo($event)"效果一致，但是后者可以传参
+	 */
+
+	Vue.config.productionTip = false;
+
+	const vm = new Vue({
+		el: '#root',
+		data () {
+			return {
+				name: 'Vue',
+			};
+		},
+		methods:{
+			showInfo(event){
+				console.log(event.target.innerText);
+				console.log("我是提示");
+				console.log(this); // 此处的this是vm
+			},
+			showInfo2(event,number){
+				console.log(event.target.innerText);
+				console.log(number);
+			}
+		}
+	});
+</script>
+</html>

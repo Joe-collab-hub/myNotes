@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		#div {
+			width: 100%;
+			height: 100px;
+			/*background-color: #EC9DAB;*/
+			line-height: 100px;
+		}
+
+		ul {
+			list-style-type: none;
+		}
+
+		.li-1 {
+			width: 50px;
+			display: inline-block;
+			line-height: 40px;
+			margin-left: 20px;
+			font-size: 15px;
+			text-align: center;
+		}
+
+		.li-1:hover {
+			color: blue;
+		}
+
+		#a {
+			width: 50px;
+			height: 40px;
+			display: inline-block;
+			list-style-type: none;
+			line-height: 40px;
+			margin-left: 20px;
+			font-size: 15px;
+			text-align: center;
+		}
+
+		#div-1 {
+			width: 300px;
+			height: 225px;
+			background-color: white;
+			box-shadow: 1px 1px 10px #888888;
+			border-radius: 10px;
+			display: none;
+			position: absolute;
+			left: 280px;
+		}
+
+		#a:hover #div-1 {
+			display: block;
+		}
+
+		.li-2 {
+			width: 60px;
+			height: 70px;
+			text-align: center;
+			/*background-color: #EC9DAB;*/
+			float: left;
+			margin-left: 12.5px;
+			margin-top: 18px;
+		}
+
+		img {
+			width: 40px;
+			height: 40px;
+		}
+
+		.b {
+			color: black;
+			position: relative;
+			top: -20px;
+		}
+
+		#she {
+			width: 50px;
+			display: inline-block;
+			line-height: 40px;
+			position: relative;
+			left: 1100px;
+			font-size: 15px;
+			text-align: center;
+		}
+
+		#she:hover {
+			color: blue;
+		}
+
+		#deng {
+			width: 60px;
+			height: 30px;
+			background-color: #1186f8;
+			display: inline-block;
+			line-height: 30px;
+			margin-left: 20px;
+			font-size: 15px;
+			text-align: center;
+			border-radius: 10px;
+			position: relative;
+			left: 1100px;
+			color: white;
+		}
+
+		#deng:hover {
+			background-color: blue;
+		}
+
+		#she-1 {
+			width: 85px;
+			height: 150px;
+			box-shadow: 1px 1px 10px #999999;
+			border-radius: 10px;
+			position: absolute;
+			left: -15px;
+			display: none;
+			color: #999999;
+		}
+
+		#she:hover #she-1 {
+			display: block;
+		}
+
+		.c {
+			width: 80px;
+			height: 10px;
+			font-size: 15px;
+			margin-top: 10px;
+		}
+
+		.c:hover {
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+<div id="div">
+	<ul>
+		<li class="li-1">新闻</li>
+		<li class="li-1">hao123</li>
+		<li class="li-1">地图</li>
+		<li class="li-1">直播</li>
+		<li class="li-1">视频</li>
+		<li class="li-1">贴吧</li>
+		<li class="li-1">学术</li>
+		<li id="a">
+			<div>更多</div>
+			<div id="div-1">
+				<div class="li-2">
+					<img src="1.png">
+					<div class="b">网盘</div>
+				</div>
+				<div class="li-2">
+					<img src="2.png">
+					<div class="b">知道</div>
+				</div>
+				<div class="li-2">
+					<img src="3.png">
+					<div class="b">百科</div>
+				</div>
+				<div class="li-2">
+					<img src="4.png">
+					<div class="b">图片</div>
+				</div>
+				<div class="li-2">
+					<img src="5.png">
+					<div class="b">营销推广</div>
+				</div>
+				<div class="li-2">
+					<img src="6.png">
+					<div class="b">文库</div>
+				</div>
+				<div class="li-2">
+					<img src="7.png">
+					<div class="b">经验</div>
+				</div>
+				<div class="li-2">
+					<img src="8.png">
+					<div class="b">音乐</div>
+				</div>
+				<div style="width: 300px;height: 50px;float: left;line-height: 50px;text-align: center">查看百度全部产品></div>
+			</div>
+		</li>
+		<li id="she">
+			<div>设置</div>
+			<div id="she-1">
+				<p class="c">搜索设置</p>
+				<p class="c">高级搜索</p>
+				<p class="c">关闭预测</p>
+				<p class="c">隐私设置</p>
+				<p class="c">关闭热搜</p>
+			</div>
+		</li>
+		<li id="deng">登录</li>
+	</ul>
+</div>
+</body>
+</html>

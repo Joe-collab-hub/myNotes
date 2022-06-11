@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js函数初步</title>
+</head>
+<body>
+<script>
+    /*
+        java中方法有重载机制，js中函数能重载吗？
+            js当中的函数调用的时候，参数的类型没有限制，并且参数的个数也没有限制，js就是这么随意
+
+        重载的含义：
+            方法名或者函数名一样，形式不同（个数、类型、顺序）
+     */
+    function sum(a, b){
+        return a + b;
+    }
+
+    //调用函数sum
+    var retValue = sum(1, 2);
+    alert(retValue);
+
+    var retValue2 = sum("abc");  // abc赋值给a变量，b变量没有赋值系统默认赋值undefined
+    alert(retValue2);  //abcundefined
+
+    var retValue3 = sum();
+    alert(retValue3);  // NaN (NaN是一个具体存在的值，该值表示不是数字。Nat a Number)
+
+    var retValue4 = sum(1,2,3);
+    alert("结果=" + retValue4);  //结果=3
+
+    function test1(usrname){
+        alert("test1");
+    }
+
+    /*  在js当中，函数的名字不能重名，当函数重名的时候，后声明的函数会将之前同名函数覆盖掉。  */
+    function  test1(){
+        alert("test1 test1");
+    }
+
+    test1("lisi"); //这个调用的是第二个test1()函数。
+</script>
+</body>
+</html>

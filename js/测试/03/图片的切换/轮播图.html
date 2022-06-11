@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		body {
+			text-align: center;
+		}
+
+		#bot {
+			width: 400px;
+			height: 260px;
+			margin: 30px auto;
+			overflow: hidden;
+			border: 1px solid;
+			position: relative;
+		}
+
+		#box {
+			width: 100%;
+			display: flex;
+			position: absolute;
+			left: -400px;
+			transition: all 1s;
+		}
+
+		img {
+			width: 400px;
+			height: 260px;
+		}
+
+		button {
+			width: 100px;
+			height: 40px;
+		}
+
+		p {
+			/*text-align: center;*/
+			margin-top: 50px;
+		}
+
+		#box1 {
+			width: 120px;
+			position: absolute;
+			display: flex;
+			justify-content: space-between;
+			bottom: 0;
+			left: 140px;
+		}
+	</style>
+</head>
+<body>
+<p>这是第1张图片</p>
+<div id="bot">
+	<div id="box">
+	</div>
+	<div id="box1"></div>
+</div>
+<button name="button-left">上一页</button>
+<button name="button-right">下一页</button>
+</body>
+</html>
+<script>
+
+	let buttonLeft = document.getElementsByName('button-left')[0]
+	let buttonRight = document.getElementsByName('button-right')[0]
+	let box = document.getElementById('box')
+	let box1 = document.getElementById('box1')
+	let p = document.getElementsByTagName('p')[0]
+	let kai = true
+	let num = 0
+
+	for (let i = 1; i <= 7; i++) {
+		let img = document.createElement('img')
+		img.src = `img${i}.jpg`
+		box.append(img)
+		let input = document.createElement('input')
+		input.type = 'radio'
+		input.name = 'button'
+		input.onclick = function () {
+			box.style.left = -i * box.offsetWidth + 'px'
+			num = i - 1
+		}
+		box1.append(input)
+	}
+	let img1 = document.getElementsByTagName('img')
+	let b = img1[0].cloneNode(true)
+	let c = img1[img1.length - 1].cloneNode(true)
+	box.append(b)
+	box.prepend(c)
+	let input = box1.getElementsByTagName('input')
+	input[num].checked = true
+
+	function fun1 () {
+		if (kai) {
+			kai = false
+			let l = box.offsetWidth
+			box.style.left = -l * (num + 2) + 'px'
+			box.style.transition = '1s'
+			num++
+			setTimeout(function () {
+				if (num >= 7) {
+					num = 0
+					box.style.left = -l * (num + 1) + 'px'
+					box.style.transition = 'none'
+				}
+				input[num].checked = true
+				p.innerText = '这是第' + (num + 1) + '张图片'
+				kai = true
+			}, 1000)
+		}
+	}
+
+	buttonRight.onclick = fun1
+	buttonLeft.onclick = function () {
+		if (kai) {
+			kai = false
+			let l = box.offsetWidth
+			box.style.left = -l * num + 'px'
+			box.style.transition = '1s'
+			num--
+			setTimeout(function () {
+				if (num < 0) {
+					num = 6
+					box.style.left = -l * (num + 1) + 'px'
+					box.style.transition = 'none'
+				}
+				input[num].checked = true
+				p.innerText = '这是第' + (num + 1) + '张图片'
+				kai = true
+			}, 1000)
+		}
+	}
+
+	let times = setInterval(fun1, 2000)
+
+	buttonRight.onmouseenter = function () {
+		clearInterval(times)
+	}
+	buttonRight.onmouseleave = function () {
+		times = setInterval(fun1, 2000)
+	}
+	buttonLeft.onmouseenter = function () {
+		clearInterval(times)
+	}
+	buttonLeft.onmouseleave = function () {
+		times = setInterval(fun1, 2000)
+	}
+	box1.onmouseenter = function () {
+		clearInterval(times)
+	}
+	box1.onmouseleave = function () {
+		times = setInterval(fun1, 2000)
+	}
+</script>

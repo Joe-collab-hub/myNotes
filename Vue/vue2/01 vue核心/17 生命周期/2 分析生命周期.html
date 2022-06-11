@@ -1,0 +1,97 @@
+<!--
+  ~ Time:2022/4/8 11:46 38
+  ~ Name:2 分析生命周期.html
+  ~ Path:Vue/01 vue/17 生命周期
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>分析生命周期</title>
+	<script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<h2>当前的n值是：{{ n }}</h2>
+	<button @click="add">点击n+1</button>
+	<button @click="bay">销毁</button>
+</div>
+</body>
+<script>
+	Vue.config.productionTip = false;
+
+	const vm = new Vue({
+		el: '#root',
+		/* template:`
+		<div>
+			<h2>当前的n值是：{{ n }}</h2>
+			<button @click="add">点击n+1</button>
+		</div>
+		`, */ // 必须是字符串   '' 不可换行  要是换行必须用 ``
+		data () {
+			return {
+				n: 1,
+			};
+		},
+		methods: {
+			add(){
+				this.n++
+			},
+			bay(){
+				console.log('bay');
+				this.$destroy()
+			}
+		},
+		// 创建之前
+		beforeCreate(){
+			console.log('beforeCreate');
+			// debugger
+		},
+
+		// 创建完毕
+		created(){
+			console.log('created');
+			// debugger
+		},
+
+		// 将要挂载
+		beforeMount(){
+			console.log('beforeMount');
+			// debugger
+		},
+
+		// 挂载完毕
+		mounted(){
+			console.log("mounted");
+			// debugger
+		},
+
+		// 将要更新
+		beforeUpdate(){
+			console.log('beforeUpdate');
+		},
+
+		// 更新完毕
+		updated(){
+			console.log('updated');
+		},
+
+		// 将要销毁
+		beforeDestroy(){
+			console.log('beforeDestroy');
+		},
+
+		// 销毁完毕
+		destroyed(){
+			console.log('destroyed');
+		}
+
+	});
+</script>
+</html>

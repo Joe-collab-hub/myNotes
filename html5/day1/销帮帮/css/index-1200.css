@@ -1,0 +1,86 @@
+/**
+  * Time:2022/3/4 21:12 35
+  * Name:index-1200.css
+  * Path:html5/day1/销帮帮/css
+  * ProjectName:前端
+  * Author:突然
+  *
+  *  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  */
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+a:link {
+	color: #b700ff;
+}
+
+a:visited {
+	color: #0066ff;
+}
+
+a:hover {
+	color: #FF00FF;
+}
+
+a:active {
+	color: #ff8800;
+}
+
+*::selection {
+	color: #fff99a;
+	background-color: #ff961b;
+}
+
+*::placeholder {
+	font: 500 .5rem YouYuan;
+}
+
+*::placeholder {
+	cursor: pointer;
+}
+
+
+label, button {
+	user-select: none;
+	/*pointer-events:none;*/
+}
+
+input {
+	padding: .1rem 0 .1rem .1rem;
+	font: 500 .8rem YouYuan;
+}
+
+button {
+	cursor: pointer;
+}
+
+/*-------以上为默认设置（The above is the default setting）--------*/
+header > div{
+	width: 25rem;
+}
+
+header > div>div{
+	width: 23%;
+}
+header > div > ul {
+	margin-left: 0;
+	width: 77%;
+	font-size: 12px;
+	line-height: 50px;
+}
+#register>div{
+	height: 30px;
+	line-height: 30px;
+	margin-top: 8px;
+}
+#register3{
+	font-size: 16px;
+}
+#register3:before{
+	top: 5px;
+	left: -5px;
+}

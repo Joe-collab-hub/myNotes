@@ -1,0 +1,159 @@
+<!--
+  ~ Time:2022/3/16 19:23 53
+  ~ Name:画图板.html
+  ~ Path:html5/画
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>画图板</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		#frame {
+			width: 400px;
+			margin: 200px auto;
+		}
+
+		#bot {
+			width: 400px;
+			height: 50px;
+			background-color: #5dd5c8;
+			border: 1px solid #5dd5c8;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		input {
+			margin-top: 10px;
+		}
+
+		select {
+			height: 20px;
+			margin-top: 15px;
+		}
+
+		button {
+			width: 50px;
+			height: 30px;
+			margin-top: 10px;
+		}
+
+		canvas {
+			border: 1px solid #ccc;
+		}
+
+		img {
+			width: 20px;
+			height: 20px;
+			margin-top: 15px;
+			cursor: pointer;
+		}
+	</style>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+<body>
+<div id="frame">
+	<div id="bot">
+		<input type="color">
+		<select>
+			<option value="">1</option>
+			<option value="">2</option>
+			<option value="">4</option>
+			<option value="">6</option>
+			<option value="">8</option>
+			<option value="">10</option>
+			<option value="">14</option>
+			<option value="">16</option>
+		</select>
+		<img src="w_huabi.png" alt="">
+		<img src="rubber-full.png" alt="">
+		<button>清除</button>
+		<button>下载</button>
+	</div>
+	<canvas width="400" height="500"></canvas>
+</div>
+
+</body>
+</html>
+<script>
+	const canvasDom = document.querySelector('canvas');
+	const context = canvasDom.getContext('2d');
+	const colorDom = document.querySelector('input');
+	const select = document.querySelector('select');
+	let option = document.getElementsByTagName('option');
+	let button = document.getElementsByTagName('button');
+	let img = document.getElementsByTagName('img');
+
+	let size = 1;
+
+	colorDom.onchange = function () {
+		context.strokeStyle = colorDom.value
+		fun2(size)
+	}
+	select.onchange = function () {
+		size =  option[this.selectedIndex].text;
+		fun2(size)
+	};
+	let isFirst = true;
+	context.lineCap = 'round';
+	context.lineJoin = 'round';
+	function fun2 (size) {
+		canvasDom.onmousedown = function () {
+			canvasDom.onmousemove = function (event) {
+				const x = event.offsetX;
+				const y = event.offsetY;
+				if (isFirst) {
+					context.beginPath();
+					context.lineWidth = size
+					context.moveTo(x, y);
+					isFirst = false;
+				} else {
+					context.lineTo(x, y);
+					context.stroke();
+				}
+			};
+		};
+		document.onmouseup = function () {
+			canvasDom.onmousemove = null;
+			isFirst = true;
+		};
+	}
+
+	fun2();
+
+	button[0].onclick = function () {
+		canvasDom.width = 400
+		canvasDom.height = 500
+
+	};
+
+	img[1].onclick = function () {
+		context.strokeStyle = '#fff';
+		fun2(8);
+	}
+	img[0].onclick = function () {
+		context.strokeStyle = colorDom.value
+		fun2(size)
+	}
+
+</script>

@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    body{
+      background-color: black;
+    }
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .div-1{
+      width: 1080px;
+      margin: 0 auto;
+    }
+    ul{
+      width: 1080px;
+      list-style-type: none;
+      /*background-color: black;*/
+    }
+    .li-1{
+      width: 100px;
+      height: 80px;
+      color: white;
+      line-height: 80px;
+      font-family: 微软雅黑;
+      float: left;
+      text-align: center;
+    }
+    .li-1-1{
+      width: 120px;
+      height: 40px;
+      text-align: center;
+      float: right;
+      background-color: red;
+      color: white;
+      margin: 20px;
+      line-height: 40px;
+      border-radius: 10px 0 10px 0;
+    }
+    .li-2{
+      width: 60px;
+      height: 70px;
+      color: white;
+      font-size: 15px;
+      line-height: 70px;
+      display: inline;
+      word-spacing: 80px;
+    }
+    .img-1{
+      width: 1080px;
+      height: 405px;
+    }
+    .li-3{
+      width: 258px;
+      height: 450px;
+      display: inline-block;
+      margin-left: 8px;
+    }
+    .img-3{
+      width: 258px;
+      height: 340px;
+    }
+    .img-3-1{
+      width: 40px;
+      height: 40px;
+      float: left;
+    }
+    .div-3-1{
+      color: white;
+      float: left;
+      margin-left: 10px;
+      font-family: 微软雅黑;
+    }
+    .div-3-1-1{
+      font-size: 18px
+    }
+    .div-3-1-1:hover{
+      color: red;
+    }
+    .div-3-2{
+      width: 85px;
+      height: 40px;
+      float: right;
+      color: white;
+      background-color: red;
+      text-align: center;
+      line-height: 40px;
+      border-radius: 10px 0 10px 0;
+    }
+    h2{
+      color: white;
+      margin-top: 50px;
+
+    }
+    .li-4 {
+      width: 170px;
+      height: 160px;
+      background-color: #3b3b3b;
+      display: inline-block;
+      margin-left: 5px;
+      text-align: center;
+      margin-top: 100px;
+    }
+    .li-4:hover{
+      background-color: #4d4d4d;
+    }
+    #div-2{
+      width: 160px;
+      height: 170px;
+      background-color: #3b3b3b;
+      position: relative;
+
+
+      /*line-height: 170px;*/
+    }
+    .ming{
+      width: 160px;
+      font-size: 18px;
+      color: white;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .img-2{
+      width: 96px;
+      margin-top: -50px;
+    }
+    .jie{
+      width: 160px;
+      font-size: 15px;
+      margin: auto;
+      color: #999999;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .xia{
+      width: 85px;
+      height: 40px;
+      font-size: 15px;
+      color: white;
+      margin: 10px auto auto;
+      line-height: 40px;
+      background-color: #999999;
+      border-radius: 10px 0 10px 0;
+    }
+    .li-4:hover .xia{
+      background-color: red;
+    }
+    .xia:hover{
+      background-color: black;  !important;
+    }
+    a{
+      text-decoration: none;
+    }
+    .div-4{
+      height: 490px;
+      margin-top: 70px;
+      background-image: url("3.png");
+      background-size: cover;
+      text-align: center;
+    }
+    .div-4-1{
+      width: 170px;
+      height: 50px;
+      color: white;
+      background-color: red;
+      font-size: 20px;
+      margin: 100px auto;
+      line-height: 50px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .div-5{
+      width: 216px;
+      height: 250px;
+      float: left;
+      margin-top: 30px;
+    }
+    .li-5{
+      color: #999999;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    .li-5:hover{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div style="height: 80px;background-color: #3b3b3b">
+  <ul class="div-1">
+    <li>
+      <img style="margin-top: 20px;float: left" src="2%20.png">
+    </li>
+    <li class="li-1">首页</li>
+    <li class="li-1">游戏中心</li>
+    <li class="li-1">资讯中心</li>
+    <li class="li-1">玩家论坛</li>
+    <li class="li-1">关于我们</li>
+    <li class="li-1">常见问题</li>
+    <li class="li-1-1">下载客户端</li>
+  </ul>
+</div>
+<div class="div-1">
+  <ul style="position: sticky;top: 0;background-color: black">
+    <li class="li-2">热门游戏 </li>
+    <li class="li-2">角色扮演 </li>
+    <li class="li-2">动作冒险 </li>
+    <li class="li-2">体育竞速 </li>
+    <li class="li-2">经营策略 </li>
+    <li class="li-2">飞行射击 </li>
+    <li class="li-2">休闲益智 </li>
+    <li class="li-2">棋牌中心 </li>
+  </ul>
+  <div>
+    <img class="img-1" src="2-1.jpeg">
+  </div>
+  <h2>热门游戏</h2>
+  <ul>
+  <li class="li-3">
+    <img class="img-3" src="3-1.jpeg">
+    <div style="height: 40px; margin-top: 10px;">
+      <img class="img-3-1" src="3-1.png">
+      <div class="div-3-1">
+        <p class="div-3-1-1">圣树唤歌</p>
+        <p style="font-size: 15px;color: #a7a7ac">西幻风策略手游</p>
+      </div>
+      <div class="div-3-2">下载</div>
+    </div>
+  </li>
+  <li class="li-3"> class="li-3"
+    <img class="img-3" src="3-2.jpeg">
+    <div style="height: 40px; margin-top: 10px;">
+      <img class="img-3-1" src="A-9.png">
+      <div class="div-3-1">
+        <p class="div-3-1-1">王者荣耀</p>
+        <p style="font-size: 15px;color: #a7a7ac">王者峡谷PVP</p>
+      </div>
+      <div class="div-3-2">下载</div>
+    </div>
+  </li>
+  <li class="li-3">
+    <img class="img-3" src="3-3.jpeg">
+    <div style="height: 40px; margin-top: 10px;">
+      <img class="img-3-1" src="D-8.png">
+      <div class="div-3-1">
+        <p class="div-3-1-1">金铲铲之战</p>
+        <p style="font-size: 14px;color: #a7a7ac">云顶之弈正版授权</p>
+      </div>
+      <div class="div-3-2">下载</div>
+    </div>
+  </li>
+  <li class="li-3">
+    <img class="img-3" src="3-4.jpeg">
+    <div style="height: 40px; margin-top: 10px;">
+      <img class="img-3-1" src="3-2.png">
+      <div class="div-3-1">
+        <p class="div-3-1-1">和平精英</p>
+        <p style="font-size: 15px;color: #a7a7ac">绝地求生手游</p>
+      </div>
+      <div class="div-3-2">下载</div>
+    </div>
+  </li>
+  </ul>
+  <h2>角色扮演</h2>
+  <ul>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="A-1.png">
+        <div style="width: 160px">
+        <p class="ming">斗罗大陆武魂觉醒</p>
+        <p class="jie">你从未见过的全新斗罗</p>
+        <p class="xia">下载</p>
+      </div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="A-2.png">
+      <div class="ming">荣耀大天使</div>
+      <div class="jie">次时代3D魔幻之旅，一触即发</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="A-3.png">
+      <div class="ming">原始传奇</div>
+      <div class="jie">原汁原味，经典重现</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="A-4.png">
+      <div class="ming">原神</div>
+      <div class="jie">全新2.2版本「雾海悬谜境」现已推出！</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="A-5.png">
+      <div class="ming">新斗罗大陆（动画合作手游）</div>
+      <div class="jie">斗罗大陆动画官方合作手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="A-6.png">
+      <div class="ming">天龙八部手游（新门派：蓬莱）</div>
+      <div class="jie">社区化武侠MMORPG手机游戏</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="A-7.png">
+      <div class="ming">赏金侦探</div>
+      <div class="jie">东野圭吾合作案件独家上线</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="A-8.png">
+      <div class="ming">暮光起源</div>
+      <div class="jie">吸血鬼题材MMO手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href=""title="">
+      <img class="img-2" src="A-9.png">
+      <div class="ming">王者荣耀</div>
+      <div class="jie">S24赛季【长枪掠火】上线，新英雄云缨，风火来袭！</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="A-10.png">
+      <div class="ming">数码宝贝：新世纪</div>
+      <div class="jie">正版数码宝贝进化养成手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-11.png">
+      <div class="ming">哈利波特：魔法觉醒</div>
+      <div class="jie">《哈利·波特》官方授权手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="A-12.png">
+      <div class="ming">斗罗大陆：魂师对决-百亿回馈</div>
+      <div class="jie">百日庆典，百分百瓜分百亿钻石</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+  </ul>
+  <h2>动作冒险</h2>
+  <ul>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="B-1.png">
+        <div style="width: 160px">
+        <p class="ming">明日之后</p>
+        <p class="jie">加入未知，活下去</p>
+        <p class="xia">下载</p>
+      </div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="B-2.png">
+      <div class="ming">碧蓝航线</div>
+      <div class="jie">此身为舰，即刻出战！</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="B-3.png">
+      <div class="ming">崩坏3</div>
+      <div class="jie">为世界上所有的美好而战</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="B-4.png">
+      <div class="ming">鬼泣-巅峰之战</div>
+      <div class="jie">CAPCOM殿堂级动作IP正版手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="B-5.png">
+      <div class="ming">魂斗罗：归来</div>
+      <div class="jie">《魂斗罗：归来》经典IP热血回归，一起并肩打通关！</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="B-6.png">
+      <div class="ming">灵魂潮汐</div>
+      <div class="jie">在世界的彼岸等着你的呼唤</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="B-7.png">
+      <div class="ming">罗布乐思</div>
+      <div class="jie">超多玩法的3D沙盒创意游戏！</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="B-8.png">
+      <div class="ming">从零开始的异世界生活无限</div>
+      <div class="jie">正版授权，异世界之旅真正开始！</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href=""title="">
+      <img class="img-2" src="B-9.png">
+      <div class="ming">迷你世界</div>
+      <div class="jie">美好契约 邀你缔结</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="B-10.png">
+      <div class="ming">第五人格（生存类独立游戏）</div>
+      <div class="jie">网易首款非对称对抗竞技手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="B-11.png">
+      <div class="ming">龙之谷2</div>
+      <div class="jie">龙之谷全新大世界正版续作</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="B-12.png">
+      <div class="ming">重装上阵：机动战争</div>
+      <div class="jie">从零件开始，打造你的传奇战机</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+  </ul>
+  <h2>体育竞速</h2>
+  <ul>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-1.png">
+        <div style="width: 160px">
+        <p class="ming">QQ飞车手游</p>
+        <p class="jie">唯一官方正版手游，体验最原汁原味的漂移！</p>
+        <p class="xia">下载</p>
+      </div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-2.png">
+      <div class="ming">跑跑卡丁车官方竞速版</div>
+      <div class="jie">十四年竞速经典回归</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-3.png">
+      <div class="ming">NBA范特西（正版授权）</div>
+      <div class="jie">NBN同步数据，打造星际球队。</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-4.png">
+      <div class="ming">全民冠军足球</div>
+      <div class="jie">腾讯唯一的足球策略游戏</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-5.png">
+      <div class="ming">绿茵之巅</div>
+      <div class="jie">全新教练模式</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-6.png">
+      <div class="ming">灌篮高手正版授权手游</div>
+      <div class="jie">真人实时篮球竞技手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-7.png">
+      <div class="ming">FIFA足球世界</div>
+      <div class="jie">首款FIFA实时PVP足球竞技手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-8.png">
+      <div class="ming">最强NBA</div>
+      <div class="jie">真实竞技手游，来做赛场MVP！</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href=""title="">
+      <img class="img-2" src="C-9.png">
+      <div class="ming">腾讯桌球</div>
+      <div class="jie">腾讯首款真人实时对战桌球手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-10.png">
+      <div class="ming">天天酷跑</div>
+      <div class="jie">8亿人都在玩的国民跑酷手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-11.png">
+      <div class="ming">城市飞车</div>
+      <div class="jie">全球300万赛车用户共同推荐</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-12.png">
+      <div class="ming">忍者必须死3</div>
+      <div class="jie">风靡全球的水墨风战斗跑酷</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+  </ul>
+  <h2>经营策略</h2>
+  <ul>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-1.png">
+        <div style="width: 160px">
+        <p class="ming">QQ飞车手游</p>
+        <p class="jie">唯一官方正版手游，体验最原汁原味的漂移！</p>
+        <p class="xia">下载</p>
+      </div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-2.png">
+      <div class="ming">跑跑卡丁车官方竞速版</div>
+      <div class="jie">十四年竞速经典回归</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-3.png">
+      <div class="ming">NBA范特西（正版授权）</div>
+      <div class="jie">NBN同步数据，打造星际球队。</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-4.png">
+      <div class="ming">全民冠军足球</div>
+      <div class="jie">腾讯唯一的足球策略游戏</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-5.png">
+      <div class="ming">绿茵之巅</div>
+      <div class="jie">全新教练模式</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-6.png">
+      <div class="ming">灌篮高手正版授权手游</div>
+      <div class="jie">真人实时篮球竞技手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-7.png">
+      <div class="ming">FIFA足球世界</div>
+      <div class="jie">首款FIFA实时PVP足球竞技手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-8.png">
+      <div class="ming">最强NBA</div>
+      <div class="jie">真实竞技手游，来做赛场MVP！</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href=""title="">
+      <img class="img-2" src="C-9.png">
+      <div class="ming">腾讯桌球</div>
+      <div class="jie">腾讯首款真人实时对战桌球手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-10.png">
+      <div class="ming">天天酷跑</div>
+      <div class="jie">8亿人都在玩的国民跑酷手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-11.png">
+      <div class="ming">城市飞车</div>
+      <div class="jie">全球300万赛车用户共同推荐</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-12.png">
+      <div class="ming">忍者必须死3</div>
+      <div class="jie">风靡全球的水墨风战斗跑酷</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+  </ul>
+  <h2>飞行射击</h2>
+  <ul>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-1.png">
+        <div style="width: 160px">
+        <p class="ming">QQ飞车手游</p>
+        <p class="jie">唯一官方正版手游，体验最原汁原味的漂移！</p>
+        <p class="xia">下载</p>
+      </div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-2.png">
+      <div class="ming">跑跑卡丁车官方竞速版</div>
+      <div class="jie">十四年竞速经典回归</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-3.png">
+      <div class="ming">NBA范特西（正版授权）</div>
+      <div class="jie">NBN同步数据，打造星际球队。</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-4.png">
+      <div class="ming">全民冠军足球</div>
+      <div class="jie">腾讯唯一的足球策略游戏</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-5.png">
+      <div class="ming">绿茵之巅</div>
+      <div class="jie">全新教练模式</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-6.png">
+      <div class="ming">灌篮高手正版授权手游</div>
+      <div class="jie">真人实时篮球竞技手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-7.png">
+      <div class="ming">FIFA足球世界</div>
+      <div class="jie">首款FIFA实时PVP足球竞技手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-8.png">
+      <div class="ming">最强NBA</div>
+      <div class="jie">真实竞技手游，来做赛场MVP！</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href=""title="">
+      <img class="img-2" src="C-9.png">
+      <div class="ming">腾讯桌球</div>
+      <div class="jie">腾讯首款真人实时对战桌球手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-10.png">
+      <div class="ming">天天酷跑</div>
+      <div class="jie">8亿人都在玩的国民跑酷手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-11.png">
+      <div class="ming">城市飞车</div>
+      <div class="jie">全球300万赛车用户共同推荐</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-12.png">
+      <div class="ming">忍者必须死3</div>
+      <div class="jie">风靡全球的水墨风战斗跑酷</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+  </ul>
+  <h2>休闲益智</h2>
+  <ul>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-1.png">
+        <div style="width: 160px">
+        <p class="ming">QQ飞车手游</p>
+        <p class="jie">唯一官方正版手游，体验最原汁原味的漂移！</p>
+        <p class="xia">下载</p>
+      </div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-2.png">
+      <div class="ming">跑跑卡丁车官方竞速版</div>
+      <div class="jie">十四年竞速经典回归</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-3.png">
+      <div class="ming">NBA范特西（正版授权）</div>
+      <div class="jie">NBN同步数据，打造星际球队。</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-4.png">
+      <div class="ming">全民冠军足球</div>
+      <div class="jie">腾讯唯一的足球策略游戏</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-5.png">
+      <div class="ming">绿茵之巅</div>
+      <div class="jie">全新教练模式</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-6.png">
+      <div class="ming">灌篮高手正版授权手游</div>
+      <div class="jie">真人实时篮球竞技手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-7.png">
+      <div class="ming">FIFA足球世界</div>
+      <div class="jie">首款FIFA实时PVP足球竞技手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-8.png">
+      <div class="ming">最强NBA</div>
+      <div class="jie">真实竞技手游，来做赛场MVP！</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href=""title="">
+      <img class="img-2" src="C-9.png">
+      <div class="ming">腾讯桌球</div>
+      <div class="jie">腾讯首款真人实时对战桌球手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-10.png">
+      <div class="ming">天天酷跑</div>
+      <div class="jie">8亿人都在玩的国民跑酷手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-11.png">
+      <div class="ming">城市飞车</div>
+      <div class="jie">全球300万赛车用户共同推荐</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-12.png">
+      <div class="ming">忍者必须死3</div>
+      <div class="jie">风靡全球的水墨风战斗跑酷</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+  </ul>
+  <h2>棋牌中心</h2>
+  <ul>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-1.png">
+        <div style="width: 160px">
+        <p class="ming">QQ飞车手游</p>
+        <p class="jie">唯一官方正版手游，体验最原汁原味的漂移！</p>
+        <p class="xia">下载</p>
+      </div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-2.png">
+      <div class="ming">跑跑卡丁车官方竞速版</div>
+      <div class="jie">十四年竞速经典回归</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-3.png">
+      <div class="ming">NBA范特西（正版授权）</div>
+      <div class="jie">NBN同步数据，打造星际球队。</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-4.png">
+      <div class="ming">全民冠军足球</div>
+      <div class="jie">腾讯唯一的足球策略游戏</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-5.png">
+      <div class="ming">绿茵之巅</div>
+      <div class="jie">全新教练模式</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-6.png">
+      <div class="ming">灌篮高手正版授权手游</div>
+      <div class="jie">真人实时篮球竞技手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-7.png">
+      <div class="ming">FIFA足球世界</div>
+      <div class="jie">首款FIFA实时PVP足球竞技手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-8.png">
+      <div class="ming">最强NBA</div>
+      <div class="jie">真实竞技手游，来做赛场MVP！</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href=""title="">
+      <img class="img-2" src="C-9.png">
+      <div class="ming">腾讯桌球</div>
+      <div class="jie">腾讯首款真人实时对战桌球手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-10.png">
+      <div class="ming">天天酷跑</div>
+      <div class="jie">8亿人都在玩的国民跑酷手游</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-11.png">
+      <div class="ming">城市飞车</div>
+      <div class="jie">全球300万赛车用户共同推荐</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+    <li class="li-4">
+      <a href="" title="">
+      <img class="img-2" src="C-12.png">
+      <div class="ming">忍者必须死3</div>
+      <div class="jie">风靡全球的水墨风战斗跑酷</div>
+      <div class="xia">下载</div>
+      </a>
+    </li>
+  </ul>
+</div>
+<div class="div-4">
+  <img style="height: 75px;margin-top: 100px" src="2%20.png">
+  <div style="color: #999999;font-size: 25px;">全球最快的电脑安卓模拟器，键鼠组合操控，精准灵活体验更佳</div>
+  <div class="div-4-1">下载客户端</div>
+</div>
+<div class="div-1">
+  <div class="div-5">
+    <ul>
+      <li style="color: white;margin-top: 50px">热门游戏</li>
+      <li class="li-5">真三国无双 霸</li>
+      <li class="li-5">金铲铲之战</li>
+      <li class="li-5">QQ飞车</li>
+      <li class="li-5">王者荣耀</li>
+      <li class="li-5">欢乐斗地主</li>
+    </ul>
+  </div>
+  <div class="div-5">
+    <ul>
+      <li style="color: white;margin-top: 50px">动作冒险</li>
+      <li class="li-5">明日之后</li>
+      <li class="li-5">一人之下</li>
+      <li class="li-5">崩坏3</li>
+      <li class="li-5">龙族幻想</li>
+      <li class="li-5">魂斗罗：归来</li>
+    </ul>
+  </div>
+  <div class="div-5">
+    <ul>
+      <li style="color: white;margin-top: 50px">经营策略</li>
+      <li class="li-5">火影忍者</li>
+      <li class="li-5">小森生活</li>
+      <li class="li-5">鸿图之下</li>
+      <li class="li-5">三国志战略版</li>
+      <li class="li-5">荣耀新三国</li>
+    </ul>
+  </div>
+  <div class="div-5">
+    <ul>
+      <li style="color: white;margin-top: 50px">角色扮演</li>
+      <li class="li-5">梦幻新诛仙</li>
+      <li class="li-5">坎公骑冠剑</li>
+      <li class="li-5">完美世界</li>
+      <li class="li-5">雪鹰领主</li>
+      <li class="li-5">剑与远征</li>
+    </ul>
+  </div>
+    <div class="div-5">
+      <ul>
+        <li style="color: white;margin-top: 50px">飞行射击</li>
+        <li class="li-5">使命召唤</li>
+        <li class="li-5">穿越火线</li>
+        <li class="li-5">星际历险：流浪地球</li>
+        <li class="li-5">王牌战士</li>
+        <li class="li-5">和平精英</li>
+      </ul>
+    </div>
+</div>
+</body>
+</html>

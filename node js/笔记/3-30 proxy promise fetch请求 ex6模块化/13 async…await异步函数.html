@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+</body>
+
+</html>
+<script>
+    function setTime(time) {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve(new Date());
+            }, time);
+        });
+    }
+
+    // async…await函数，结合 promise 使用同步的方式书写异步的代码
+    // 声明函数时给 function 关键字前添加 async 关键字
+    async function f() {
+        // 在 async 函数内部可以使用 await 等待promise执行
+        // await （等待）关键字后需要是一个 promise 实例对象
+        // 会将promise的结果返回出去
+        const a = await setTime(1000);
+        console.log(a);
+        const b = await setTime(1000);
+        console.log(b);
+        const c = await 1;  // 如果不是promise，就会直接执行
+        console.log(c);
+    }
+    f();
+
+    const btn = document.querySelector('button');
+    btn.onclick = async function () {
+        const a = await setTime(1000);
+        this.innerText = a;
+        const b = await setTime(2000);
+        this.innerText = b;
+        this.style.color = 'red';
+    }
+
+
+
+    // proxy   promise  promise.then.catch  Promise.all Promise.race  async…await
+</script>

@@ -1,0 +1,126 @@
+<!--
+  ~ Time:2022/4/28 17:10 52
+  ~ Name:2_react生命周期（旧）.html
+  ~ Path:react基础/10_生命周期
+  ~ ProjectName:react
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>react生命周期（新）</title>
+
+</head>
+<body>
+<div id="test"></div>
+</body>
+<script src="../../js/新版本/react.development.js"></script>
+<script src="../../js/新版本/react-dom.development.js"></script>
+<script src="../../js/新版本/babel.min.js"></script>
+<script type="text/babel">
+	
+	/*
+		1、初始化阶段：由ReactDOM.render()触发 --- 初次阶段
+			1、constructor ()
+			2、getDerivedStateFromProps ()
+			3、render ()
+			4、componentDidMount () ===> 常用
+				一般在这个钩子里做一些初始化的事，例如：发送ajax请求，设置定时器，订阅消息
+		2、更新阶段：由组件内部this.setState()或父组件重新render()触发
+			1、getDerivedStateFromProps ()
+			2、shouldComponentUpdate ()
+			3、render ()
+			4、getSnapshotBeforeUpdate ()
+			5、componentDidUpdate ()
+		3、卸载阶段：由ReactDOM.unmountComponentAtNode()触发
+			1、componentWillUnmount ()
+				一般在这个钩子里做一些收尾的事，例如：关闭定时器，取消订阅消息
+	 */
+	
+	class Count extends React.Component {
+		
+		// 构造器
+		constructor (props) {
+			console.log('constructor');
+			super(props);
+			// 初始化状态
+			this.state = { count: 0 };
+		}
+		
+		// 组件+1的回调函数
+		add = () => {
+			this.setState({
+				count: this.state.count + 1,
+			});
+		};
+		
+		// 点我卸载组件
+		death = () => {
+			// 卸载组件
+			ReactDOM.unmountComponentAtNode(document.getElementById('test'));
+		};
+		
+		// 强制更新的回调函数
+		force = () => {
+			this.forceUpdate();
+		};
+		
+		// 若state的值在任何地方都取决于props，那么可以使用static getDerivedStateFromProps()来实现
+		static getDerivedStateFromProps (props, state) {
+			console.log('getDerivedStateFromProps');
+			console.log(props,state);
+			return null;
+		};
+		
+		// 在更新之前获取快照
+		getSnapshotBeforeUpdate (prevProps, prevState) {
+			console.log('getSnapshotBeforeUpdate');
+			console.log(prevProps,prevState);
+			return 'null';
+		};
+		
+		// 组件挂在完成
+		componentDidMount () {
+			console.log('componentDidMount');
+		}
+		
+		// 组件将要卸载
+		componentWillUnmount () {
+			console.log('componentWillUnmount');
+		}
+		
+		// 控制组件更新的“阀门”
+		shouldComponentUpdate () {
+			console.log('shouldComponentUpdate');
+			return true;
+		}
+		
+		// 组件更新完毕
+		componentDidUpdate (preProps, perState, snapshot) {
+			console.log('componentDidUpdate');
+			console.log(preProps,perState,snapshot);
+		}
+		
+		render () {
+			console.log('render');
+			return (
+					<div>
+						<h2>当前求和为{this.state.count}</h2>
+						<button onClick={this.add}>点我+1</button>
+						<button onClick={this.death}>点我组件卸载</button>
+						<button onClick={this.force}>强制更新数据</button>
+					</div>
+			);
+		}
+		
+	}
+	
+	ReactDOM.render(<Count count={199}/>, document.getElementById('test'));
+
+</script>
+</html>

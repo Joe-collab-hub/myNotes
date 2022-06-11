@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天气</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box {
+            width: 350px;
+            height: 450px;
+            margin: 100px auto;
+            /*background-color: #999999;*/
+            background-image: linear-gradient(#0102ff, #83c8ec);
+        }
+
+        #bot1 {
+            width: 230px;
+            height: 50%;
+            margin: 0 auto;
+            text-align: center;
+            /*background-color: #5dd5c8;*/
+        }
+
+        #bot2 {
+            width: 340px;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            /*background-color: #c6faf1;*/
+            margin: auto;
+        }
+
+        h3 {
+            color: white;
+            line-height: 50px;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+        }
+
+        #bot1 p:nth-of-type(1) {
+            color: white;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        #bot1 p {
+            font-size: 10px;
+            margin: 10px 0;
+            color: #fdfdfd;
+        }
+
+        #bot2 > div {
+            width: 120px;
+            height: 200px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        #bot2 > div > p {
+            margin: 15px;
+            color: #fdfdfd;
+        }
+
+        #bot2 div:nth-of-type(2) {
+            border-right: 1px solid #fdfdfd;
+            border-left: 1px solid #fdfdfd;
+        }
+    </style>
+</head>
+<body>
+</body>
+</html>
+<script>
+
+    const fun = () => {
+        let body = document.getElementsByTagName("body")[0];
+
+        let div = document.createElement("div");
+        console.log(div)
+        body.appendChild(div);
+        let att = document.createAttribute("id");
+        att.value = "box";
+        document.getElementsByTagName("div")[0].setAttributeNode(att);
+
+        let div1 = document.createElement("div");
+        let div2 = document.createElement("div");
+        div.appendChild(div1);
+        div.appendChild(div2);
+        let att1 = document.createAttribute("id");
+        att1.value = "bot1";
+        div.getElementsByTagName("div")[0].setAttributeNode(att1);
+        let att2 = document.createAttribute("id");
+        att2.value = "bot2";
+        div.getElementsByTagName("div")[1].setAttributeNode(att2);
+
+    }
+
+    const circulate = (arr, label) => {
+        for (let i = 0; i < arr.length; i++) {
+            let p = document.createElement("p");
+            let text = document.createTextNode(arr[i]);
+            p.appendChild(text);
+            label.appendChild(p)
+        }
+    }
+
+    const city = () => {
+        let bot1 = document.getElementById("bot1")
+        let h3 = document.createElement("h3");
+        h3.innerHTML = "郑州市"
+        bot1.appendChild(h3);
+
+        let img = document.createElement("img");
+        bot1.appendChild(img);
+        let src = document.createAttribute("src");
+        src.value = "1.png"
+        bot1.getElementsByTagName("img")[0].setAttributeNode(src);
+
+        let arr = ["29~23°C", "晴转多云", "微风", "实际温度：13°C，空气指数 135 轻度污染"];
+
+        circulate(arr, bot1);
+    }
+
+    const week = () => {
+        let arr = [["周二", "16~23°C", "雾", "微风"], ["周三", "16~20°C", "小雨", "微风"], ["周四", "26~29°C", "晴", "微风"]];
+        let bot2 = document.getElementById("bot2");
+        for (let i = 0; i < arr.length; i++) {
+            let div = document.createElement("div");
+            bot2.appendChild(div);
+            circulate(arr[i], div);
+            let p = div.getElementsByTagName("p")[1];
+            let img = document.createElement("img");
+            div.insertBefore(img, p)
+            let src = document.createAttribute("src");
+            if (i === 1) {
+                src.value = "1.png";
+            } else {
+                src.value = "2.png";
+            }
+            div.getElementsByTagName("img")[0].setAttributeNode(src);
+        }
+    }
+
+    fun();
+    city();
+    week();
+</script>

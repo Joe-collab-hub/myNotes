@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+        #box{
+            width: 100%;
+            height: 50px;
+            background-color: #940708;
+        }
+        #box-1{
+            width: 1400px;
+            height: 100%;
+            margin: auto;
+        }
+        #ul-1{
+            width: 500px;
+            height: 100%;
+            float: left;
+        }
+        .r-1{
+            float: left;
+            line-height: 50px;
+            font-size: 15px;
+            text-align: center;
+            margin-left: 20px;
+        }
+        .li-1{
+            position: relative;
+        }
+        .t-1{
+            width: 30px;
+            margin: auto;
+        }
+        .t-2{
+            width: 45px;
+            margin: auto;
+        }
+        .li-1:before{
+            content: "";
+            width: 0;
+            height: 2px;
+            margin-top: -40px;
+            background-color: white;
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transition: all 500ms;
+        }
+        .li-1:hover:before{
+            left: 0%;
+            width: 100%;
+        }
+        .li-1:hover{
+            color: #777777;
+        }
+        .a{
+            color: #b76264;
+            font-weight: bold;
+        }
+        #ul-2{
+            width: 560px;
+            height: 100%;
+            float: left;
+            position: relative;
+            left: 350px;
+        }
+        .r-2{
+            float: left;
+            line-height: 50px;
+            font-size: 15px;
+            margin-left: 10px;
+            text-align: center;
+            margin-left: 30px;
+        }
+        #bot{
+            width: 100%;
+            height: 90px;
+        }
+        #bot-1{
+            width: 1400px;
+            height: 100%;
+            margin: auto;
+            /*background-color: #5dd5c8;*/
+        }
+        #sw{
+            height: 60px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        #ul-3{
+            width: 800px;
+            height: 100%;
+            display: inline-block;
+            margin-left: 100px;
+        }
+        .r-3{
+            float: left;
+            line-height: 90px;
+            text-align: center;
+            margin-left: 30px;
+            position: relative;
+            height: 30px;
+            font-size: 20px;
+        }
+        .r-3:hover{
+            color: #777777;
+        }
+        .r-3:before{
+            content: "";
+            width: 2px;
+            height: 0;
+            margin-top: 30px;
+            background-color: #940708;
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transition: all 500ms;
+        }
+        .r-3:hover:before{
+            left: 50%;
+            height: 100%;
+        }
+        .li-2{
+            position: relative;
+            float: left;
+        }
+        .li-2:before{
+            content: "";
+            width: 0;
+            height: 2px;
+            margin-top: -30px;
+            background-color: #940708;
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transition: all 500ms;
+        }
+        .li-2:hover:before{
+            left: 0;
+            width: 100%;
+        }
+        #so{
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            border: 1px solid;
+            display: inline-block;
+            margin-left: 100px;
+            position: relative;
+            top: -40px
+        }
+        #so-1{
+            width: 25px;
+            position: relative;
+            top: 8px;
+            left: 8px;
+        }
+        #so-2{
+            width: 25px;
+            position: relative;
+            top: -20px;
+            left: 8px;
+            display: none;
+        }
+        #so:hover #so-2{
+            display: block;
+        }
+        #sa{
+            width: 40px;
+            height: 40px;
+            border: 1px solid;
+            border-radius: 100%;
+            text-align: center;
+            line-height: 40px;
+            display: inline-block;
+            font-size: 18px;
+            position: relative;
+            top: -38px;
+            left: 10px;
+            font-weight: 300;
+        }
+        #sa:hover{
+            color: #999999;
+            border: 1px solid black;
+        }
+        /*.asiu{*/
+        /*    width: 1000px;*/
+        /*    height: 220px;*/
+        /*    background-image: url("8.png");*/
+        /*    border-top: 2px solid #5dd5c8;*/
+        /*    float: left;*/
+        /*    position: absolute;*/
+        /*    left: -200px;*/
+        /*    top: 80px;*/
+        /*    display: none;*/
+        /*}*/
+        /*.r-3:hover .asiu{*/
+        /*    display: block;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="box-1">
+        <ul id="ul-1">
+            <li class="r-1">
+                <p class="li-1 t-1">学生</p></li>
+            <li class="r-1">
+                <p class="a">|</p></li>
+            <li class="r-1">
+                <p class="li-1 t-2">教职工</p></li>
+            <li class="r-1">
+                <p class="a">|</p></li>
+            <li class="r-1">
+                <p class="li-1 t-1">访客</p></li>
+            <li class="r-1">
+                <p class="a">|</li>
+            <li class="r-1">
+                <p class="li-1 t-1">校友</p></li>
+            <li class="r-1">
+                <p class="a">|</p></li>
+            <li class="r-1">
+                <p class="li-1 t-1">招聘</p></li>
+            <li class="r-1">
+                <p class="a">|</p></li>
+            <li class="r-1">
+                <p class="li-1 t-1">捐赠</p></li>
+        </ul>
+        <ul id="ul-2">
+        <li class="r-2">
+            <p class="li-1">门户</p></li>
+        <li class="r-2">
+            <p class="li-1">网络</p></li>
+        <li class="r-2">
+            <p class="li-1">邮箱</p></li>
+        <li class="r-2">
+            <p class="li-1">燕云直播</p></li>
+        <li class="r-2">
+            <p class="li-1">图书馆</p></li>
+        <li class="r-2">
+            <p class="li-1">医学部</p></li>
+        <li class="r-2">
+            <p class="li-1">领导信箱</p></li>
+    </ul>
+    </div>
+</div>
+<div id="bot">
+    <div id="bot-1">
+        <img id="sw" src="s5e04176fbbfa3.png">
+        <ul id="ul-3">
+            <li class="r-3">
+                <span class="li-2">北大概括</span>
+            </li>
+            <li class="r-3">
+                <p class="li-2">招生</p>
+            </li>
+            <li class="r-3">
+                <p class="li-2">学部与院系</p>
+            </li>
+            <li class="r-3">
+                <p class="li-2">教育教学</p>
+            </li>
+            <li class="r-3">
+                <p class="li-2">科学研究</p>
+            </li>
+            <li class="r-3">
+                <p class="li-2">合作交流</p>
+            </li>
+            <li class="r-3">
+                <p class="li-2">校园生活</p>
+            </li>
+        </ul>
+        <div id="so">
+            <img id="so-1" src="放大镜.png">
+            <img id="so-2" src="放大镜（1）.png">
+        </div>
+        <div id="sa">
+            <p>EN</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

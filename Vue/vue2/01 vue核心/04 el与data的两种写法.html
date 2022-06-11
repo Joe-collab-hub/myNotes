@@ -1,0 +1,64 @@
+<!--
+  ~ Time:2022/4/2 14:43 07
+  ~ Name:el与data的两种写法.html
+  ~ Path:VUE/dey01
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>el与data的两种写法</title>
+	<script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<h1>Hello：{{ name }}</h1>
+</div>
+</body>
+<script>
+	/*
+		data与el的两种写法
+			1、el：
+				（1）、new Vue 时候配置el属性
+				（2）、先创建Vue实例，随后在通过 vm.$mount('#root')指定el的值
+			2、data：
+				（1）、对象式
+				（2）、函数式
+			3、一个重要的原则：
+				由Vue管理的函数，一定不要写箭头函数，一旦写了箭头函数，this就不再是Vue实例了
+	 */
+	Vue.config.productionTip = false;
+
+	// el的两种写法
+	/* const vm = new Vue({
+		// el:'#root',      // 第一种写法
+		data:{
+			name:'Vue'
+		}
+	});
+	console.log(v);
+	vm.$mount('#root') */
+
+	// data的两种写法
+	new Vue({
+		el: '#root',
+		// 第一种写法：对象式
+		/* data: {
+			name: 'Vue',
+		}, */
+
+		// 第二种写法：函数式
+		data () {
+			return {
+				name: 'Vue',
+			};
+		},
+	});
+</script>
+</html>

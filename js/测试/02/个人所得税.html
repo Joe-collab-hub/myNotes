@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人所得税</title>
+</head>
+<body>
+<script>
+    var a = Number(prompt("请输入您的工资数"));
+    if(a > 7662){
+        var b = a - a * (0.08 + 0.02 + 0.005 + 0.12);
+        var c = b - 3500;
+        if (c > 1500 && c <= 4500){
+            var d = c * 0.1 - 105;
+            alert("需要交税：" + d)
+        }
+        else if (c > 4500 && c <= 9000){
+            var d = c * 0.2 - 555;
+            alert("需要交税：" + d)
+        }
+        else if (c > 9000 && c <= 35000){
+            var d = c * 0.25 - 1005;
+            alert("需要交税：" + d)
+        }
+        else if (c > 35000 && c <= 55000){
+            var d = c * 0.3 - 2755;
+            alert("需要交税：" + d)
+        }
+        else if (c > 55000 && c <= 80000){
+            var d = c * 0.35 - 5505;
+            alert("需要交税：" + d)
+        }
+        else if (c > 80000){
+            var d = c * 0.45 - 13505;
+            alert("需要交税：" + d)
+        }
+    }
+    else {
+        var c = a - 3500;
+        if ( c<= 1500){
+            var d = c * 0.03 - 0;
+            alert("需要交税：" + d)
+        }
+        else {
+            var d = c * 0.1 - 105;
+            alert("需要交税：" + d)
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!--
+  ~ Time:2022/3/3 17:18 20
+  ~ Name:骰子.html
+  ~ Path:html5/day1
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>骰子</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+		.heart {
+			/* position: relative; */
+			background-color: red;
+			height: 30px;
+			width: 30px;
+			transform: rotate(-45deg);
+		}
+
+		.heart::after {
+			background-color: red;
+			content: "";
+			border-radius: 50%;
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			top: 0;
+			left: 15px;
+		}
+
+		.heart::before {
+			content: "";
+			background-color: red;
+			border-radius: 50%;
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			top: -15px;
+			left: 0;
+		}
+
+		/* .heart{ */
+		/* 	width: 40px; */
+		/* 	height: 40px; */
+		/* 	background-color: red; */
+		/* 	border-radius: 100%; */
+		/* } */
+		ul {
+			width: 200px;
+			height: 200px;
+			display: flex;
+			justify-content: space-between;
+			background-color: #fff;
+			position: relative;
+			transform-style: preserve-3d;
+			/* transform: rotateX(-30deg) rotateY(-30deg); */
+			margin: 200px auto 50px;
+		}
+
+		@keyframes move {
+			0% {
+				transform: rotateX(20deg);
+			}
+			50% {
+				transform: rotateX(50deg) rotateY(500deg);
+			}
+			100% {
+				transform: rotateX(200deg) rotateY(1000deg);
+			}
+		}
+
+		li {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-content: space-between;
+			background-color: #fff;
+			border-radius: 20px;
+			position: absolute;
+			border: 1px solid #999999;
+		}
+
+		li:nth-of-type(1) {
+			transform: rotateY(0deg) translateZ(100px);
+		}
+
+		li:nth-of-type(3) {
+			transform: rotateY(90deg) translateZ(100px);
+		}
+
+		li:nth-of-type(6) {
+			transform: rotateY(180deg) translateZ(100px);
+		}
+
+		li:nth-of-type(4) {
+			transform: rotateY(-90deg) translateZ(100px);
+		}
+
+		li:nth-of-type(5) {
+			transform: rotateX(90deg) translateZ(100px);
+		}
+
+		li:nth-of-type(2) {
+			transform: rotateX(-90deg) translateZ(100px);
+		}
+
+		li > div {
+			width: 80%;
+			height: 30%;
+			align-content: space-between;
+			position: relative;
+		}
+
+		.elasticity-1 {
+			display: flex;
+			justify-content: left;
+			align-items: center;
+		}
+
+		.elasticity-2 {
+			display: flex;
+			justify-content: right;
+			align-items: center;
+		}
+
+		.elasticity-3 {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.elasticity-4 {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		button {
+			width: 100px;
+			height: 50px;
+		}
+
+		p {
+			height: 50px;
+			font-size: 25px;
+			line-height: 50px;
+		}
+	</style>
+	<script src="./jquery-3.6.0.min.js"></script>
+</head>
+<body style="background-color: #5dd5c8;text-align: center">
+<ul>
+	<li>
+		<div></div>
+		<div class="elasticity-4">
+			<div class="heart"></div>
+		</div>
+		<div></div>
+	</li>
+	<li>
+		<div class="elasticity-1">
+			<div class="heart"></div>
+		</div>
+		<div></div>
+		<div class="elasticity-2">
+			<div class="heart"></div>
+		</div>
+	</li>
+	<li>
+		<div class="elasticity-1">
+			<div class="heart"></div>
+		</div>
+		<div class="elasticity-4">
+			<div class="heart"></div>
+		</div>
+		<div class="elasticity-2">
+			<div class="heart"></div>
+		</div>
+	</li>
+	<li>
+		<div class="elasticity-3">
+			<div class="heart"></div>
+			<div class="heart"></div>
+		</div>
+		<div></div>
+		<div class="elasticity-3">
+			<div class="heart"></div>
+			<div class="heart"></div>
+		</div>
+	</li>
+	<li>
+		<div class="elasticity-3">
+			<div class="heart"></div>
+			<div class="heart"></div>
+		</div>
+		<div class="elasticity-4">
+			<div class="heart"></div>
+		</div>
+		<div class="elasticity-3">
+			<div class="heart"></div>
+			<div class="heart"></div>
+		</div>
+	</li>
+	<li>
+		<div class="elasticity-3">
+			<div class="heart"></div>
+			<div class="heart"></div>
+		</div>
+		<div class="elasticity-3">
+			<div class="heart"></div>
+			<div class="heart"></div>
+		</div>
+		<div class="elasticity-3">
+			<div class="heart"></div>
+			<div class="heart"></div>
+		</div>
+	</li>
+</ul>
+<p>您此次投掷的结果为： 点</p>
+<button>摇骰子</button>
+</body>
+<script>
+	let arr = [
+		{ value: 1, x: 0, y: 0 },
+		{ value: 2, x: 90, y: 0 },
+		{ value: 3, x: 0, y: -90 },
+		{ value: 4, x: 0, y: 90 },
+		{ value: 5, x: -90, y: 0 },
+		{ value: 6, x: 0, y: 180 },
+	];
+	let kai = true;
+	$('button').click(function () {
+		if (kai) {
+			kai = false;
+			let num = parseInt(Math.random() * 6);
+			let result = arr[num];
+			$('ul').css({
+				animation: 'move 1s linear ',
+			});
+			setTimeout(function () {
+				$('ul').css({
+					transform: `rotateX(${result.x}deg) rotateY(${result.y}deg)`,
+					animation: '',
+				});
+				$('p').text(`您此次投掷的结果为：${result.value}点`);
+				kai = true;
+			}, 1000);
+
+		}
+	});
+</script>
+</html>

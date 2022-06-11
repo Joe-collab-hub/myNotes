@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="test"></div>
+<div class="test"></div>
+<div class="test"></div>
+<div class="test"></div>
+<div class="test"></div>
+<h1 id="h1"></h1>
+</body>
+</html>
+<script>
+    // jQuery是一个轻量的js库，它帮助我们简单的操作html元素
+
+    console.log($(".text"));
+    $(".test").text("老王");
+    // console.log($("h1"));
+    $("#h1").text("123").css({
+        color:"red"
+    });
+</script>

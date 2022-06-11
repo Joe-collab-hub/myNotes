@@ -1,0 +1,72 @@
+<!--
+  ~ Time:2022/2/23 10:51 23
+  ~ Name:懒加载.html
+  ~ Path:js/测试/09.js
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>懒加载</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			/* font: 500 15px YouYuan; */
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+body{
+	padding: 15px;
+}
+		img {
+			width: 300px;
+			height: 240px;
+			margin-bottom: 20px;
+			border-radius: 10px;
+			margin-right: 15px;
+		}
+	</style>
+	<script src="图片路径素材.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+
+	const arr = JSON.parse(data);
+
+	// 图像标签的src属性设置图片的地址，如果img的src没有设置则图片不会七年加载
+	// 浏览器会缓存图片资源，如果当前被请求过，后续相同的图片只会被请求一次
+	arr.forEach(function (ulr) {
+		$('body').
+				append(`<img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F7f95a06c840628d23338226ebd46d479d75059203964-fhLnma_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1648178572&t=5047580ec25d7bd63511c6345e181f3e" data-src="${ulr}">`);
+	});
+
+	$(window).scroll(function (dom) {
+		const scrollHeight = window.scrollY;
+		// console.log(scrollHeight);
+		const windowHeight = window.innerHeight;
+		// console.log(windowHeight);
+		$('img').each(function (_, el) {
+			if ($(el).offset().top < windowHeight + scrollHeight) {
+				$(el).attr('src', $(el).attr('data-src'));
+			}
+		});
+	});
+</script>
+</html>

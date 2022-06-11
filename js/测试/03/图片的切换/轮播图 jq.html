@@ -1,0 +1,170 @@
+<!--
+  ~ Time:2022/2/21 16:56 41
+  ~ Name:轮播图 jq.html
+  ~ Path:js/测试/03/图片的切换
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>轮播图</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			font: 500 15px YouYuan;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		#bot {
+			width: 400px;
+			height: 260px;
+			margin: 30px auto;
+			position: relative;
+			border: 1px solid;
+			overflow: hidden;
+		}
+
+		#box {
+			width: 100%;
+			height: 260px;
+			position: absolute;
+			display: flex;
+			left: -400px;
+		}
+
+		button {
+			width: 100px;
+			height: 50px;
+		}
+
+		img {
+			width: 400px;
+			height: 260px;
+		}
+
+		#box1 {
+			width: 150px;
+			display: flex;
+			justify-content: space-between;
+			position: absolute;
+			bottom: 10px;
+			left: 125px;
+		}
+
+		#bot1 {
+			width: 210px;
+			height: 50px;
+			margin: auto;
+		}
+	</style>
+</head>
+<body>
+<div id="bot">
+	<div id="box"></div>
+	<div id="box1"></div>
+</div>
+<div id="bot1">
+	<button id="button-left">上一页</button>
+	<button id="button-right">下一页</button>
+</div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script>
+
+	let box = $('#box')
+	let num = 1
+	let l = parseInt($('#bot').css('width'))
+	let kai = true
+
+	for (let i = 1; i <= 7; i++) {
+		let img = $(`<img>`).attr('src', 'img' + i + '.jpg')
+		let $input = $('<input type="radio" name="z">')
+		$input.click(function () {
+			$('#box').animate({
+				left: -l * i + 'px',
+			})
+			num = i
+		})
+		box.append(img)
+		$('#box1').append($input)
+	}
+
+	box.append($('img').eq(0).clone())
+	box.prepend($('img').eq(6).clone())
+
+	$('[name="z"]').eq(0).click()
+
+	$('#button-left').click(function () {
+		if (kai) {
+			kai = false
+			num--
+			$('input').eq(num).checked = true
+			box.animate({
+				left: -l * num + 'px',
+			})
+			setTimeout(function () {
+				if (num < 1) {
+					num = 7
+					$('#box').css({
+						left: -num * l + 'px',
+					})
+				}
+				kai = true
+				$('[name="z"]').eq(num - 1).click()
+			}, 500)
+		}
+	})
+
+	$('#button-right').click(fun)
+
+	function fun () {
+		if (kai) {
+			kai = false
+			num++
+			box.animate({
+				left: -l * num + 'px',
+			})
+			setTimeout(function () {
+				if (num > 7) {
+					num = 1
+					$('#box').css({
+						left: -num * l + 'px',
+					})
+				}
+				kai = true
+				$('[name="z"]').eq(num - 1).click()
+			}, 500)
+		}
+	}
+
+	let times = setInterval(fun, 2000)
+
+	$('#bot1').mouseenter(function () {
+		clearInterval(times)
+	});
+	$('#bot1').mouseleave(function () {
+		times = setInterval(fun, 2000)
+	});
+	$('#box1').mouseenter(function () {
+		clearInterval(times)
+	});
+	$('#box1').mouseleave(function () {
+		times = setInterval(fun, 2000)
+	});
+</script>
+</html>

@@ -1,0 +1,22 @@
+/* component/NavHeader/NavHeader.wxss */
+/* 推荐歌曲 */
+.header{
+	margin-bottom: 25rpx;
+}
+.header .title {
+	font-size: 32rpx;
+	line-height: 80rpx;
+	color: #ccc;
+}
+
+.header .nav {
+	font-size: 26rpx;
+}
+
+.header .more {
+	float: right;
+	border: 1px solid #333;
+	padding: 10rpx 20rpx;
+	font-size: 26rpx;
+	border-radius: 30rpx;
+}

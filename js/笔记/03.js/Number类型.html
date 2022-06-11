@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Number类型</title>
+</head>
+<body>
+<script>
+	/*
+		1、 Mumber类型包括那些值？
+			-1 0 1 2 3 3.12 10 100 ... NaN  Infinty（无穷大）
+			整数、小数、正数、负数、不是数字、无穷大都属于Mumber类型。
+		2、isNaN（）：结果是true表示不是一个数字，结果是false表示是一个数字。
+		3、parseInt()函数 (可以将字符串自动转换成数字，并且去整数部位)
+		4、parseFloat()函数 （可以将字符串自动转换成数字）
+		5、Math.ceil()函数 （ Math是数字类，数字类当中有一个函数叫做ceil()，作用向上取整。）
+	 */
+	var v1 = 1;
+	var v2 = 3.14;
+	var v3 = -100;
+	var v4 = NaN;
+	var v5 = Infinity;
+
+	// ""unumber"
+	alert(typeof v1);
+	alert(typeof v2);
+	alert(typeof v3);
+	alert(typeof v4);
+	alert(typeof v5);
+
+	// 关于NaN（表示Not a Number，不是一个数字，但属于Number类型）
+	//什么情况下结果是一个NaN呢？
+	// 运算结果本来应该是一个数字，最后算完不是一个数字的时候，结果是NaN.
+	var a = 100;
+	var b = '中国人';
+	alert(a / b); // 除号显然最后结果应该是一个数字，但是运算过程中导致最后不一个数字，那么最后的结果是NaN.
+
+	var c = 'abc';
+	var d = 10;
+	alert(c + d);  // "sbc10"
+
+	//Infinty (当除数为0的时候，结果为无穷大)
+	alert(10 / 0);
+
+	//  思考：在10 / 3 = ？
+	alert(10 / 3);  // 3.33333333333335
+
+	// 关于isNaN函数？
+	// 用法：isNaN（数据），结果是true表示不是一个数字，结果是false表示是一个数字。
+	// isNaN：is Not a Number
+	function sum (a, b) {
+		if (isNaN(a) || isNaN(b)) {
+			alert('参与运算的必须是数字');
+			return;
+		}
+		return a + b;
+	}
+
+	sum(100, 'abc');
+	alert(sum(100, 200));
+
+	// parseInt():
+	alert(parseInt('3.3333'));  // 3
+	alert(parseInt(3.5555));  // 3
+
+	// parseFloat():
+	alert(parseFloat('3.14') + 1);  // 4.14
+	alert(parseFloat('3.2') + 1);   // 4.2
+
+	// Math.ceil():
+	alert(Math.ceil('2.11'));  // 3
+</script>
+</body>
+</html>

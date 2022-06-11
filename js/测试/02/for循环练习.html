@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>for循环练习</title>
+</head>
+<body>
+<script>
+	/*
+	// 通过for循环实现百钱买百🐔的题:
+	// 公鸡5元每只，母鸡3元每只，小鸡3只1元，
+	// 100元买一百只鸡多少种办法
+	for (var a = 0; a <= 20; a++){
+		for (var b = 0; b <= 33; b++){
+			var c = 100 - a - b;
+			if ((a + b + c == 100) && (5 * a + 3 * b + c / 3 == 100)){
+				document.write("公鸡" + a + "母鸡" + b + "小鸡" +c + "<hr>")
+			}
+		}
+	}
+
+	 */
+
+	// 大马驮2石粮食，中马驮1石粮食，
+	// 两头小马驮一石粮食，要用100匹马，
+	// 驮100石粮食，该如何调配？
+	// var x = 0;
+	// for (var n = 0; n <= 50; n++) {
+	// 	for (var m = 0; m <= 100; m++) {
+	// 		var v = 100 - n - m;
+	// 		if ((n + m + v == 100) && (2 * n + 1 * m + v / 2 == 100)) {
+	// 			document.write('大马' + n + '中马' + m + '小马' + v + '<br>');
+	// 			x++;
+	// 		}
+	// 	}
+	// }
+	// document.write('共：' + x + ' 种方法');
+
+	//求整数1-100的累加值，但是要跳过所有个位数为3和十位是3的数.
+	// var a = 0;
+	for (i = 1; i < 100; i++) {
+		if ((i % 10 === 3) || (parseInt(i / 10) === 3)) {
+			console.log(i);
+		}
+	}
+	// document.write(a);
+
+	// 有一个棋盘，有64个方格，在第一个方格里面放1粒芝麻重量是0.00001kg，
+	// 第二个里面放2粒，第三个里面放4，求棋盘上放的所有芝麻的重量
+
+	// var a = 0;
+	// for (var i = 1; i < 64; i++){
+	//     var b = i * 2;
+	//     a += i;
+	// }
+	// document.write((a+1)*0.00001)
+</script>
+</body>
+</html>

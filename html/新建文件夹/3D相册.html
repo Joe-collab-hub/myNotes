@@ -1,0 +1,149 @@
+<!--
+  ~ Time:2022/3/3 10:08 54
+  ~ Name:3D相册.html
+  ~ Path:html/新建文件夹
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>3D相册</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		#bot {
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			background-color: #5dd5c8;
+		}
+
+		#box {
+			width: 300px;
+			height: 300px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			transform-style: preserve-3d;
+			transform: rotateX(20deg) rotateY(30deg);
+			transform-origin: 50% 50% 0;
+			animation: move 10s linear infinite;
+		}
+
+		@keyframes move {
+			0% {
+				transform: rotateX(0deg) rotateY(360deg) ;
+			}
+			100% {
+				transform: rotateX(720deg) rotateY(0deg) ;
+			}
+		}
+
+		#box  .box1 {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			/* opacity: 0.8; */
+			transition: all 2s;
+		}
+
+		#box > div:nth-of-type(1) {
+			transform: rotateY(0deg) translateZ(150px);
+		}
+
+		#box > div:nth-of-type(2) {
+			transform: rotateY(180deg) translateZ(150px);
+		}
+
+		#box > div:nth-of-type(3) {
+			transform: rotateY(90deg) translateZ(150px);
+		}
+
+		#box > div:nth-of-type(4) {
+			transform: rotateY(-90deg) translateZ(150px);
+		}
+
+		#box > div:nth-of-type(5) {
+			transform: rotateX(90deg) translateZ(150px);
+		}
+
+		#box > div:nth-of-type(6) {
+			transform: rotateX(-90deg) translateZ(150px);
+		}
+		#box>div{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			transform-style: preserve-3d;
+			transform-origin: 50% 50% 0;
+		}
+		#box  .box2 {
+			width: 50%;
+			height: 50%;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			transform: translateZ(-75px);
+		}
+		#box:hover .box1{
+			transform: translateZ(300px);
+		}
+	</style>
+<!--	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>-->
+</head>
+<body>
+<div id="bot">
+	<div id="box">
+		<div>
+			<img class="box1" src="新建文件夹/1.jpg" alt="">
+			<img class="box2" src="新建文件夹/7.jpg" alt="">
+		</div>
+
+		<div>
+			<img class="box1" src="新建文件夹/2.jpg" alt="">
+			<img class="box2" src="新建文件夹/8.jpg" alt="">
+		</div>
+		<div>
+			<img class="box1" src="新建文件夹/3.jpg" alt="">
+			<img class="box2" src="新建文件夹/9.jpg" alt="">
+		</div>
+		<div>
+			<img class="box1" src="新建文件夹/4.jpg" alt="">
+			<img class="box2" src="新建文件夹/10.jpg" alt="">
+		</div>
+		<div>
+			<img class="box1" src="新建文件夹/5.jpg" alt="">
+			<img class="box2" src="新建文件夹/11.jpg" alt="">
+		</div>
+		<div>
+			<img class="box1" src="新建文件夹/6.jpg" alt="">
+			<img class="box2" src="新建文件夹/12.jpg" alt="">
+		</div>
+	</div>
+</div>
+</body>
+</html>

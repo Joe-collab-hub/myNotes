@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 封装一个promise定时器
+    function setTime(time) {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve();
+            }, time);
+        })
+    }
+
+    // 如果promise有多个 then 方法执行，会先执行上层的方法
+    // 如果上层的方法 return 一个普通值，下层的then方法会立即执行，没有return相当于 return undefined
+    // 如果上层方法 return 了一个 promise 实例，则 promise 状态改变之后执行后面对应的函数(成功执行then的第一个参数，失败执行then方法的第二个参数，或者catch)
+
+    // 间隔一秒输出，再间隔1秒再输出，再间隔1秒再输出
+    setTime(1000)
+        .then(() => {
+            console.log('第一次');
+            return setTime(1000);
+        })
+        .then(() => {
+            console.log('第二次');
+            return setTime(1000);
+        })
+        .then(() => {
+            console.log('第三次');
+        });
+
+
+
+</script>

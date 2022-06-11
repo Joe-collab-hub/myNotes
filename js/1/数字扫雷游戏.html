@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数字扫雷游戏</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 300px;
+            height: 400px;
+            margin: 100px auto;
+            background-color: #9fa19f;
+            border: 5px solid #c6faf1;
+            position: relative;
+        }
+        #bot{
+            width: 100px;
+            height: 100px;
+            background-color: #c6faf1;
+            border-radius: 100%;
+            text-align: center;
+            line-height: 100px;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <a href="#" id="bot">开始游戏</a>
+</div>
+</body>
+</html>
+<script>
+    var nam = document.getElementById("bot");
+    nam.onclick = function () {
+        console.log("fghjkhj")
+
+    }
+</script>
+<script>
+
+    function fun() {
+        alert("开始游戏！")
+        var input = parseInt(Math.random() * 100);
+        var a = 1;
+        var b = 100;
+        do {
+            var num = Number(prompt("请输入" + a + "~" + b + "数字"));
+            if (isNaN(num) || num > b || num < a) {
+                alert("输入有效数字");
+            } else {
+                if (num > input) {
+                    b = num;
+                    // alert("输入大了");
+                } else if (num < input) {
+                    a = num;
+                    // alert("输入小了");
+                } else {
+                    alert("表演节目！")
+                    return "游戏结束";
+                }
+            }
+
+        } while (input);
+
+    }
+
+    // var fun1 = fun();
+    // alert(fun1)
+</script>

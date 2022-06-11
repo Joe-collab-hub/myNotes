@@ -1,0 +1,110 @@
+<!--
+  ~ Time:2022/4/6 10:56 36
+  ~ Name:6 Vue的set的使用.html
+  ~ Path:Vue/01 vue/12 列表渲染
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>总结Vue数据监测</title>
+	<script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<h1>信息</h1>
+	<button @click="student.age++">年龄+1岁</button>
+	<button @click="addSex">添加性别属性，默认值：男</button>
+	<button @click="student.sex= '未知' ">修改性别</button>
+	<button @click="addFriends">在列表首位添加一个朋友</button>
+	<button @click="addFriendsName">修改一个朋友的名字：张三</button>
+	<button @click="addHobby">添加一个爱好</button>
+	<button @click="addHobbyOne">修改第一个爱好为：开车</button>
+
+	<h3>名字：{{ student.name }}</h3>
+	<h3 v-if="student.sex">性别：{{ student.sex }}</h3>
+	<h3>年龄：{{ student.age }}</h3>
+	<h3>爱好</h3>
+	<ul>
+		<li v-for="(p,index) in student.hobby" :key="index">
+			{{ p }}
+		</li>
+	</ul>
+	<h3>朋友</h3>
+	<ul>
+		<li v-for="(p,index) in student.friends" :key="index">
+			{{ p.name }}---{{ p.age }}
+		</li>
+	</ul>
+</div>
+</body>
+<script>
+
+	/*
+		Vue监测数据的原理：
+			1、vue监测data中所有层次的数据
+			2、如何监测对象中的数据：
+				通过setter实现监视，且要咋new Vue时就传入要监测的数据
+					（1）、对象中后追加的属性，Vue默认不做响应式处理
+					（2）、如需给后添加属性作响应式，如使用以下API：
+						vm.$set(target,propertyName/index,value) 或
+						Vue.set(target,propertyName/index,value);
+			3、如何监测数组中的数据：
+				通过包裹数组更新元素的方法实现，本质就是做了两件事：
+					（1）、调用原生对应的方法对数组进行更新
+					（2）、重新解析模板，进行更新页面
+			4、在Vue修改数组中的某个元素一定要用如下方法:
+				(1)、使用这些API：push() 、pop() 、shift() 、unshift() 、splice 、sort() 、reverse()
+				(2)、Vue.set() 或 vm。$set()
+			特别注意：Vue.set() 或 vm。$set() 不能给 vm 或 vm 的根数据对象添加属性！！！
+	 */
+
+	Vue.config.productionTip = false;
+
+	const vm = new Vue({
+		el: '#root',
+		data () {
+			return {
+				student: {
+					name: 'tom',
+					age: 18,
+					sex: '',
+					hobby: ['抽烟', '喝酒', '打扑克'],
+					friends: [
+						{ name: 'jerry', age: 19 },
+						{ name: 'tony', age: 21 },
+					],
+				},
+			};
+		},
+		methods: {
+			addSex () {
+				// this.$set(this.student,"sex","男")
+				Vue.set(this.student, 'sex', '男');
+			},
+			addFriends () {
+				this.student.friends.unshift({ name: '李四', age: 28 });
+			},
+			addFriendsName () {
+				// Vue.set(this.student.friends[0], 'name', '张三');
+				this.student.friends[0].name = '张三';
+			},
+			addHobby () {
+				this.student.hobby.push('打游戏');
+			},
+			addHobbyOne () {
+				// this.student.hobby.splice(0, 1, '开车');
+				Vue.set(this.student.hobby, 0, '开车');
+			},
+		},
+	});
+
+
+</script>
+</html>

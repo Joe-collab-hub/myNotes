@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>背景</title>
+    <style>
+        #div{
+            width: 2600px;
+            height: 460px;
+            background: url("图/5.jpg") no-repeat;
+            /********  背景透明度 ********/
+            /*opacity: 100%;*/
+
+
+
+            /************  背景虚化 *************/
+            /*filter: blur(5px);*/
+        }
+        /*#a{*/
+        /*    width: 400px;*/
+        /*    height: 400px;*/
+        /*    margin: 0 auto;*/
+        /*}*/
+        #div::before{
+
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+    <div id="a"></div>
+</div>
+</body>
+</html>

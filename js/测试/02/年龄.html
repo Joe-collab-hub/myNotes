@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>年龄</title>
+</head>
+<body>
+<script>
+    var a = prompt("请输出你的出生年份");
+    a = parseFloat(a);
+    var b = new Date();       //  new Date()：现在的时间
+    var c = b.getFullYear();  //  getFullYear()：获取现在时间的4位年份
+    if(a <= c){
+        var d = c - a;
+        alert("你今年已经" + d + "岁了");
+    }
+    else {
+        alert("您现在还没有出生")
+    }
+</script>
+</body>
+</html>

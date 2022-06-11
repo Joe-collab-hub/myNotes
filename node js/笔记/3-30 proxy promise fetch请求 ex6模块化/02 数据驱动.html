@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>
+<script>
+    const box = document.getElementById('box');
+    const pro = new Proxy({}, {
+        get(target, key) {
+            return target[key];
+        },
+        set(target, key, value) {
+            // 如果创建新的属性
+            if (target[key] === undefined) {
+                // 添加一个元素在页面上
+                const div = document.createElement('div');
+                div.innerText = `${key}：${value}`;
+                div.classList.add(key); // 添加class，方便修改时搜寻
+                box.append(div);
+            } else {  // 否则就是修改属性
+                const div = box.getElementsByClassName(key)[0]; // 根据class获取对应元素
+                div.innerText = `${key}：${value}`; // 修改元素内容
+            }
+            // 将属性添加到对象上
+            target[key] = value;
+        }
+    });
+    // 尝试在控制台修改pro的属性，观察页面内容变化
+    pro.age = 19;
+    pro.name = '张三';
+</script>

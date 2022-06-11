@@ -1,0 +1,96 @@
+<!--
+  ~ Time:2022/3/29 20:58 51
+  ~ Name:3.29作业.html
+  ~ Path:node js/day 01/作业
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+
+</head>
+<body>
+#
+</body>
+<script>
+	//   - find
+	Array.prototype.myFind = function (fn) {
+		for (let index = 0; index < this.length; index++) {
+			if (fn(this[index], index, this)) return this[index];
+
+		}
+	};
+
+	let users = [
+		{
+			id: 1,
+			name: '张三',
+		},
+		{
+			id: 2,
+			name: '李四',
+		},
+	];
+	console.log(users.myFind(function (v, i, arr) {
+		return v.id === 2;
+	}));
+
+	// - findIndex
+	Array.prototype.myFindIndex = function (fn) {
+
+		for (let i = 0; i < this.length; i++) {
+			if (fn(this[i], i, this)) return i;
+		}
+		return -1;
+	};
+	let arr = [1, 2, 3, 4, 5, 6];
+	console.log(arr.myFindIndex(function (v, i, arr) {
+		return v === 6;
+	}));
+
+	// - map
+	Array.prototype.myMap = function (fn) {
+		const arr = [];
+		for (let i = 0; i < this.length; i++) {
+			arr.push(fn(this[i], i, this));
+		}
+		return arr;
+	};
+
+	var arr1 = [-1, 2, 3];
+	console.log(arr1.myMap(function (v, i, arr) {
+		return v * 3;
+	}));
+
+	// - includes
+	Array.prototype.myIncludes = function (value, start = 0) {
+		if (start > this.length) return false;
+		for (let i = start; i < this.length; i++) {
+			if (this[i] === value) return true;
+		}
+		return false;
+	};
+	console.log(arr1.myIncludes(2, 5));
+
+	// - indexOf
+	Array.prototype.myIndexOf = function (item, start = 0) {
+		if (start > this.length) return -1;
+
+		for (let i = start; i < this.length; i++) {
+			if (this[i] === item) return i;
+		}
+		return -1;
+	};
+
+	console.log([1, 2, 3, 4, 5].myIndexOf(2));
+
+</script>
+
+</html>

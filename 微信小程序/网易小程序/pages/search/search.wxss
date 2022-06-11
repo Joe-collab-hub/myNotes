@@ -1,0 +1,149 @@
+/* pages/search/search.wxss */
+.header {
+	display: flex;
+	height: 60rpx;
+	padding: 0 10rpx;
+}
+
+.searchInput {
+	flex: 1;
+	background-color: rgba(237, 237, 237, 0.5);
+	border-radius: 10rpx;
+	position: relative;
+	line-height: 60rpx;
+	display: flex;
+}
+
+.searchIcon {
+	position: absolute;
+	left: 10rpx;
+}
+
+.searchInput input {
+	margin-left: 50rpx;
+	height: 60rpx;
+	flex: 1;
+}
+
+.placeholder {
+	font-size: 26rpx;
+	color: #ccc;
+}
+
+.cancel {
+	width: 100rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+	text-align: center;
+	font-size: 26rpx;
+}
+.searchInput .delete {
+	text-align: center;
+	height: 60rpx;
+	width: 50rpx;
+	float: right;
+	font-size: 26rpx;
+	background-color: #f6f6f6;
+	border-radius: 10rpx;
+}
+
+/* 热搜榜 */
+.hotContainer .title {
+	font-size: 28rpx;
+	height: 80 rxp;
+	line-height: 80rpx;
+	border-bottom: 1rpx solid #eee;
+	font-weight: bold;
+	padding: 0 20rpx;
+}
+
+.hotList {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 20rpx;
+}
+
+.hotItem {
+	width: 50%;
+	height: 80rpx;
+	line-height: 80rpx;
+	font-size: 26rpx;
+}
+
+.hotItemWeight {
+	font-weight: bold;
+}
+
+.hotItem .order {
+	margin: 0 10rpx;
+}
+
+.hotItem image {
+	width: 35rpx;
+	height: 20rpx;
+	margin-left: 10rpx;
+}
+
+
+/* 搜索内容 */
+.searchContent {
+	color: #d43c33;
+	height: 80rpx;
+	line-height: 80rpx;
+	font-size: 28rpx;
+	border-bottom: 1rpx solid #d43c33;
+	padding: 0 10rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.searchItem {
+	display: flex;
+	height: 80rpx;
+	line-height: 80rpx;
+	padding: 0 15rpx;
+}
+
+.content {
+	flex: 1;
+	margin-left: 15rpx;
+	border-bottom: 1rpx solid #eee;
+	font-size: 26rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+/* 搜索历史 */
+.history {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 15rpx;
+	margin-top: 15rpx;
+	line-height: 50rpx;
+	position: relative;
+}
+
+.history .title {
+	font-size: 28rpx;
+	height: 50rpx;
+}
+
+.history .historyItem {
+	height: 50rpx;
+	font-size: 26rpx;
+	margin-left: 20rpx;
+	padding: 0 20rpx;
+	background-color: #ededed;
+	margin-bottom: 20rpx;
+	border-radius: 10rpx;
+}
+
+.history .delete {
+	position: absolute;
+	right: 20rpx;
+	bottom: -25rpx;
+	font-size: 30rpx;
+}

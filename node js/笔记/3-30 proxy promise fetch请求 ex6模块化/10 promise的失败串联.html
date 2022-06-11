@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+
+    // 封装一个promise定时器
+    function setTime(time, isResolve) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                // isResolve 根据传入参数控制promise状态
+                if (isResolve) {
+                    resolve();
+                } else {
+                    reject();
+                }
+            }, time);
+        })
+    }
+
+    // 间隔一秒输出，再间隔1秒再输出，再间隔1秒再输出
+    // setTime(1000, true)
+    //     .then(
+    //         () => {
+    //             console.log('第一次');
+    //             return setTime(1000, false);
+    //         },
+    //         () => {
+    //             console.log('第一次失败');
+    //             return setTime(1000, true);
+    //         }
+    //     )
+    //     .then(
+    //         () => {
+    //             console.log('第二次');
+    //         },
+    //         () => {
+    //             console.log('第二次失败');
+    //         }
+    //     )
+
+    const p = setTime(1000, true);
+
+    // 如果分开的对同一个promise 执行then方法，这两个是不同的两条链,都是从头开始的
+    p.then(() => {
+        console.log('第一次成功');
+        return setTime(1000, false);
+    });
+
+    p.then(
+        () => {
+            console.log('第二次成功');
+        },
+        () => {
+            console.log('第二次失败');
+        }
+    );
+
+    // 以上代码输出 第一次成功 第二次成功
+</script>

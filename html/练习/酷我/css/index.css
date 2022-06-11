@@ -1,0 +1,1032 @@
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+header {
+    width: 1400px;
+    margin: auto;
+    background: white;
+}
+
+header div {
+    width: 800px;
+    background: #ffffff;
+    float: left;
+}
+
+header div img {
+    width: 130px;
+    float: left;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+header div ul {
+    float: left;
+}
+
+header div ul li {
+    width: 80px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    float: left;
+    margin-left: 10px;
+    font-size: 15px;
+    color: #5A5D5A;
+    position: relative;
+    cursor: pointer;
+}
+
+li:nth-of-type(1) {
+    font-weight: bold;
+    color: black;
+    background-color: #ffe443;
+}
+
+header div ul li:hover {
+    font-weight: bold !important;
+    color: black !important;
+    background-color: #ffe443 !important;
+}
+
+header div ul:hover li {
+    font-weight: normal;
+    color: #5a5d5a;
+    background-color: white;
+}
+
+header div ul li img {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}
+
+#shang {
+    display: none;
+}
+
+header div ul li:hover #xia {
+    display: none;
+}
+
+header div ul li:hover #shang {
+    display: block;
+}
+
+header div ul li div {
+    width: 140px;
+    height: 0;
+    overflow: hidden;
+    padding-left: 10px;
+    position: absolute;
+    left: -30px;
+    background-color: white;
+    box-shadow: 1px 1px 10px #5a5d5a;
+    z-index: 99;
+}
+
+header div ul li div p {
+    line-height: 50px;
+    text-align: left;
+    font-weight: normal;
+    color: #5a5d5a;
+    position: relative;
+}
+
+header div ul li:hover #p1 {
+    height: 200px;
+    transition: all 1s;
+}
+
+header i {
+    width: 200px;
+    height: 30px;
+    background-color: #f5f5f5;
+    display: inline-block;
+    float: left;
+    margin-left: 200px;
+    margin-top: 20px;
+}
+
+header i img {
+    width: 15px;
+    margin-top: 7px;
+    margin-left: 5px;
+}
+
+header i input {
+    border: none;
+    border: transparent;
+    outline: none;
+    position: relative;
+    top: -2px;
+    background-color: #f5f5f5;
+}
+
+header i div {
+    width: 200px;
+    height: 300px;
+    padding: 10px;
+}
+
+header i div p {
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+}
+
+header i div ol li {
+    width: 100px;
+    height: 50px;
+}
+
+#li {
+    font-weight: normal;
+    background-color: white;
+}
+
+header i div ol li div {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+}
+
+header span {
+    font-size: 14px;
+    float: right;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+nav {
+    width: 1400px;
+    margin: auto;
+}
+
+nav ul {
+    width: 300px;
+    height: 10px;
+    margin-left: 100px;
+}
+
+nav ul li {
+    width: 50px;
+    height: 30px;
+    font-size: 14px;
+    float: left;
+    margin-top: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #5a5d5a;
+    cursor: pointer;
+}
+
+nav ul li:hover {
+    color: black !important;
+    font-weight: bold !important;
+    background-color: #ffe443 !important;
+}
+
+nav ul:hover li {
+    color: #5a5d5a;
+    font-weight: normal;
+    background-color: white;
+}
+
+nav div {
+    width: 1400px;
+    height: 400px;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+#div-1, #div-2, #div-3, #div-4 {
+    width: 1400px;
+    height: 400px;
+    position: absolute;
+    cursor: pointer;
+
+}
+
+#div-1 {
+    background: url("../imgs/lun1_.png") no-repeat;
+    background-size: cover;
+    animation: a 10s linear infinite;
+}
+
+#div-2 {
+    background: url("../imgs/lun2.jpg") no-repeat;
+    background-size: cover;
+    animation: b 10s linear infinite;
+}
+
+#div-3 {
+    background: url("../imgs/lun3.jpg") no-repeat;
+    background-size: cover;
+    animation: c 10s linear infinite;
+}
+
+#div-4 {
+    background: url("../imgs/lun4.jpg") no-repeat;
+    background-size: cover;
+    animation: d 10s linear infinite;
+}
+
+@keyframes a {
+    0% {
+        left: 0;
+    }
+    10% {
+        left: 1400px;
+    }
+    20% {
+        left: 1400px;
+    }
+    30% {
+        left: 2800px;
+    }
+    40% {
+        left: 2800px;
+    }
+    50% {
+        left: 4200px;
+    }
+    60% {
+        left: 4200px;
+    }
+    70% {
+        left: 2800px;
+    }
+    80% {
+        left: 1400px;
+    }
+    90% {
+        left: 0;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes b {
+    0% {
+        left: -1400px;
+    }
+    10% {
+        left: 0;
+    }
+    20% {
+        left: 0;
+    }
+    30% {
+        left: 1400px;
+    }
+    40% {
+        left: 1400px;
+    }
+    50% {
+        left: 2800px;
+    }
+    60% {
+        left: 2800px;
+    }
+    70% {
+        left: 1400px;
+    }
+    80% {
+        left: 0;
+    }
+    90% {
+        left: -1400px;
+    }
+    100% {
+        left: -1400px;
+    }
+}
+
+@keyframes c {
+    0% {
+        left: -2800px;
+    }
+    10% {
+        left: -1400px;
+    }
+    20% {
+        left: -1400px;
+    }
+    30% {
+        left: 0;
+    }
+    40% {
+        left: 0;
+    }
+    50% {
+        left: 1400px;
+    }
+    60% {
+        left: 1400px;
+    }
+    70% {
+        left: 0;
+    }
+    80% {
+        left: -1400px;
+    }
+    90% {
+        left: -2800px;
+    }
+    100% {
+        left: -2800px;
+    }
+}
+
+@keyframes d {
+    0% {
+        left: -4200px;
+    }
+    10% {
+        left: -2800px;
+    }
+    20% {
+        left: -2800px;
+    }
+    30% {
+        left: -1400px;
+    }
+    40% {
+        left: -1400px;
+    }
+    50% {
+        left: 0;
+    }
+    60% {
+        left: 0;
+    }
+    70% {
+        left: -1400px;
+    }
+    80% {
+        left: -2800px;
+    }
+    90% {
+        left: -4200px;
+    }
+    100% {
+        left: -4200px;
+    }
+}
+
+#div-5 {
+    width: 1400px;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.69);
+    position: absolute;
+    top: 320px;
+}
+
+#div-5 div {
+    width: 350px;
+    height: 80px;
+    text-align: center;
+}
+
+#div-5 div img {
+    width: 25px;
+    cursor: pointer;
+}
+
+#div-5 div span {
+    color: white;
+    font-size: 15px;
+    position: relative;
+    top: -7px;
+    cursor: pointer;
+}
+
+article {
+    width: 1400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin: auto;
+}
+
+article div {
+    width: 100%;
+    display: flex;
+    margin-top: 60px;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+h2 {
+    font-size: 25px;
+    font-weight: bold;
+    width: 100px;
+    cursor: pointer;
+}
+
+article div ul {
+    width: 500px;
+    margin-left: 50px;
+}
+
+article div ul li {
+    width: 70px;
+    height: 30px;
+    float: left;
+    text-align: center;
+    line-height: 30px;
+    color: #5a5d5a;
+    cursor: pointer;
+}
+
+article div ul li:hover {
+    font-weight: bold !important;
+    color: black !important;
+    background-color: #ffe443 !important;
+}
+
+article div ul:hover li {
+    font-weight: normal;
+    color: #5a5d5a;
+    background-color: white;
+}
+
+article div div {
+    width: 260px;
+    height: 350px;
+    margin-top: -30px;
+    margin-left: 15px;
+    position: relative;
+}
+
+article div div i {
+    width: 260px;
+    height: 260px;
+    overflow: hidden;
+}
+
+article div div i img {
+    width: 260px;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+article div div i div {
+    width: 260px;
+    height: 260px;
+    background: rgba(0, 0, 0, 0.33);
+    position: absolute;
+    top: 30px;
+    left: -15px;
+    display: none;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+article div div i div i {
+    width: 80px;
+    height: 80px;
+    background: white;
+    border-radius: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+article div div i div i img {
+    width: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+article div div:hover .img {
+    transform: scale(1.2, 1.2);
+}
+
+article div div i:hover .bofang {
+    display: block;
+}
+
+article div div p {
+    width: 220px;
+    position: absolute;
+    top: 280px;
+    cursor: pointer;
+}
+
+article div div p:hover {
+    font-weight: bold;
+}
+
+article div div span {
+    position: absolute;
+    top: 320px;
+    left: 30px;
+}
+
+article div div span::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: url("../imgs/24gl-play.png") no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: -30px;
+}
+
+#box {
+    width: 1400px;
+    height: 260px;
+    margin-left: -10px;
+}
+
+article #box > img {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#bot {
+    width: 100%;
+}
+
+#bot div {
+    width: 260px;
+    height: 400px;
+    box-shadow: 1px 1px 10px #9d9d9d;
+    cursor: pointer;
+}
+
+#bot div #div-i-1 {
+    width: 100%;
+    height: 140px;
+    background: url("../imgs/paihang1.jpg") no-repeat;
+    background-size: cover;
+    background-position: 0 -50px;
+    position: relative;
+}
+
+#bot div #div-i-2 {
+    width: 100%;
+    height: 140px;
+    background: url("../imgs/paihang2.jpg") no-repeat;
+    background-size: cover;
+    background-position: 0 -50px;
+    position: relative;
+}
+
+#bot div #div-i-3 {
+    width: 100%;
+    height: 140px;
+    background: url("../imgs/paihang3.jpg") no-repeat;
+    background-size: cover;
+    background-position: 0 -50px;
+    position: relative;
+}
+
+#bot div #div-i-4 {
+    width: 100%;
+    height: 140px;
+    background: url("../imgs/paihang4.jpg") no-repeat;
+    background-size: cover;
+    background-position: 0 -50px;
+    position: relative;
+}
+
+#bot div #div-i-5 {
+    width: 100%;
+    height: 140px;
+    background: url("../imgs/paihang5.jpg") no-repeat;
+    background-size: cover;
+    background-position: 0 -50px;
+    position: relative;
+}
+
+#bot div i img {
+    width: 110px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+#bot div i p {
+    width: 260px;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 0.43);
+    position: absolute;
+    top: 0px;
+}
+
+#bot div i .h {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 100%;
+    position: absolute;
+    left: 214px;
+    top: 140px;
+    display: none;
+}
+
+#bot div i .h img {
+    width: 15px;
+}
+
+#bot div i:hover .h {
+    display: block;
+}
+
+#bot div ul {
+    width: 100%;
+    height: 260px;
+    margin: 0;
+}
+
+#bot div ul li {
+    width: 230px;
+    height: 50px;
+    text-align: left;
+    font-weight: normal;
+    background-color: white;
+    line-height: 25px;
+    margin-top: 2px;
+    float: right;
+    position: relative;
+}
+
+#bot div ul li img {
+    width: 30px;
+    position: absolute;
+    left: -30px;
+}
+
+#bot div ul li div {
+    width: 20px;
+    height: 30px;
+    position: absolute;
+    left: -38px;
+    top: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    color: black;
+    text-align: right;
+    box-shadow: none;
+}
+
+#bot-1 {
+    width: 1400px;
+    height: 200px;
+}
+
+#bot-1 div {
+    width: 210px;
+    height: 220px;
+    margin-left: 20px;
+    overflow: hidden;
+}
+
+#bot-1 div img {
+    height: 170px;
+    border-radius: 100%;
+    margin: auto;
+    position: relative;
+    cursor: pointer;
+}
+
+#bot-1 div a {
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+#bot-1 div .k {
+    width: 80px;
+    height: 20px;
+    font-size: 13px;
+    color: #9d9d9d;
+    margin: -78px 65px;
+    text-align: center;
+}
+
+#bot-1 div .k:hover {
+    font-weight: normal;
+}
+
+#bot-2 span {
+    width: 200px;
+    height: 30px;
+    display: inline-block;
+    background-color: #ffe443;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 20px;
+    position: relative;
+    left: 100px;
+    cursor: pointer;
+}
+
+#bot-2 span::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: url("../imgs/xiangxiajiantou (1).png");
+    position: absolute;
+    top: 8px;
+    right: 10px;
+}
+
+#bot-3 {
+    width: 1400px;
+    height: 350px;
+}
+
+#bot-3 div {
+    width: 450px;
+    height: 350px;
+}
+
+#bot-3 div div {
+    width: 400px;
+    height: 100px;
+    position: relative;
+    top: 60px;
+}
+
+#bot-3 div div i {
+    width: 100px;
+    height: 100px;
+}
+
+#tv-1 {
+    background: url("../imgs/tv1.jpg") no-repeat;
+    background-size: contain;
+}
+
+#tv-2 {
+    background: url("../imgs/tv2.jpg") no-repeat;
+    background-size: contain;
+}
+
+#tv-3 {
+    background: url("../imgs/tv3.jpg") no-repeat;
+    background-size: contain;
+}
+
+#tv-4 {
+    background: url("../imgs/tv4.jpg") no-repeat;
+    background-size: contain;
+}
+
+#tv-5 {
+    background: url("../imgs/tv5.jpg") no-repeat;
+    background-size: contain;
+}
+
+#tv-6 {
+    background: url("../imgs/tv6.jpg") no-repeat;
+    background-size: contain;
+}
+
+#tv-7 {
+    background: url("../imgs/tv7.jpg") no-repeat;
+    background-size: contain;
+}
+
+#tv-8 {
+    background: url("../imgs/tv8.jpg") no-repeat;
+    background-size: contain;
+}
+
+#tv-9 {
+    background: url("../imgs/tv9.jpg") no-repeat;
+    background-size: contain;
+}
+
+#bot-3 div div i .l {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.42);
+    position: absolute;
+    left: -15px;
+    top: 30px;
+    display: none;
+    cursor: pointer;
+}
+
+#bot-3 div div i .l div {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: block;
+}
+
+#bot-3 div div i .l div img {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+#bot-3 div div i:hover .l {
+    display: block;
+}
+
+#bot-3 div div .r {
+    width: 280px;
+    height: 100%;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    border-bottom: 1px solid #ecebeb;
+}
+
+#bot-3 div div .r a {
+    width: 280px;
+    height: 20px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+#bot-3 div div .r a:hover {
+    font-weight: bold;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+footer #s {
+    width: 100%;
+    background-color: #282828;
+}
+
+footer #s div {
+    width: 1400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    background-color: #282828;
+    margin: auto;
+}
+
+footer #s div p {
+    width: 400px;
+    line-height: 30px;
+    color: white;
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+footer #s div .div-p {
+    width: 100px;
+}
+
+footer #s div .div-p ul li{
+    width: 100px;
+}
+footer #s div div {
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+footer #s div div div {
+    width: 60px;
+    height: 60px;
+    margin: 50px 10px;
+}
+
+footer #s div div div div {
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    cursor: pointer;
+}
+
+footer #s div div div p {
+    width: 80px;
+    height: 20px;
+    text-align: center;
+    margin: 0;
+    font-size: 12px;
+    color: #808080;
+    cursor: pointer;
+}
+
+#div-i1 {
+    background: url("../imgs/windows-fill（1）.png") no-repeat;
+    background-size: cover;
+}
+
+#div-i2 {
+    background: url("../imgs/android（1）.png") no-repeat;
+    background-size: cover;
+}
+
+#div-i3 {
+    background: url("../imgs/iphone（1）.png") no-repeat;
+    background-size: cover;
+}
+
+footer #s div div div:hover #div-i1 {
+    background: url("../imgs/windows-fill.png") no-repeat;
+    background-size: cover;
+}
+
+footer #s div div div:hover #div-i2 {
+    background: url("../imgs/android.png") no-repeat;
+    background-size: cover;
+}
+
+footer #s div div div:hover #div-i3 {
+    background: url("../imgs/iphone.png") no-repeat;
+    background-size: cover;
+}
+
+footer #s div div div :hover {
+    color: #ffe443;
+}
+
+footer #s div ul {
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+footer #s div ul li {
+    width: 130px;
+    font-weight: normal;
+    color: #808080;
+    font-size: 13px;
+    line-height: 30px;
+    background-color: #282828;
+}
+
+footer #s div ul li:hover {
+    color: #ffe443;
+    cursor: pointer;
+}
+
+footer #x {
+    width: 100%;
+    height: 150px;
+    background-color: #1f1f1f;
+}
+
+footer #x div {
+    width: 1400px;
+    height: 150px;
+    margin: auto;
+    background-color: #1f1f1f;
+}
+
+footer #x div p {
+    width: 100%;
+    text-align: center;
+    color: #808080;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+footer #x div p a:hover {
+    color: #ffe443;
+    cursor: pointer;
+}

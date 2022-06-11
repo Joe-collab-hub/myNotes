@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>排序</title>
+</head>
+<body>
+<script>
+    /* 编写一个函数，计算三个数字的大小，按从小到大顺序输出 */
+
+    function fun(a , b , c) {
+        var num;        // 作为中介将数值调换位置
+        var num1;       // 将结果返回
+
+        if (a > b){
+            num = a;        // 当a的数值大于b的数值
+            a = b;          // 将a与b的值调换一下位置
+            b = num;        // 反之不调换
+        }
+        if (b > c){
+            num = b;        // 同理 调换b与c的位置
+            b = c;
+            c = num;
+        }
+        if (a > b){
+            num = a;        // 当a不大于b时，b可能大于c位置互换
+            a = b;          // 所以需要在判断a与b的大小
+            b =num;         // 然后调换位置
+        }
+        return  num1 = a + "<" + b + "<" + c;
+    }
+    function input(){
+        let a = Number(prompt("请输入第一个数"));
+        if (isNaN(a)){
+            alert("输入有效数字");
+        } else {
+            let b = Number(prompt("请输入第二个数"));
+            if (isNaN(b)){
+                alert("输入有效数字");
+            } else {
+                let c = Number(prompt("请输入第三个数"));
+                if (isNaN(c)) {
+                    alert("输入有效数字");
+                } else {
+                    return [a , b , c];
+                }
+            }
+        }
+    }
+    var v = input();
+    alert(fun(v[0] , v[1] ,v[2]));
+    // alert(fun1);
+</script>
+</body>
+</html>

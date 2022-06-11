@@ -1,0 +1,40 @@
+<!--
+Javascript的脚本块在一个页面当中可以随意出现多次。没有要求。
+Javascript的脚本块出现位置也没有要求，随意。
+-->
+
+<script type="text/javascript">
+    window.alert("hgsdfjkshdf")
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML中嵌套JS代码的第二种方式</title>
+</head>
+<body>
+<input type="button" value="我是一个按钮对象1">
+<!-- 第二种方式：脚本块方式   -->
+<script type="text/javascript">
+    /*
+           暴漏在脚本快当中的程序，在页面打开的时候执行，
+           并且遵守自上而下的顺序依次逐渐执行。（这个代
+           码的执行不需要事件）
+   */
+    window.alert("Hello worid!");
+
+    window.alert("Hello JavaScript");
+</script>
+<input type="button" value="我是一个按钮对象">
+</body>
+</html>
+
+<script type="text/javascript">
+    window.alert("w7yedwbc")
+    var a = 1, b = 0, c;
+    var d = a ?
+        b ? 1 : 2
+        :
+        c ? 3 : 4;
+    console.log(d)
+</script>

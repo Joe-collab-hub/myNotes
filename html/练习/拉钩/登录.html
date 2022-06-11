@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拉钩</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #bot{
+            width: 440px;
+            height: 550px;
+            background-color: #ffffff;
+            margin: auto;
+            position: absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            box-shadow: 1px 1px 10px #dee2e6;
+        }
+        #bot-1{
+            width: 410px;
+            height: 520px;
+            margin: auto;
+            position: relative;
+            top: 15px;
+        }
+        #box-1{
+            width: 50px;
+            height: 50px;
+            cursor:pointer;
+            background-image: url("1.png");
+            background-repeat: no-repeat;
+            background-position: -440px -268px;
+        }
+        #box-1:hover{
+            background-image: url("1.png");
+            background-repeat: no-repeat;
+            background-position:  -334px -330px;
+        }
+        #box-1-1{
+            width: 150px;
+            position: absolute;
+            left: 50px;
+            cursor:pointer;
+        }
+        #box-2{
+            width: 86px;
+            height: 42px;
+            background-image: url("1.png");
+            background-repeat: no-repeat;
+            background-position:  -333px -268px;
+            position: absolute;
+            top: 50px;
+            left: 170px;
+        }
+        #box-3{
+            width: 314px;
+            height: 52px;
+            background-color: #f4f4f4;
+            position: absolute;
+            top: 140px;
+            left: 50px;
+        }
+        #box-3:active{
+            border: 1px #5dd5c8 solid;
+        }
+        #box-3-1{
+            width: 80px;
+            height: 100%;
+            float: left;
+            /*background-color: #b0b0b0;*/
+        }
+        #t-1{
+            width: 50px;
+            height: 52px;
+            /*background-color: #dee2e6;*/
+            line-height: 52px;
+            position: absolute;
+            left: 15px;
+        }
+        #t-2{
+            width: 0;
+            height: 0;
+            border: 6px solid;
+            position: absolute;
+            left: 66px;
+            top: 22px;
+            border-color: black transparent transparent transparent;
+        }
+        #box-3-1:active #t-2{
+            width: 0;
+            height: 0;
+            border: 6px solid;
+            position: absolute;
+            left: 66px;
+            top: 15px;
+            border-color: transparent transparent black transparent;
+        }
+        #box-3-2{
+            position: absolute;
+            top: 16px;
+            left: 100px;
+            border: 0;
+            outline: none;
+            background-color: #f4f4f4;
+        }
+        #box-4{
+            width: 314px;
+            height: 52px;
+            background-color: #f4f4f4;
+            position: absolute;
+            top: 220px;
+            left: 50px;
+        }
+        #box-4-1 {
+            position: absolute;
+            top: 16px;
+            left: 15px;
+            border: 0;
+            outline: none;
+            background-color: #f4f4f4;
+        }
+        #box-4-2{
+            width: 100px;
+            height: 100%;
+            color: #00B38AFF;
+            line-height: 52px;
+            float: right;
+            cursor:pointer;
+        }
+        #box-5{
+            color: #00B38AFF;
+            position: absolute;
+            left: 50px;
+            top: 280px;
+            font-size: 15px;
+            cursor:pointer;
+        }
+        #box-6{
+            width: 317px;
+            height: 50px;
+            line-height: 50px;
+            color: white;
+            text-align: center;
+            cursor:pointer;
+            position: absolute;
+            top: 320px;
+            left: 49px;
+            background-image: url("1.png");
+            background-repeat: no-repeat;
+            background-position: -20px -18px;
+
+
+        }
+        #box-6:hover{
+            background-image: url("1.png");
+            background-repeat: no-repeat;
+            background-position: -20px -86px;
+        }
+        #box-7{
+            width: 100px;
+            height: 20px;
+            text-align: center;
+            color: #999999;
+            position: absolute;
+            top: 390px;
+            left: 160px;
+            cursor:pointer;
+        }
+        #box-7:hover{
+            color: #00B38AFF;
+        }
+        #box-8{
+            width: 317px;
+            height: 50px;
+            position: absolute;
+            top: 430px;
+            left: 49px;
+        }
+        #q{
+            width: 107px;
+            height: 100%;
+            line-height: 50px;
+            float: left;
+            font-size: 15px;
+            color: #999999;
+        }
+        .q-1{
+            width: 50px;
+            height: 30px;
+            float: left;
+            margin-left: 2px;
+            margin-top: 10px;
+            cursor:pointer;
+        }
+        #li-1{
+            background-image: url("3.png");
+            background-repeat: no-repeat;
+            background-position: -183px -78px;
+
+        }
+        #li-1:hover{
+            background-image: url("3.png");
+            background-repeat: no-repeat;
+            background-position: -137px -78px;
+        }
+        #li-2{
+            background-image: url("3.png");
+            background-repeat: no-repeat;
+            background-position: -92px -200px;
+        }
+        #li-2:hover{
+            background-image: url("3.png");
+            background-repeat: no-repeat;
+            background-position: -139px -200px;
+        }
+        #li-3{
+            background-image: url("3.png");
+            background-repeat: no-repeat;
+            background-position: -182px -118px;
+        }
+        #li-3:hover{
+            background-image: url("3.png");
+            background-repeat: no-repeat;
+            background-position: -182px -159px;
+        }
+        #li-4{
+            background-image: url("3.png");
+            background-repeat: no-repeat;
+            background-position: -7px -206px;
+        }
+        #li-4:hover{
+            background-image: url("3.png");
+            background-repeat: no-repeat;
+            background-position: -48px -206px;
+        }
+        #box-9{
+            width: 317px;
+            height: 50px;
+            line-height: 50px;
+            position: absolute;
+            left: 50px;
+            top: 480px;
+        }
+        .w{
+            font-size: 12px;
+            color: #00B38AFF;
+            cursor:pointer;
+        }
+        #p{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        #X{
+            font-size: 30px;
+            color: #999999;
+            position: absolute;
+            top: 0;
+            left: 385px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="bot">
+    <div id="bot-1">
+        <div id="box-1">
+            <img id="box-1-1" src="2.png">
+        </div>
+        <div id="X">&times;</div>
+        <div id="box-2"></div>
+        <div id="box-3">
+            <div id="box-3-1">
+                <span id="t-1">0086</span>
+                <span id="t-2"></span>
+            </div>
+            <input type="text" id="box-3-2" placeholder="请输入常用手机号">
+        </div>
+        <div id="box-4">
+            <input type="text" id="box-4-1" placeholder="请输入验证码">
+            <div id="box-4-2">获取验证码</div>
+        </div>
+        <div id="box-5">密码登录</div>
+        <div id="box-6">登录</div>
+        <div id="box-7">立即注册</div>
+        <ul id="box-8">
+            <li id="q">第三方账号登录</li>
+            <li class="q-1" id="li-1"></li>
+            <li class="q-1" id="li-2"></li>
+            <li class="q-1" id="li-3"></li>
+            <li class="q-1" id="li-4"></li>
+        </ul>
+        <div id="box-9">
+            <input type="checkbox" id="p">
+            <span class="w" style="color: #999999">注册代表你已同意</span>
+            <span class="w">「用户协议」</span>
+            <span class="w" style="color: #999999">及</span>
+            <span class="w">「隐私政策」</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

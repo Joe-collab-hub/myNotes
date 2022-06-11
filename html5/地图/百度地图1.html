@@ -1,0 +1,99 @@
+<!--
+  ~ Time:2022/3/10 17:46 50
+  ~ Name:百度地图1.html
+  ~ Path:html5
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+		#bot {
+			width: 600px;
+			height: 600px;
+			margin: 100px auto;
+			position: relative;
+		}
+
+		#box {
+			width: 100%;
+			height: 100%;
+		}
+
+		input {
+			width: 200px;
+			height: 30px;
+			position: absolute;
+			top: 0;
+			left: 100px;
+			border-radius: 5px;
+			z-index: 9999999;
+		}
+	</style>
+</head>
+<body>
+<div id="bot">
+	<input type="text">
+	<div id="box"></div>
+	<button>点击</button>
+</div>
+</body>
+<script src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=zh578MGysheETCVsRTCAfehqtHhifrtq&callback=initialize"></script>
+<script>
+	function initialize () {
+		var map = new BMapGL.Map('box');
+		var myCity = new BMapGL.LocalCity();
+		myCity.get(function (result) {
+			console.log(result);
+			let point = new BMapGL.Point(result.center.lng, result.center.lat);
+			map.centerAndZoom(point, 15);
+		});
+		map.enableScrollWheelZoom();
+		const ScaleControl = new BMapGL.ScaleControl();  // 创建比例尺控件
+		map.addControl(ScaleControl);  // 添加到地图实例中
+		const ZoomControl = new BMapGL.ZoomControl();
+		map.addControl(ZoomControl);  // 创建缩放控件
+		const LocationControl = new BMapGL.LocationControl();
+		map.addControl(LocationControl); // 创建自身定位控件
+		const CityListControl = new BMapGL.CityListControl();
+		map.addControl(CityListControl); // 创建城市定位控件
+
+		document.getElementsByTagName('button')[0].onclick = function () {
+			// 设置地图为卫星地图模式
+			map.setMapType(BMAP_EARTH_MAP);
+		};
+		let input = document.getElementsByTagName('input')[0];
+		let myGeo = new BMapGL.Geocoder();
+		input.onkeydown = function (e) {
+			if (e.keyCode === 13) {
+				myGeo.getPoint(`${this.value}`,function (point) { // 获取input输入框内的内容
+					if(point){
+						map.centerAndZoom(point, 15);  // 定位到input输入框内容的位置
+						map.addOverlay(new BMapGL.Marker(point))
+					}
+				}.bind(this));
+			}
+		};
+	}
+</script>
+</html>

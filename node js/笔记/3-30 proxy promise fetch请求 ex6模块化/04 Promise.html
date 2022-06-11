@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // Promise   异步编程的解决方案，解决了传统回调函数层层嵌套的问题，
+    // 可以理解为一个包裹异步操作容器
+
+    // 解析：当 new Promise 发生时, 内部的异步代码（22 - 25行）就开始执行了
+    const p = new Promise(resolve => {
+        // 在promise中写异步代码
+        setTimeout(() => {
+            resolve();
+        }, 2000);
+    });
+
+    // 当 Promise 内部去调用 resolve 函数时，then方法传入的函数就会执行
+    p.then(() => {  // then方法中的第一个函数，就是promise中的 resolve 函数
+        console.log('两秒过去了');
+    });
+</script>

@@ -1,0 +1,45 @@
+<!--
+  ~ Time:2022/2/22 14:12 02
+  ~ Name:弹出层封装.html
+  ~ Path:js/测试/06
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>弹出层封装</title>
+	<link rel="stylesheet" href="alert.css">
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+	<script src="alert.js"></script>
+</head>
+<body>
+<button onclick="ale1.show()">出现弹窗</button>
+<button onclick="ale2.show()">出现弹窗2</button>
+</body>
+<script>
+
+	// 需求：可以直接传递一个字符串，弹出默认的弹窗
+	// new Alert('');
+	// 也可以传递一个配置对象
+	const ale1 = new Alert({
+		title:'弹出层标题',
+		text: '弹出层文本',
+		move: true,
+		which: 500,
+		height: 800,
+	});
+	const ale2 = new Alert({
+		text: '第二个弹出层文本',
+		title:'弹出第二个层标题',
+		move: false,
+		which: 300,
+		height: 500,
+	});
+</script>
+</html>

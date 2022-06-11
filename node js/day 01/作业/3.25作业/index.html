@@ -1,0 +1,204 @@
+<!--
+  ~ Time:2022/3/25 19:19 34
+  ~ Name:index.html
+  ~ Path:node js/day 01/作业/3.25作业
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			font: 500 15px YouYuan;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		body > div {
+			width: 300px;
+			margin: 100px auto;
+			text-align: center;
+			border: 1px solid;
+			background-color: #5dd5c8;
+		}
+
+		input {
+			margin-top: 20px;
+		}
+
+		#box1, #box2 {
+			display: none;
+		}
+
+		#box1 > div, #box2 > div, #button {
+			line-height: 50px;
+		}
+
+		#message {
+			color: #fff;
+			display: none;
+		}
+		#message>p{
+			font-size: 20px;
+			line-height: 30px;
+		}
+
+		span {
+			font-size: 12px;
+			color: #fff;
+		}
+	</style>
+	<script src="jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div>
+	<div id="box1">
+		<label for="user">
+			账号：
+			<input type="text" id="user">
+		</label>
+		<br>
+		<label for="password">
+			密码：
+			<input type="password" id="password">
+		</label>
+		<div>
+			<button id="register">注册</button>
+			<span>登录</span>
+		</div>
+	</div>
+	<div id="box2">
+		<label for="user1">
+			账号：
+			<input type="text" id="user1">
+		</label>
+		<br>
+		<label for="password1">
+			密码：
+			<input type="password" id="password1">
+		</label>
+		<div>
+			<button id="login">登录</button>
+			<span>注册</span>
+		</div>
+	</div>
+	<div id="message"></div>
+	<div id="button">
+		<button id="register-1">注册</button>
+		<button id="login-1">登录</button>
+	</div>
+
+</div>
+
+<script>
+
+	const switchover = (a, b) => {
+		a.css({
+			display: 'none',
+		})
+		b.css({
+			display: 'block',
+		})
+	}
+
+	$('#register-1').click(function () {
+		switchover($('#button'), $('#box1'))
+	})
+	$('#box1 span').click(function () {
+		switchover($('#box1'), $('#box2'))
+	})
+	$('#login-1').click(function () {
+		switchover($('#button'), $('#box2'))
+	})
+	$('#box2 span').click(function () {
+		switchover($('#box2'), $('#box1'))
+	})
+
+	function getUserInfo() {
+		const token = localStorage.getItem('token');
+		$.get('http://127.0.0.1:3000/userinfo?token=' + token,function(data){
+			console.log(data);
+		})
+	}
+
+	$('#register').click(function () {
+		let username = $('#user').val()
+		let password = $('#password').val()
+		if (username.length === 0) {
+			alert('请设置账户')
+			return
+		}
+		if (password.length === 0) {
+			alert('请设置密码')
+			return
+		}
+		$.ajax({
+			url: `http://127.0.0.1:3000/register`,
+			type: 'POST',
+			data: {
+				username: username,
+				password: password,
+			},
+			success: function (res) {
+				alert(res.msg)
+			},
+			error: function (res) {
+				alert(res)
+			},
+		})
+	})
+
+	$('#login').click(function () {
+		let username = $('#user1').val()
+		let password = $('#password1').val()
+		if (username.length === 0) {
+			alert('请输入账号')
+			return
+		} else if (password === 0) {
+			alert('请输入密码')
+			return
+		}
+		$.ajax({
+			url: `http://127.0.0.1:3000/login`,
+			type: 'POST',
+			data: {
+				username: username,
+				password: password,
+			},
+			success: function (res) {
+				alert(res.msg)
+				if (res.code === 1) {
+					$('#message').append(`
+					<p>账户：${username}</p>
+					<p>密码：${password}</p>
+				`)
+					switchover($('#box2'), $('#message'))
+				}
+				localStorage.setItem('token', res.token);
+				// 获取用户信息
+				getUserInfo();
+			},
+			error: function (res) {
+				alert(res)
+			},
+		})
+	})
+</script>
+</body>
+</html>

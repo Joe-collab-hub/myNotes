@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        tr{
+            border: 1px solid black;
+        }
+        td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 求一个数的绝对值 -->
+<!--<script>-->
+
+<!--    function fun(num) {-->
+<!--        if (num >= 0){-->
+<!--            return num;-->
+<!--        } else {-->
+<!--            return -num;-->
+<!--        }-->
+<!--    }-->
+
+<!--    function input() {-->
+<!--        var num = Number(prompt("输入一个值"));-->
+<!--        if (isNaN(num)){-->
+<!--            alert("输入有误");-->
+<!--        }-->
+<!--        return num;-->
+<!--    }-->
+
+<!--    var num = input();-->
+<!--    alert(fun(num));-->
+<!--</script>-->
+
+
+<!-- 传入多个数，返回最大的数 -->
+
+<script>
+
+    function fun() {
+        var num = arguments[0]
+        for (var i = 0 ; i < arguments.length; i++){
+            if (arguments[i] > num){
+                num = arguments[i + 1];
+            }
+        }
+        return num;
+    }
+
+    var fun1 = fun(12 , 3 , 9 , 68 , 253 , 36 , 62);
+    alert(fun1);
+
+</script>
+
+
+<!--<script>-->
+
+<!--    var num = 0;-->
+<!--    function fun() {-->
+<!--        for (var i = 0; i < arguments.length ; i++){-->
+<!--            num += arguments[i];-->
+<!--        }-->
+<!--        return num/(arguments.length);-->
+<!--    }-->
+
+<!--    var fun1 = fun(20 , 52 , 61 , 62 , 56 , 31 , 96);-->
+<!--    alert(fun1);-->
+
+<!--</script>-->
+
+
+<!--<script>-->
+
+<!--    function fun() {-->
+<!--        document.write("<table>");-->
+<!--        for (var i = 0; i <arguments.length ; i++){-->
+<!--            for (var j = 0; j < arguments[i].length ; j++){-->
+<!--                document.write("<tr>");-->
+<!--                for (var v = 0 ; v < arguments[i][j].length ; v++){-->
+<!--                    document.write("<td>" + arguments[i][j][v] + "</td>")-->
+<!--                }-->
+<!--                document.write("</tr>");-->
+<!--            }-->
+<!--        }-->
+<!--        document.write("</table>");-->
+<!--    }-->
+<!--    fun([[1,5,3,9],[2,6,5,3],[5,6,2,4]]);-->
+<!--</script>-->
+</body>
+</html>

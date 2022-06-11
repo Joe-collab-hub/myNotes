@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 以下代码均是伪代码，不可执行，只为观察其演变过程
+
+    // 异步编程：就是处理异步代码的编程方法
+
+    // 传统异步操作解决方案：回调函数
+    // 这种写法如果嵌套层级过深，就会生成回调地狱，使代码可读性变差，并且难以维护
+    ajax('/one', function () {
+        // 请求成功之后调用该函数
+        // 等待 one 接口响应之后在发送 two 接口
+        ajax('/two', function () {
+            // 等待 two 接口响应之后在发送 three 接口
+            ajax('/three', function () {
+
+            });
+        });
+    });
+
+
+    // promise 的链式调用
+    ajax('/one')
+        .then(res => {
+            console.log('第一次请求成功');
+            return ajax('/two');
+        })
+        .then(res => {
+            console.log('第二次请求成功');
+            return ajax('/three');
+        })
+        .then(res => {
+            console.log('第三次请求成功');
+        })
+
+    // 最终形态：async…await函数
+    async function getData() {   // 在async函数中
+        let one = await ajax('/one');   // await 后的函数成功之后才会将结果返回给前面的变量
+        console.log('第一次请求成功', one);
+        let two = await ajax('/two');
+        console.log('第二次请求成功', two);
+        let three = await ajax('/three');
+        return three;
+    }
+</script>

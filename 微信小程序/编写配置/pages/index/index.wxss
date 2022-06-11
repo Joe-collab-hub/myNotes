@@ -1,0 +1,32 @@
+/* pages/index/index.wxss */
+.indexContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.avartarUrl {
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 50%;
+    margin: 100rpx 0;
+}
+
+.goStudy {
+    width: 300rpx;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #cccccc;
+    margin: 100rpx 0;
+    color: #FFF;
+}
+
+button {
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 50%;
+    margin: 100rpx 0;
+    font-size: 25rpx;
+    line-height: 200rpx;
+}

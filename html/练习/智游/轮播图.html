@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		}
+
+		#bot {
+			width: 100%;
+			height: 40px;
+			background-color: #171c2d;
+			margin-top: -4px;
+		}
+
+		#bot-1 {
+			width: 1150px;
+			height: 100%;
+			margin: auto;
+			color: #b1b1b1;
+		}
+
+		.li-1 {
+			width: 240px;
+			height: 100%;
+			line-height: 40px;
+			font-size: 12.5px;
+			float: left;
+		}
+
+		.li-2 {
+			width: 230px;
+			height: 100%;
+			line-height: 40px;
+			font-size: 12.5px;
+			display: inline-block;
+			margin-left: 485px;
+		}
+
+		.li-3 {
+			width: 70px;
+			height: 40px;
+			line-height: 40px;
+			display: inline-block;
+			font-size: 12.5px;
+			margin-left: 20px;
+		}
+
+		#box {
+			width: 100%;
+			height: 80px;
+		}
+
+		#box-1 {
+			width: 1150px;
+			height: 100%;
+			margin: auto;
+		}
+
+		.t-1 {
+			width: 172px;
+			height: 42px;
+			display: inline-block;
+			float: left;
+			padding-top: 20px;
+		}
+
+		.t-2 {
+			width: 80px;
+			height: 78px;
+			line-height: 80px;
+			display: inline-block;
+			text-align: center;
+			font-size: 12.5px;
+			color: #2344B4;
+			margin-left: 20px;
+		}
+
+		.t-3 {
+			width: 80px;
+			height: 76px;
+			line-height: 80px;
+			color: #6f6f6f;
+			text-align: center;
+			display: inline-block;
+			font-size: 12.5px;
+		}
+
+		.t-3-1 {
+			border-bottom: 4px solid #2344B4;
+			margin-top: -4px;
+		}
+
+		.t-3-2 {
+			border-bottom: 4px solid #2344B4;
+			margin-top: -4px;
+			display: none;
+		}
+
+		ul:hover .t-3-1 {
+			display: none !important;
+		}
+
+		ul:hover .t-2 {
+			color: #6f6f6f;
+		}
+
+		.t-2:hover {
+			color: #2344B4 !important;
+		}
+
+		.t-3:hover .t-3-2 {
+			display: block;
+		}
+
+		.t-3:hover {
+			color: #2344B4;
+		}
+
+		#a:hover .t-3-1 {
+			display: block !important;
+		}
+
+		.t-3-3 {
+			width: 80px;
+			height: 0;
+			float: left;
+			overflow: hidden;
+		}
+
+		.t-4 {
+			height: 40px;
+			line-height: 40px;
+			font-size: 12.5px;
+			text-align: center;
+			color: #6f6f6f;
+			background-color: white;
+		}
+
+		.t-4:hover {
+			color: white;
+			background-color: #2040a7;
+		}
+
+		.t-3:hover .t-3-3 {
+			height: 120px;
+			transition: all 1s;
+		}
+
+		.r {
+			width: 0;
+			height: 0;
+			display: inline-block;
+			position: relative;
+			top: 2px;
+			border: 4px solid;
+			border-color: #6f6f6f transparent transparent transparent;
+		}
+
+		.t-3:hover .r {
+			border-color: #2344B4 transparent transparent transparent;
+		}
+
+		#sw {
+			width: 1920px;
+			height: 480px;
+			background-image: url("8.jpg");
+			margin: auto;
+		}
+
+		#ul-1 {
+			width: 210px;
+			height: 100%;
+			position: relative;
+			left: 400px;
+			background-color: #5dd5c8;
+		}
+
+		.sw-1 {
+			height: 43px;
+			line-height: 43px;
+			font-size: 15px;
+		}
+
+		.n {
+			position: relative;
+			left: -14px;
+			z-index: 2;
+		}
+
+		.m {
+			position: relative;
+			left: 10px;
+			z-index: 12;
+		}
+
+		.k {
+			margin-left: -10px;
+		}
+
+		.sw-1:hover .n {
+			z-index: 20;
+		}
+
+		/*.sw-1:hover .m{*/
+		/*    display: none;*/
+		/*}*/
+	</style>
+</head>
+<body>
+<div style="text-align: center"><img src="1.jpg"></div>
+
+<div id="bot">
+	<ul id="bot-1">
+		<li class="li-1">欢迎来到IT培训的黄埔军校——智游教育！</li>
+		<li class="li-2">
+			<img src="3.png">
+			<span>4006-371-555</span>　　
+			<span>0371-88888598</span>
+		</li>
+		<li class="li-3">
+			<img src="4.png">
+			<span>联系我们</span>
+		</li>
+		<li class="li-3">
+			<img src="5.png">
+			<span>加入收藏</span>
+		</li>
+	</ul>
+</div>
+<div id="box">
+	<div id="box-1">
+    <span class="t-1">
+        <img src="2.png">
+    </span>
+		<ul>
+			<li class="t-2" id="a">
+				<span>首页</span>
+				<div class="t-3-1"></div>
+			</li>
+			<li class="t-3">
+				<span>在线精品课</span>
+				<div class="t-3-2"></div>
+			</li>
+			<li class="t-3">
+				<span>专家师资</span>
+				<div class="t-3-2"></div>
+			</li>
+			<li class="t-3">
+				<span>高薪就业</span>
+				<div class="r"></div>
+				<div class="t-3-2"></div>
+				<div class="t-3-3">
+					<div class="t-4">就业喜报</div>
+					<div class="t-4">就业渠道</div>
+					<div class="t-4">创新学员</div>
+				</div>
+			</li>
+			<li class="t-3">
+				<span>学员专区</span>
+				<div class="r"></div>
+				<div class="t-3-2"></div>
+				<div class="t-3-3">
+					<div class="t-4">学员感言</div>
+					<div class="t-4">学员作品</div>
+					<div class="t-4">学院活动</div>
+				</div>
+			</li>
+			<li class="t-3">
+				<span>研发中心</span>
+				<div class="t-3-2"></div>
+			</li>
+			<li class="t-3">
+				<span>校企合作</span>
+				<div class="t-3-2"></div>
+			</li>
+			<li class="t-3">
+				<span>高等教育</span>
+				<div class="t-3-2"></div>
+			</li>
+			<li class="t-3">
+				<span>关于智游</span>
+				<div class="r"></div>
+				<div class="t-3-2"></div>
+				<div class="t-3-3">
+					<div class="t-4">智游简介</div>
+					<div class="t-4">智游新闻123</div>
+					<div class="t-4">加入我们</div>
+				</div>
+			</li>
+			<li class="t-3">
+				<span>智游论坛</span>
+				<div class="t-3-2"></div>
+			</li>
+			<li class="t-3">
+				<span>学费学时</span>
+				<div class="t-3-2"></div>
+			</li>
+		</ul>
+	</div>
+</div>
+<div id="sw">
+	<ul id="ul-1">
+		<li class="sw-1">
+			<img class="m" src="9-1.png">
+			<img class="n" src="9.png">
+			<span class="k">Web大前端全栈开发 <sup style="color: red;font-weight: bold">Hot</sup></span>
+		</li>
+		<li class="sw-1">
+			<img class="m" src="10-1.png">
+			<img class="n" src="10.png">
+			<span>UI设计+产品经理 <sup style="color: red;font-weight: bold">Hot</sup></span>
+		</li>
+		<li class="sw-1">
+			<img src="">
+			<span>Java企业级开发 <sup style="color: red;font-weight: bold">Hot</sup></span>
+		</li>
+		<li class="sw-1">
+			<img src="">
+			<span>Java大数据开发 <sup style="color: red;font-weight: bold">Hot</sup></span>
+		</li>
+		<li class="sw-1">
+			<img src="">
+			<span>AI人工智能</span></li>
+		<li class="sw-1">
+			<img src="">
+			<span>软件测试</span></li>
+		<li class="sw-1">
+			<img src="">
+			<span>Python开发</span></li>
+		<li class="sw-1">
+			<img src="">
+			<span>Unity3D+VR开发</span></li>
+		<li class="sw-1">
+			<img src="">
+			<span>网络信息安全</span></li>
+		<li class="sw-1">
+			<img src="">
+			<span>新媒体短视频运营</span></li>
+		<li class="sw-1">
+			<img src="">
+			<span>芯片研发+人工智能</span></li>
+		<li></li>
+	</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!--
+  ~ Time:2022/4/6 17:29 35
+  ~ Name:轮播图.html
+  ~ Path:Vue/作业/4.6
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>轮播图</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		#root {
+			width: 400px;
+			margin: 100px auto;
+			border: 1px solid #ccc;
+			text-align: center;
+			overflow: hidden;
+		}
+
+		#root > div {
+			width: 900%;
+			display: flex;
+			transition: all 1s;
+		}
+
+		#root > ul {
+			width: 200px;
+			display: flex;
+			justify-content: space-between;
+			margin: 20px auto;
+		}
+
+		#root > ul > li {
+			font-size: 15px;
+			font-weight: bold;
+			width: 20px;
+			height: 20px;
+			text-align: center;
+			border: 1px solid #00FFFF;
+		}
+
+		.box {
+			background-color: #00FFFF;
+		}
+
+	</style>
+	<script src="./vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<div :style="{marginLeft:index2+'%',transition: info}">
+		<img v-for="(src,i) in src" :src='src' alt="" :key="i">
+	</div>
+	<ul>
+		<li v-for="(number,i) of 7" :key="i" @click="fun(number)" :class="index===number?'box':''">
+			{{ number }}
+		</li>
+	</ul>
+	<button @click="left()">上一页</button>
+	<button @click="right();">下一页</button>
+</div>
+</body>
+<script>
+	Vue.config.productionTip = false;
+
+	const vm = new Vue({
+		el: '#root',
+		data () {
+			return {
+				index: 1,
+				src: [
+					'./img7.jpg',
+					'./img1.jpg',
+					'./img2.jpg',
+					'./img3.jpg',
+					'./img4.jpg',
+					'./img5.jpg',
+					'./img6.jpg',
+					'./img7.jpg',
+					'./img1.jpg'],
+				Left: -100,
+				transition: true,
+				kai: true,
+			};
+		},
+		methods: {
+			fun(number){
+				this.index=number;
+				this.transition = true;
+			},
+			left () {
+				if (this.kai) {
+					this.kai = false;
+					this.transition = true;
+					this.index--;
+					setTimeout(() => {
+						if (this.index <= 0) {
+							this.index = 7;
+							this.transition = false;
+						}
+						this.kai = true;
+					}, 1000);
+				}
+			},
+			right () {
+				if (this.kai) {
+					this.kai = false;
+					this.transition = true;
+					this.index++;
+					setTimeout(() => {
+						if (this.index >= 8) {
+							this.transition = false;
+							this.index = 1;
+						}
+						this.kai = true;
+					}, 1000);
+				}
+			},
+		},
+		computed: {
+			info () {
+				return this.transition === true ? 'all 1s' : 'none';
+			},
+			index2 () {
+				return this.Left = -100 * this.index;
+			},
+		},
+	});
+</script>
+</html>

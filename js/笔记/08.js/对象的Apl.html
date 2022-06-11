@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象的Apl</title>
+</head>
+<body>
+<script>
+
+    // 对象中也内置了很方便我们使用的函数
+
+    var a = {
+        name : "张三",
+        age : 18
+    }
+    
+    // 以下四种方式都只能取到可迭代的属性
+    // 迭代：循环、通过重复性的运算取得值的操作
+    // 循环对象
+    for (const key in a){   
+        console.log("当前对象的属性名" , key)
+    }
+
+    // 获取对象中可迭代属性的属性值，返回一个数组
+    console.log(Object.values(a));
+
+    // 获取对象中可迭代属性的属性名 ，返回一个数组
+    console.log(Object.keys(a));
+    
+    // 获取对象中可迭代属性的属性（包括属性值和属性名） ，返回一个数组
+    console.log(Object.entries(a));
+
+    // 使用for of 也可以循环对象
+    for (const v of Object.entries(a)){
+        console.log("属性名：",v[0]);
+        console.log("属性值：",v[1]);
+    }
+
+    console.log("------------华丽的分割线-------------");
+
+    // 合并多个对象
+    // 参数1：要合并的目标对象（要合并到那个对象上）
+    // 参数2、3、4....：将剩余的参数对象合并到第一个对象
+    Object.assign(a,
+        {sex:"男"},
+        {money:10000}
+    );
+    console.log(a);
+
+    // 冻结对象，被冻结的对象无法删除，修改、添加属性
+    Object.freeze(a);
+    a.name = "李四";    // 修改
+    a.form = "Chine";  // 添加
+    delete a.money;    // 删除
+    console.log(a);    // 对象未改变
+</script>
+</body>
+</html>

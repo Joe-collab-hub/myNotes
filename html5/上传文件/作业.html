@@ -1,0 +1,56 @@
+<!--
+  ~ Time:2022/3/17 20:06 39
+  ~ Name:作业.html
+  ~ Path:html5/上传文件
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+
+</head>
+<body>
+<input type="file" multiple accept="image/*">
+<p>当前上传进度 <span id="progress"></span> %</p>
+<video></video>
+</body>
+<script>
+	document.querySelector('input').onchange = function () {
+		const file = this.files[0];
+		const reader = new FileReader();
+
+			reader.readAsDataURL(file);
+			reader.onload = function () {
+				const imgDom = new Image();
+				imgDom.src = reader.result;
+				document.body.append(imgDom);
+
+				imgDom.onclick = function () {
+					const formData = new FormData();
+					
+					console.log(formData);
+					const xhr = new XMLHttpRequest();
+					xhr.open('post', 'http://192.168.107.137:3000/upload');
+					xhr.upload.onprogress = function (e) {   // 参数表示当前上传进度信息
+						console.log(e.lengthComputable)     // 表示当前上传的文件大小是否可计算,如果为false,则无法获取文件的大小
+						console.log(e.total);               // 上传文件的总大小
+						console.log(e.loaded);              // 已经上传的大小
+						document.getElementById('progress').innerText = (e.loaded / e.total * 100).toFixed(2);
+					}
+					xhr.send(formData);
+					document.body.removeChild(this);
+
+
+				}
+			}
+	};
+
+</script>
+</html>

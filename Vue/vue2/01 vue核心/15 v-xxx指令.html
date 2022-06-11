@@ -1,0 +1,88 @@
+<!--
+  ~ Time:2022/4/6 16:29 25
+  ~ Name:15 v-xxx指令.html
+  ~ Path:Vue/01 vue
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>v-xxx指令</title>
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+
+	</style>
+	<script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<div v-cloak>你好，{{ name }}</div>
+	<!--	<div v-text="name">你好，</div>-->
+	<!--	<div v-html="str"></div>-->
+	<h1 v-once>初始值：{{n}}</h1>
+	<h1>当前值：{{n}}</h1>
+	<button @click="n++">点击n+1</button>
+
+	<h2 v-pre>Vue其实很简单</h2>
+	<h2>当前值：{{v}}</h2>
+	<button   @click="v++">点击v+1</button>
+</div>
+</body>
+<script>
+
+	/*
+		我们学过的指令：
+			v-bind：单项绑定解析表达式，可简写为 :xxx
+			v-model：双向数据绑定
+			v-for：遍历数组/对象/字符串
+			v-on：绑定事件监听，可简写为 @
+			v-if：条件渲染（动态控制节点是否存在）
+			v-else：条件渲染（动态控制节点是否存在）
+			v-show：条件渲染（动态控制节点是否展示）
+		v-text指令：
+			1、作用：向其所在的节点中渲染文本内容
+			2、与插值语法的区别：v-text会替换节点中的内容，{{xxx}}不会
+		v-html指令：
+			1、作用：向指定的节点中渲染包含html结构的内容
+			2、与插值语法的区别:
+				(1)、v-html会替换掉节点中所有的内容，{{xxx}}不会
+				(2)、v-html可以识别html结构
+			3、严重注意 v-html有安全问题！！！
+				（1）、在网站上动态渲染任意HTML是非常危险的容易导致XSS攻击
+				（2）、一定要在可信的内容上使用v-html，永远不要在用户提交的内容上
+		v-cloak指令：
+			1、本质是一个特殊的属性，Vue实例创建完毕接管容器后，会删除v-cloak属性
+			2、使用css配合v-cloak可以解决网速慢时页面展示出{{xxx}}的问题
+		v-once指令：
+			1、v-once所在的节点在初次动态渲染后，就视为静态内容了
+			2、以后数据的改变不会引起v-once所在节点更新，可以用于优化性能
+		v-pre指令：
+			1、跳过其所在节点的编译过程
+			2、可以利用他跳过没有指令语法，没有使用插值语法的节点，会加快编译
+	 */
+
+	Vue.config.productionTip = false;
+
+	const vm = new Vue({
+		el: '#root',
+		data () {
+			return {
+				name: 'Vue',
+				str: '<h2>你好啊！</h2>',
+				n:1,
+				v:1,
+			};
+		},
+		methods: {},
+
+	});
+</script>
+</html>

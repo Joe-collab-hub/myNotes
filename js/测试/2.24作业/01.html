@@ -1,0 +1,34 @@
+<!--
+  ~ Time:2022/2/24 18:38 22
+  ~ Name:乔悦恒.html
+  ~ Path:js/测试/2.24作业
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+
+</head>
+<body>
+
+</body>
+<script>
+	const delEven = (arr) => {
+		let arr1 = [];
+		for (const arrKey in arr) {
+			if (arr[arrKey] % 2 === 1) {
+				arr1.push(arr[arrKey]);
+			}
+		}
+		return arr1;
+	};
+	console.log(delEven([1, 4, 2, 5, 34, 43]));
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!--pages/index/index.wxml-->
+<view class="indexContainer">
+  <image wx:if="{{userInfo.avatarUrl}}" class="avartarUrl" src='{{userInfo.avatarUrl}}'></image>
+<!--  点击获取授权 getUserProfile-->
+  <button wx:if="{{!userInfo.avatarUrl}}" bindtap="getUserProfile">点我获取授权</button>
+<!--  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登录</button>-->
+  <text class="userName">{{msg}}</text>
+
+  <!-- 测试事件绑定 -->
+  <!-- bing绑定：事件绑定不会阻止冒泡事件向上冒泡 -->
+  <!-- <view class="goStudy" bindtap="handleParent">
+    <text bindtap="handleChild">hello world</text>
+  </view> -->
+  <!-- catch绑定：事件绑定可以阻止冒泡事件向上冒泡 -->
+  <!-- <view class="goStudy" catchtap="handleParent">
+    <text catchtap="handleChild">hello world</text>
+  </view> -->
+
+  <view class="goStudy" catchtap="toLogs">
+    <text>hello world</text>
+  </view> 
+</view>

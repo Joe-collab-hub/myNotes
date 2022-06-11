@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #a{
+            width: 200px;
+            height: 200px;
+            background-color: black;
+            margin:  100px auto;
+            position: relative;
+            top: 0;
+        }
+        #b{
+            width: 100px;
+            height: 100px;
+            margin-top: 200px;
+            background-color: #EC9DAB;
+            position: relative;
+            top: -200px;
+        }
+        #a:hover + #b{
+            top: -100px;
+            transition: all 1s;
+            background-color: red;
+        }
+        /*#b:hover{*/
+        /*    background-color: black;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div>
+<div id="a"></div><div id="b"></div>
+</div>
+</body>
+</html>

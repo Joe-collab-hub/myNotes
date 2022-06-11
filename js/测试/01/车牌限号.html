@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>车牌限号</title>
+</head>
+<body>
+<p id="name"></p>
+<script>
+    var a = new Date();
+    var b = a.getDay()
+    switch (b){
+        case 1:
+            document.write("限尾号 1、6");
+            break;
+        case 2:
+            document.write("限尾号 2、7");
+            break;
+        case 3:
+            document.write("限尾号 3、8");
+            break;
+        case 4:
+            document.write("限尾号 4、9");
+            break;
+        case 5:
+            document.write("限尾号 5、0");
+            break;
+        case 6:
+        case 7:
+            document.write("不限号");
+            break;
+    }
+</script>
+<!--<script>-->
+<!--    var a = 10;-->
+<!--    var b = 20;-->
+<!--    //var c = a++ + ++b + ++a + b++ - ++a + a++ + ++b-->
+<!--    var  c = ++b + a++ + ++a + b++ - a++ - ++b - a++ - ++b + ++a + b++-->
+<!--     document.write(c)-->
+<!--</script>-->
+</body>
+</html>

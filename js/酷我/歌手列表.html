@@ -1,0 +1,203 @@
+<!--
+  ~ Time:2022/2/28 9:46 24
+  ~ Name:歌手列表.html
+  ~ Path:HTML（智游）/JS/第十二周/2.28
+  ~ ProjectName:HTML5
+  ~ Author:lenovo
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>歌手列表</title>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.t > button {
+			border: 0;
+			background-color: transparent;
+			width: 28px;
+			height: 28px;
+			border-radius: 50%;
+		}
+		.b > button {
+			width: 70px;
+			border: 0;
+			background-color: transparent;
+			height: 28px;
+			margin-top: 20px;
+			margin-bottom: 30px;
+			border-radius: 14px;
+		}
+		#box, .t, .b {
+			width: 1032px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			margin: auto;
+		}
+		#box > div {
+			display: inline-block;
+			margin-top: 10px;
+			cursor: default;
+		}
+		img, .name {
+			cursor: pointer;
+		}
+		.img1 {
+			display: inline-block;
+			vertical-align: middle;
+			border-radius: 50%;
+			overflow: hidden;
+			margin-right: 5px;
+		}
+		.little-img {
+			width: 13%;
+			margin-right: 1.5%;
+			/* float: left; */
+		}
+		.musicNum {
+			font-size: 12px;
+			color: #999;
+		}
+		.img {
+			position: relative;
+			overflow: hidden;
+		}
+		img {
+			width: 150px;
+			border-radius: 50%;
+		}
+		.img2 {
+			width: 40px;
+		}
+		span {
+			width: 90px;
+			font-size: 14px;
+			font-weight: 300;
+			cursor: pointer;
+
+		}
+		p {
+			text-align: center;
+			margin-top: 5px;
+		}
+
+	</style>
+
+
+</head>
+<body>
+<div class="t">
+	<button style="width: 50px;border-radius: 14px;font-weight: 700;background-color: yellow">热门:</button>
+	<button>A</button>
+	<button>B</button>
+	<button>C</button>
+	<button>D</button>
+	<button>E</button>
+	<button>F</button>
+	<button>G</button>
+	<button>H</button>
+	<button>I</button>
+	<button>J</button>
+	<button>K</button>
+	<button>L</button>
+	<button>M</button>
+	<button>N</button>
+	<button>O</button>
+	<button>P</button>
+	<button>Q</button>
+	<button>R</button>
+	<button>S</button>
+	<button>T</button>
+	<button>U</button>
+	<button>V</button>
+	<button>W</button>
+	<button>X</button>
+	<button>Y</button>
+	<button>Z</button>
+	<button>#</button>
+</div>
+<div class="b">
+	<button style="width: 50px;border-radius: 14px;font-weight: 700;background-color: yellow">全部:</button>
+	<button>华语男</button>
+	<button>华语女</button>
+	<button>华语组合</button>
+	<button>日韩组合</button>
+	<button>欧美男</button>
+	<button>欧美女</button>
+	<button>欧美组合</button>
+	<button>其他</button>
+</div>
+<div id="box"></div>
+</body>
+
+</html>
+<script>
+	let t = '热门';
+	let b = 0;
+
+	$('.t > button').click(function () {
+		$('.t > button').css('backgroundColor', '')
+		$(this).css({
+			backgroundColor: 'yellow',
+		})
+		t = $(this).text();
+		console.log(getUrl())
+	})
+	$('.b > button').click(function () {
+		$('.b > button').css('backgroundColor',  '')
+		$(this).css({
+			backgroundColor: 'yellow'
+		})
+		b = $(this).index();
+		console.log(getUrl())
+	})
+
+	function getUrl () {
+		return `首字母为${t}, 分类为${b}`
+	}
+	let xhr = new XMLHttpRequest();
+	xhr.open('get', 'http://39.96.88.57:9090/api/www/artist/artistInfo?category=0&pn=1&rn=100', false);
+	xhr.send();
+
+	const result = JSON.parse(xhr.responseText)
+	console.log(result);
+	let arr = result.data.artistList;
+	// let box = document.getElementById('box');
+	// console.log(arr)
+
+	arr.forEach(function (val,index) {
+		if (index <= 11) {
+			$('#box').append(`
+			<div>
+				<div class="img">
+					<img src="${val.pic}" alt="">
+				</div>
+
+					<p class="name">${val.name}</p>
+					<p class="musicNum">${val.musicNum}首歌曲</p>
+			</div>
+		`)
+		} else {
+			$('#box').append(`
+			<div class="little-img">
+				<div class="img1">
+					<img src="${val.pic}" alt="" class="img2" >
+				</div>
+					<span>${val.name}</span>
+			</div>
+		`)
+		}
+	})
+
+
+</script>

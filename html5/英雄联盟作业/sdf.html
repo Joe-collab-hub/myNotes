@@ -1,0 +1,128 @@
+<!--
+  ~ Time:2022/3/11 21:24 58
+  ~ Name:sdf.html
+  ~ Path:html5/英雄联盟作业
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		#box {
+			width: 1200px;
+			height: 400px;
+		}
+	</style>
+	<script src="echarts.js"></script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script>
+	const main = echarts.init(document.getElementById('box'));
+
+	main.setOption({
+		tooltip: {
+			show: true,
+		},
+		legend: {
+			data: [
+				{
+					name: '熟练度',
+					itemStyle: {
+						color: '#c23531',
+						borderRadius: [54, 54, 54, 54],
+					},
+					textStyle: {
+						color: '#fff',
+					},
+					icon: 'circle',
+				}, {
+					name: '战力分',
+					itemStyle: {
+						color: '#2f4554',
+					},
+					textStyle: {
+						color: '#fff',
+					},
+				}, {
+					name: '场次',
+					icon: 'image://http:c95c144c2dbb9208d376d7948b51ec9.png',
+				}],
+			itemWidth: 20,
+			itemHeight: 20,
+		},
+		xAxis: [
+			{
+				type: 'category',
+				axisTick: {
+					alignWithLabel: true,
+				},
+				data: ['干将', '猴子', '亚瑟', '妲己', '瑶', '艾琳'],
+				axisName: {
+					color: '#ecfd95',
+					fontSize: 15,
+				},
+			},
+		],
+		yAxis: [
+			{
+				type: 'value',
+				position: 'left',
+				alignTicks: true,
+				axisLine: {
+					show: true,
+				},
+			},
+		],
+		series: [
+			{
+				name: '熟练度',
+				type: 'bar',
+				data: [120, 240, 450, 180, 360, 420],
+				itemStyle: {
+					color: '#c23531',
+				},
+			},
+			{
+				name: '战力分',
+				type: 'bar',
+				data: [210, 500, 340, 240, 180, 360],
+				itemStyle: {
+					color: '#2f4554',
+				},
+			},
+			{
+				name: '场次',
+				type: 'line',
+				data: [200, 480, 300, 180, 240, 390],
+				itemStyle: {
+					color: '#5a969e',
+				},
+			},
+		],
+	});
+
+</script>
+</html>

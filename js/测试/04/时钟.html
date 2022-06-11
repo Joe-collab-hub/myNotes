@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        #txt {
+            width: 200px;
+            height: 100px;
+            border: 5px solid white;
+            text-align: center;
+            color: white;
+            margin: 100px auto;
+        }
+
+        #bot {
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        #box {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body onLoad="startTime()">
+<div id="txt">
+    <div id="box"></div>
+    <div id="bot"></div>
+</div>
+</body>
+</html>
+<script>
+    const checkTime = (i) => {
+        if (i < 10) {
+            i = "0" + i
+        }
+        return i
+    };
+    const parseTime = (time, type) => {
+        let year = time.getFullYear();
+        let month = time.getMonth() + 1;
+        let date = time.getDate();
+        let hours = time.getHours();
+        let minutes = time.getMinutes();
+        let seconds = time.getSeconds();
+        let milliSeconds = time.getMilliseconds();
+        month = checkTime(month);
+        date = checkTime(date);
+        if (type === "-") {
+            return (year + "-" + month + "-" + date + "  " + hours + ":" + minutes + ":" + seconds + ":" + milliSeconds)
+        } else if (type === ":") {
+            return (year + "年" + month + "月" + date + "日  " + hours + ":" + minutes + ":" + seconds + ":" + milliSeconds)
+        } else if (type === "/") {
+            return (year + "/" + month + "/" + date + "  " + hours + ":" + minutes + ":" + seconds + ":" + milliSeconds)
+        }
+    };
+
+    console.log(parseTime(new Date(), "-"));
+    console.log(parseTime(new Date(2021, 5, 21), ":"));
+    console.log(parseTime(new Date(1000000000000), "/"));
+
+
+    const startTime = () => {
+        let time = new Date();
+        let year = time.getFullYear();
+        let month = time.getMonth() + 1;
+        let date = time.getDate();
+        let day = time.getDay();
+        let hours = time.getHours();
+        let minutes = time.getMinutes();
+        let seconds = time.getSeconds();
+        month = checkTime(month);
+        date = checkTime(date);
+        minutes = checkTime(minutes);
+        seconds = checkTime(seconds);
+        if (day === 1) {
+            day = "星期一";
+        } else if (day === 2) {
+            day = "星期二";
+        } else if (day === 3) {
+            day = "星期三";
+        } else if (day === 4) {
+            day = "星期四";
+        } else if (day === 5) {
+            day = "星期五";
+        } else if (day === 6) {
+            day = "星期六";
+        } else if (day === 0) {
+            day = "星期日";
+        }
+        document.getElementById('box').innerHTML = hours + ":" + minutes + ":" + seconds;
+        document.getElementById("bot").innerHTML = year + "-" + month + "-" + date + " " + day;
+        setTimeout('startTime()',1000)
+    }
+
+</script>

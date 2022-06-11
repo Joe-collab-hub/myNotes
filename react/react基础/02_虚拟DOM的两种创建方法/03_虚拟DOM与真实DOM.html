@@ -1,0 +1,56 @@
+<!--
+  ~ Time:2022/4/26 13:15 59
+  ~ Name:hello_react.html
+  ~ Path:react基础/01_hello_react
+  ~ ProjectName:react
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>虚拟DOM与真实DOM</title>
+
+</head>
+<body>
+<!--准备好一个容器-->
+<div id="test"></div>
+</body>
+
+<!--引入react核心库-->
+<script src="../../js/旧版本/react.development.js"></script>
+
+<!--引入react-dom库,用来支持react操作DOM-->
+<script src="../../js/旧版本/react-dom.development.js"></script>
+
+<!--引入jsx语法解析器-->
+<script src="../../js/旧版本/babel.min.js"></script>
+
+<script type="text/babel"> // 此处一定要写babel，引入jsx语法解析器,用来解析jsx语法
+
+// 1.创建虚拟DOM
+const element = (
+		<h1 id="box">
+			<span>hello,React!</span>
+		</h1>
+);// 此处一定不要写引号，因为不是字符串，用括号代表是一个整体
+
+// 2.渲染虚拟DOM到页面
+ReactDOM.render(element, document.getElementById('test'));
+
+console.log(element);
+console.log(document.getElementById('test'));
+console.log(typeof element);
+
+/*
+	关于虚拟DOM
+		1、本质是Object类型的对象（一般对象）
+		2、虚拟DOM比较 “轻” ，真实DON比较 “重”，应为虚拟DON是React内部在用，无需真实DOM上那么多属性
+		3、虚拟DOM最终会被React转化为真实DOM，呈现在页面上
+ */
+</script>
+</html>

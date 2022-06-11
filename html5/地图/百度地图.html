@@ -1,0 +1,123 @@
+<!--
+  ~ Time:2022/3/10 11:27 57
+  ~ Name:百度地图.html
+  ~ Path:html5
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+	<style>
+		#box {
+			width: 1000px;
+			height: 1000px;
+		}
+
+
+	</style>
+	<!--	<script type="text/javascript">-->
+
+	<!--		function loadScript() {-->
+	<!--			var script = document.createElement("script");-->
+	<!--			script.src = "https://api.map.baidu.com/api?v=1.0&type=webgl&ak=zh578MGysheETCVsRTCAfehqtHhifrtq&callback=initialize";-->
+	<!--			document.body.appendChild(script);-->
+	<!--		}-->
+
+	<!--		window.onload = loadScript;-->
+	<!--	</script>-->
+</head>
+<body>
+<div id="box"></div>
+<button>点击</button>
+</body>
+<script src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=zh578MGysheETCVsRTCAfehqtHhifrtq&callback=initialize"></script>
+<script>
+	// 将SDK加载完成调用此函数
+	function initialize () {
+		// 初始化地图容器，参数为id容器
+		var mp = new BMapGL.Map('box');
+		// 创建点坐标
+		// 参数一：为经度，参数二：为纬度
+		let point = new BMapGL.Point(113.805363, 34.806989);
+
+		// 初始化地图，设置中心坐标和地图级别
+		// 参数一： 中心点坐标
+		// 参数二：地图缩放倍数
+		mp.centerAndZoom(point, 15);
+
+		// 开始滚轮缩放
+		mp.enableScrollWheelZoom();
+
+		// 设置旋转角度
+		mp.setHeading(30);
+
+		// 设置倾斜角度
+		mp.setTilt(30);
+
+		document.getElementsByTagName('button')[0].onclick = function () {
+			// 设置地图为卫星地图模式
+			mp.setMapType(BMAP_EARTH_MAP);
+		};
+
+		// 添加控件
+
+		// const ScaleControl = new BMapGL.ScaleControl();  // 创建比例尺控件
+		// mp.addControl(ScaleControl);  // 添加到地图实例中
+		// const ZoomControl = new BMapGL.ZoomControl();
+		// mp.addControl(ZoomControl);
+		// const LocationControl = new BMapGL.LocationControl();
+		// mp.addControl(LocationControl);
+		// const CityListControl = new BMapGL.CityListControl();
+		// mp.addControl(CityListControl);
+		// const CopyrightControl = new BMapGL.CopyrightControl();
+		// mp.addControl(CopyrightControl);
+
+		const ScaleControl = new BMapGL.ScaleControl({
+			anchor: BMAP_ANCHOR_TOP_LEFT,
+			offset: new BMapGL.Size(0, 300),
+		});
+		// mp.addControl(ScaleControl)
+		// 添加一个坐标点
+		let point1 = new BMapGL.Point(113.805363, 34.806989);
+		// 创建标注
+		const marker1 = new BMapGL.Marker(point1);
+		// 添加到地图
+		mp.addOverlay(marker1);
+
+		let arr = [];
+		mp.addEventListener('click', function (e) {
+			let point = new BMapGL.Point(e.latlng.lng, e.latlng.lat);
+			const InfoWindow = new BMapGL.InfoWindow('<a href="https://baidu.com">world</a>', {
+				width: 300,
+				height: 150,
+				title: 'hello',
+			});
+			mp.openInfoWindow(InfoWindow, point);
+			arr.push(point);
+			const marker = new BMapGL.Marker(point);
+			// mp.addOverlay(marker);
+			// if (arr) {
+			// 	const line = new BMapGL.Polyline(arr);
+			// 	mp.addOverlay(line);
+			// const gon = new BMapGL.Polygon(arr);
+			// mp.addOverlay(gon);
+			// }
+
+		});
+		// const gon = new BMapGL.Polygon([
+		// 	new BMapGL.Point(113.805363, 34.806989),
+		// 	new BMapGL.Point(112.805363, 36.806989),
+		// 	new BMapGL.Point(114.805363, 35.806989)
+		// ]);
+		// mp.addOverlay(gon);
+
+	}
+</script>
+</html>

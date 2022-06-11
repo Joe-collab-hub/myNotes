@@ -1,0 +1,87 @@
+<!--
+  ~ Time:2022/3/14 16:24 57
+  ~ Name:飞线.html
+  ~ Path:html5/echarts
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		#box {
+			height: 900px;
+		}
+
+
+	</style>
+	<script src="echarts.js"></script>
+	<script src="echarts-gl.min.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script>
+	const myEcharts = echarts.init(document.getElementById('box'));
+
+	$.get('./china.json', function (geoJson) {
+		echarts.registerMap('china', geoJson);
+		myEcharts.setOption({
+
+			geo3D: {
+				map: 'china',
+				label:{
+					show: true,
+					color: 'red',
+					fontSize:20
+				},
+				itemStyle: {
+					borderWidth: 1,
+					opacity: 0.7,
+					color:'#ccc'
+				},
+			},
+			series: [
+				{
+					type: 'lines3D',
+					coordinateSystem: 'geo3D',
+					data: [
+						[
+							[87.8695, 31.6846, 1],
+							[112.5977, 42.3408, 1],
+						]
+					],
+					lineStyle: {
+						color: 'red',
+					},
+					effect: {
+						show:true,
+					}
+				},
+			],
+		});
+	});
+</script>
+</html>

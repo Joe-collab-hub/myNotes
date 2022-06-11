@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const getArr = (str, num) => {
+        let arr = [];
+        const addArr = (str,num) => {
+            if (arr.length === str){
+                return arr;
+            } else {
+                arr.push(num);
+                addArr(str,num);
+            }
+        }
+        addArr(str,num);
+        return arr;
+    }
+    console.log(getArr(3, 5));
+
+</script>
+</body>
+</html>

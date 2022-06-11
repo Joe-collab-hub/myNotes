@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+	<style>
+		canvas {
+			border: 1px solid red;
+		}
+	</style>
+
+</head>
+<body>
+<canvas width="500" height="500"></canvas>
+
+</body>
+
+</html>
+<script>
+	const canvasDom = document.querySelector('canvas');
+	const context = canvasDom.getContext('2d');
+
+	const imgDom = new Image();
+	imgDom.src = './刮刮乐.webp';
+	imgDom.onload = function () {
+		this.width = this.naturalWidth;
+		this.height = this.naturalHeight;
+		//绘制图片drawImage
+		context.drawImage(this,0,0);
+		//绘制文字
+		context.fillStyle = '#0f0';
+		context.font = '600 20px 微软雅黑';
+		context.globalAlpha =1;//设置绘制图形的透明度
+		context.textBaseline = 'top';
+		context.textAlign = 'left';
+
+		//旋转画布
+		context.rotate(Math.PI/16*45);
+		context.translate(0,-200)
+		for(let y=0;y<this.naturalHeight*2;y+=50) {
+			//循环绘制文字
+			for(let x = 0; x<this.naturalWidth*2;x+=100){
+				context.fillText('此奖已兑',x,y);
+			}
+
+		}
+
+
+
+
+	};
+</script>

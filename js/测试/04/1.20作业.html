@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            /*border: black 2px solid;*/
+            margin: 100px auto;
+            border-collapse: collapse;
+        }
+
+        tr {
+            /*width: 50px;*/
+            border: 1px solid #cccccc;
+        }
+
+        td {
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            border: 1px solid #cccccc;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td><input type="checkbox" id="checkedAllBox"></td>
+        <td>ID</td>
+        <td>用户名</td>
+        <td>性别</td>
+        <td>城市</td>
+        <td>签名</td>
+        <td>积分</td>
+        <td>评分</td>
+        <td>职业</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="items"></td>
+        <td>10000</td>
+        <td>user0</td>
+        <td>男</td>
+        <td>郑州</td>
+        <td>签名-0</td>
+        <td>2000</td>
+        <td>3000</td>
+        <td>程序员</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="items"></td>
+        <td>10001</td>
+        <td>user1</td>
+        <td>男</td>
+        <td>郑州</td>
+        <td>签名-1</td>
+        <td>2001</td>
+        <td>3001</td>
+        <td>程序员</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="items"></td>
+        <td>10002</td>
+        <td>user2</td>
+        <td>男</td>
+        <td>郑州</td>
+        <td>签名-2</td>
+        <td>2002</td>
+        <td>3002</td>
+        <td>程序员</td>
+    </tr>
+</table>
+</body>
+</html>
+
+<script>
+
+    let checkedAllBox = document.getElementById("checkedAllBox");
+
+    checkedAllBox.onclick = function () {
+        let items = document.getElementsByName("items");
+        for (let i = 0; i < items.length; i++) {
+            items[i].checked = this.checked;
+        }
+    }
+
+    let items = document.getElementsByName("items");
+
+    for (let i = 0; i < items.length; i++) {
+        items[i].onclick = function () {
+            checkedAllBox.checked = true;
+            for (let j = 0; j < items.length; j++) {
+                if (!items[j].checked) {
+                    checkedAllBox.checked = false;
+                    break;
+                }
+            }
+        }
+    }
+
+    let tr = document.getElementsByTagName("tr");
+
+    for (let j = 0; j<tr.length;j++){
+        tr[j].onmouseover = function (){
+            move_Up(j);
+        }
+
+        tr[j].onmouseout = function () {
+            removed(j);
+        }
+    }
+
+    function move_Up(j) {
+        let td = tr[j].getElementsByTagName("td");
+        for (let i = 0; i < td.length; i++) {
+            td[i].style.backgroundColor = "#c6faf1"
+        }
+    }
+
+
+    function removed(j) {
+        let td = tr[j].getElementsByTagName("td");
+        for (let i = 0; i < td.length; i++) {
+            td[i].style.backgroundColor = "transparent"
+        }
+    }
+
+</script>

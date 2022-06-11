@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 用来模拟请求
+    function setTime(page) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(`第${page}页数据请求成功`);
+            }, Math.random() * 2000);   // 随机时间模拟网络请求时间
+        })
+    }
+
+    const p1 = setTime(8);
+    const p2 = setTime(3);
+    // 需求：等待两个请求都成功之后再执行某些操作
+    // let count = 0;
+    // p1.then(data => {
+    //     count++;
+    //     console.log(data);
+    //     if (count === 2) {
+    //         console.log('两个promise都完成了');
+    //     }
+    // })
+    // p2.then(data => {
+    //     count++;
+    //     console.log(data);
+    //     if (count === 2) {
+    //         console.log('两个promise都完成了');
+    //     }
+    // })
+
+
+    // promise.all 可以帮我们实现这个功能
+    // 参数为多个 promise 实例对象组成的数组, 会返回一个新的 promise
+    Promise.all([p1, p2])
+        .then((res) => {  // 所有promise都成功就会执行
+            console.log(res);   // res 中存储着所有 promise 调用 resolve 传递的参数
+        })
+        .catch((err) => { // 任意一个失败就会执行
+            console.log('失败', err);
+        });
+
+    // 实际用处：
+    // 如：要发起请求上传多个文件，需要等待所有的文件上传成功并且返回存储的位置之后，再将路径保存到服务器
+</script>

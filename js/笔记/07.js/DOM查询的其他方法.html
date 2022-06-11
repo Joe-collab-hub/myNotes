@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM查询的其他方法</title>
+    <script>
+
+        window.onload = function (){
+
+            // 获取body标签
+            // var body = document.getElementsByTagName("body")[0];
+            /*
+                在documentz有一个属性body，它保存的时body的引用
+             */
+            // var body = document.body;
+            // console.log(body);
+            //
+            // var html = document.documentElement;
+            // console.log(html)
+
+
+            // 页面的所有标签
+            // var {all} = document;
+            // console.log(all.length);
+            // for (var i = 0; i < all.length ; i++){
+            //     console.log(all[i]);
+            // }
+            // var all = document.getElementsByTagName("*")
+            // console.log(all.length)
+
+
+            // 根据元素class属性值查询一组元素节点对象
+            // getElementsByClassName()可以根据class属性获取一组元素节点
+            var box1 = document.getElementsByClassName("box1")
+            console.log(box1.length);
+
+            // 获取页面中的所有的div
+            // var divs = document.getElementsByTagName("div");
+
+            // 获取class为box1中的所有的div
+            // .box1 div
+
+            /*
+                  document.querySelector()
+                    - 需要一个选择器的字符串作为参数，可以根据css选择器来查询一个元素节点对象
+                    - 使用该方法总会返回唯一的一个元素，如果满足条件的元素有多个，那么他只会返回第一个元素
+             */
+            // var div = document.querySelector(".box1 div")
+            //
+            // console.log(div);
+
+
+            /*
+                  document.querySelectorAll()
+                    - 该方法与document.querySelector()用法类似，
+                        不同的是它会将符合条件的元素封装到一个数组中返回
+                    - 即使符合条件的元素只有一个，他也会返回一个数组
+             */
+            // var box2 = document.querySelectorAll(".box1");
+            //
+            // console.log(box2.length)
+
+        }
+    </script>
+</head>
+<body>
+<div class="box1">
+    <div>所得十九分</div>
+</div>
+<div class="box1"></div>
+<div class="box1"></div>
+</body>
+</html>

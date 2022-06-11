@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		#bot {
+			width: 200px;
+			display: flex;
+			justify-content: space-between;
+			margin: auto;
+		}
+
+		#bot > img {
+			width: 30px;
+		}
+
+		#top, #right {
+			width: 200px;
+			height: 100px;
+			border: 1px solid #5dd5c8;
+			border-radius: 20px;
+
+			text-align: center;
+			font-size: 30px;
+			line-height: 100px;
+			color: #e3adaf;
+		}
+
+		#top {
+			margin: 30px auto;
+		}
+
+		#right {
+			margin-left: 65%;
+			margin-top: -200px;
+		}
+	</style>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+<body>
+<div id="bot">
+	<img src="1.png" alt="">
+	<img src="1.png" alt="">
+	<img src="1.png" alt="">
+	<img src="1.png" alt="">
+	<img src="1.png" alt="">
+</div>
+<div id="top"></div>
+<div id="right"></div>
+</body>
+</html>
+<script>
+	let img = $('img')
+	let divTop = $('#top')
+	let divRight = $('#right')
+	let num = 0
+
+	function fun (index) {
+		for (let i = 0; i < index; i++) {
+			img[i].src = '2.png'
+		}
+		for (let i = index; i < img.length; i++) {
+			img[i].src = '1.png'
+		}
+	}
+
+	function fun1 (index) {
+		switch (index) {
+			case 1:
+				divTop.text('111')
+				break
+			case 2:
+				divTop.text('222')
+				break
+			case 3:
+				divTop.text('333')
+				break
+
+			case 4:
+				divTop.text('444')
+				break
+			case 5:
+				divTop.text('5555')
+				break
+		}
+	}
+
+	img.mouseenter(function () {
+		let index = img.index(this) + 1
+		fun(index)
+		fun1(index)
+	})
+
+	img.mouseleave(function () {
+		for (let i = 0; i < img.length; i++) {
+			img[i].src = '1.png'
+		}
+		for (let i = 0; i < num; i++) {
+			img[i].src = '2.png'
+		}
+		divTop.text('')
+	})
+	img.click(function () {
+		let index = img.index(this) + 1
+		num = index
+		fun(index)
+		divRight.text(divTop.text())
+		divTop.text('')
+	})
+</script>

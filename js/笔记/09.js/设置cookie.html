@@ -1,0 +1,47 @@
+<!--
+  ~ Time:2022/2/23 15:53 16
+  ~ Name:设置cookie.html
+  ~ Path:js/笔记/09.js
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>cookie</title>
+
+</head>
+<body>
+<button onclick="createCookie()">创建coolie</button>
+<button onclick="readCookie()">读取cookie</button>
+</body>
+<script>
+
+	function createCookie () {
+		// 可以使用cookie来在浏览器上储存一些信息，方便我们来记录客户的一些状态
+		// cookie的格式，类似于ulr的查询字符串
+		// 使用docum。cookie给页面添加一条cookie
+		// 默认情况下，设置的cookie是会话级的，也就是当浏览器被关闭后，cookie会自动消失
+		document.cookie = 'name=乔悦恒';
+		// 如果想要设置持久化的cookie，需要设置cookie的到期时间
+		// 设置cookie时，使用分号隔开，后面可以对当前的cookie进行配置
+
+		//expires配置cookie过期时间，值需要为一个时间对象通过toUTCString转化过的字符串（GMT格林的时间）
+		const data = new Date('2022-2-24');
+		document.cookie = 'age=18;expires=' + data.toUTCString();
+		// max-age也可以设置国企时间，单位秒
+
+		document.cookie = 'sex=男;max-age=60';
+	}
+
+	function readCookie () {
+		// document.cookie也可以用于获取浏览器需的cookie
+		alert(document.cookie);
+	}
+</script>
+</html>

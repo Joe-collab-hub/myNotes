@@ -1,0 +1,116 @@
+<!--
+  ~ Time:2022/4/29 14:11 13
+  ~ Name:2_key的作用.html
+  ~ Path:react基础/11_DOM的Diffing算法
+  ~ ProjectName:react
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>key的作用</title>
+
+</head>
+<body>
+<div id="test"></div>
+</body>
+<script src="../../js/新版本/react.development.js"></script>
+<script src="../../js/新版本/react-dom.development.js"></script>
+<script src="../../js/新版本/babel.min.js"></script>
+<script type="text/babel">
+	
+	/*
+		经典面试题
+			1）、react/vue中的key有什么作用？（key的内部原理是什么？）
+			2）、为什么遍历列表时，key最好不要用index？
+			
+			1、虚拟DOM中的key的作用:
+				(1)、简单点说：key是虚拟DOM对象的唯一标识，在更新显示时key起着极其重要的作用
+				(2)、详细的说：当状态中的数据发生了变化时，react会根据【新数据】生成【新的虚拟DOM】
+					随后React进行【新的虚拟DOM】与【旧的虚拟DOM】的diffing算法比较规则如下：
+					a、旧的虚拟DOM中找到了与新的虚拟DOM相同的key：
+						若虚拟DOM中的内容发生了没变化，则不需要更新，直接使用旧的虚拟DOM
+						若虚拟DOM中的内容发生了变化，则生成新的虚拟DOM，并将旧的虚拟DOM替换为新的虚拟DOM
+					b、旧的虚拟DOM中没有找到与新的虚拟DOM相同的key：
+						根据数据创建新的真实DOM，随后渲染到页面上
+			
+			2、用index作为key的值可能会引发的问题：
+				（1）若对数据进行：逆序添加，逆序删除等破坏顺序操作：
+					会产生没必要的真实DOM更新 ==> 界面效果没问题，但效率低
+				（2）如果结构中还包括输入类的DOM：
+					会产生错误DOM更新 ==> 界面有问题
+				（3）注意：如果不存在对数据的逆序添加，逆序删除等破环顺序操作
+					仅用与渲染列表展示，使用index作为key的值，是没用问题
+				
+			3、开发中如何选择key的值?：
+				1、最好使用每条数据的唯一标识作为key的值，比如id、手机号、身份证、学号等唯一值
+				2、如果不存在对数据的逆序添加、删除等破坏顺序操作。仅仅用于渲染列表展示，使用index作为key值是没有问题的
+	 */
+	
+	class Person extends React.Component {
+		
+		state = {
+			persons: [
+				{
+					id: 1,
+					name: '张三',
+					age: 18,
+				},
+				{
+					id: 2,
+					name: '李四',
+					age: 20,
+				},
+			],
+		};
+		
+		add = () => {
+			const { persons } = this.state;
+			const newPerson = {
+				id: persons.length + 1,
+				name: '王五',
+				age: 22,
+			};
+			this.setState({
+				persons: [newPerson, ...persons],
+			});
+		};
+		
+		render () {
+			return (
+					<div>
+						<h1>展示人员信息</h1>
+						<button onClick={this.add}>添加一个王五</button>
+						<h3>这是用index做key的标识</h3>
+						<ul>
+							{
+								this.state.persons.map((item, index) => {
+									return <li key={index}>{item.name}----{item.age} <input type="text"/></li>;
+								})
+							}
+						</ul>
+						<hr/>
+						<hr/>
+						<h3>这是用id做key的标识</h3>
+						<ul>
+							{
+								this.state.persons.map((item, index) => {
+									return <li key={item.id}>{item.name}----{item.age} <input type="text"/></li>;
+								})
+							}
+						</ul>
+					</div>
+			);
+		}
+		
+	}
+	
+	ReactDOM.render(<Person/>, document.getElementById('test'));
+
+</script>
+</html>

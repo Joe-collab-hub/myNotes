@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #div {
+            width: 1680px;
+            margin: 0 auto;
+        }
+
+        #tox-1 {
+            width: 1100px;
+            height: 80px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        ul {
+            list-style-type: none;
+            vertical-align: middle;
+        }
+
+        li {
+            float: left;
+        }
+
+        #li-1 {
+            width: 200px;
+            height: 80px;
+            position: relative;
+            margin-top: 40px;
+            float: left;
+        }
+
+        #li-2 {
+            width: 60px;
+            height: 80px;
+            color: white;
+            background-color: red;
+            line-height: 80px;
+            text-align: center;
+            font-size: 15px;
+            float: left;
+        }
+        #span-1{
+            width: 60px;
+            height: 80px;
+            background-color: white;
+            display: inline-block;
+            top: -160px;
+            position: relative;
+            z-index: 5;
+            transition: top 1s;
+        }
+        .li-3 {
+            width: 85px;
+            height: 80px;
+            line-height: 80px;
+            color: #999999;
+            text-align: center;
+            font-size: 15px;
+            float: left;
+        }
+
+        .span-2 {
+            width: 85px;
+            height: 80px;
+            background-color: red;
+            display: inline-block;
+            position: relative;
+            top: 0;
+            z-index: 1;
+        }
+
+        .li-3:hover {
+            color: white;
+        }
+
+        .s1 {
+            position: relative;
+            z-index: 99999;
+        }
+        .li-3:hover .span-2{
+            top: -80px;
+            transition: all 1s;
+        }
+        ul:hover #span-1{
+            top: -80px !important;
+            transition: all 1s;
+        }
+        ul:hover #li-2{
+            color: #999999;
+        }
+        #li-2:hover #span-1{
+            top: -160px !important;
+            transition: all 1s;
+        }
+       #li-2:hover{
+           color: white !important;
+       }
+    </style>
+</head>
+<body>
+<div id="div">
+    <div id="tox-1">
+        <span id="li-1">
+            <img src="logo.png">
+        </span>
+        <ul>
+            <li id="li-2">
+                <span class="s1">首页</span>
+                <span id="span-1"></span>
+            </li>
+            <li class="li-3">
+                <span class="s1">万科集团</span>
+                <span class="span-2"></span>
+            </li>
+            <li class="li-3">
+                <span class="s1">新闻中心</span>
+                <span class="span-2"></span>
+            </li>
+            <li class="li-3">
+                <span class="s1">产品服务</span>
+                <span class="span-2"></span>
+            </li>
+            <li class="li-3">
+                <span class="s1">投资者关系</span>
+                <span class="span-2"></span>
+            </li>
+            <li class="li-3">
+                <span class="s1">企业公民</span>
+                <span class="span-2"></span>
+            </li>
+            <li class="li-3">
+                <span class="s1">加入万科</span>
+                <span class="span-2"></span>
+            </li>
+            <li class="li-3">
+                <span class="s1">投诉建议</span>
+                <span class="span-2"></span>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

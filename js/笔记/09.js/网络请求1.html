@@ -1,0 +1,45 @@
+<!--
+  ~ Time:2022/2/25 17:17 05
+  ~ Name:网络请求1.html
+  ~ Path:js/笔记/09.js
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>网络请求</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+	// 使用js发送ajax请求，需要使用XHR（XMLHttpRequest对象）
+
+	// 1、创建一个xhr对象
+	const xhr = new XMLHttpRequest();
+	// 2、初始化一个请求
+	/*
+		参数1：请求类型，get，post；
+		参数2：请求地址
+		参数3：是否异步
+	 */
+	xhr.open('get', 'http://39.96.88.57:9090/api/www/search/searchMvBykeyWord?key=冲动的惩罚', false);
+	// 3、发送请求
+	xhr.send();
+	// 4、请求的结果（服务器返回的东西）会保存xhr
+	const result = JSON.parse(xhr.responseText);
+	let arr = result.data;
+	for (const arrKey in arr) {
+		let div = $(`<div>${arr[arrKey]}</div>`);
+		$('body').append(div);
+	}
+
+</script>
+</html>

@@ -1,0 +1,181 @@
+/**
+  * Time:2022/3/2 18:50 48
+  * Name:index.css
+  * Path:html5/day1/3.2作业
+  * ProjectName:前端
+  * Author:突然
+  *
+  *  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  */
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+a:link {
+	color: #b700ff;
+}
+
+a:visited {
+	color: #0066ff;
+}
+
+a:hover {
+	color: #FF00FF;
+}
+
+a:active {
+	color: #ff8800;
+}
+
+*::selection {
+	color: #fff99a;
+	background-color: #ff961b;
+}
+
+*::placeholder {
+	font: 500 .5rem YouYuan;
+}
+
+*::placeholder {
+	cursor: pointer;
+}
+
+label, button {
+	user-select: none;
+	/*pointer-events:none;*/
+}
+
+input {
+	padding: .1rem 0 .1rem .1rem;
+	font: 500 .8rem YouYuan;
+}
+
+button {
+	cursor: pointer;
+}
+
+/*-------以上为默认设置（The above is the default setting）--------*/
+
+#box-1,#box-2{
+	width: 100%;
+	height: 400px;
+	position: relative;
+}
+#box-1{
+	background-color: #fff;
+}
+#box-1>ul{
+	width: 1000px;
+	height: 300px;
+	margin: 50px auto;
+	background-color: #e0e0e0;
+	display: flex;
+	justify-content: space-between;
+}
+.hexagon{
+	width: 150px;
+	height: 90px;
+	background-color: #ff6700;
+	margin-top: 75px;
+	position: relative;
+}
+.hexagon::before{
+	content: "";
+	height: 0;
+	width: 0;
+	border: 75px solid;
+	position: absolute;
+	border-color: transparent transparent #ff6700 transparent;
+	top: -150px;
+}
+.hexagon::after{
+	content: "";
+	height: 0;
+	width: 0;
+	border: 75px solid;
+	position: absolute;
+	border-color: #ff6700 transparent transparent transparent;
+	top: 90px;
+}
+.hexagon:hover{
+	animation: a 1s linear;
+}
+
+#box-2 {
+	background-color: #4fabde;
+}
+
+#box-2 > ul {
+	width: 1000px;
+	height: 150px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+.circle {
+	width: 150px;
+	height: 100%;
+	border-radius: 100%;
+	background: url("images/circle_hover.png") no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+.circle p {
+	text-align: center;
+	line-height: 150px;
+	color: #fff;
+	font-size: 20px;
+}
+
+.circle-hover {
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: all 500ms;
+	transform-origin: 50% 0;
+	transition-timing-function: linear;
+}
+
+.circle:nth-of-type(1) .circle-hover{
+	background: url("images/circle_blue4.png") no-repeat;
+	background-size: cover;
+}
+
+.circle:nth-of-type(2) .circle-hover{
+	background: url("images/circle_blue3.png") no-repeat;
+	background-size: cover;
+}
+
+.circle:nth-of-type(3) .circle-hover{
+	background: url("images/circle_blue2.png") no-repeat;
+	background-size: cover;
+}
+
+.circle:nth-of-type(4) .circle-hover{
+	background: url("images/circle_yellow.png") no-repeat;
+	background-size: cover;
+}
+
+.circle:nth-of-type(5) .circle-hover{
+	background: url("images/circle_red.png") no-repeat;
+	background-size: cover;
+}
+
+.circle:hover .circle-hover{
+	transform: rotate(-120deg);
+}
+
+

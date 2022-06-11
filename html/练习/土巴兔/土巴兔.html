@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>土巴兔</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        /***********************  地区  ***************************/
+
+        #div {
+            width: 100%;
+            height: 40px;
+        }
+
+        #box {
+            width: 1400px;
+            height: 100%;
+            margin: auto;
+            line-height: 40px;
+            font-size: 12px;
+            background-color: #f4f4f4;
+        }
+
+        #address {
+            width: 20px;
+            height: 20px;
+            background-image: url("图/1.png");
+            background-repeat: no-repeat;
+            background-position: -188px -178px;
+            display: inline-block;
+            position: relative;
+            top: 5px;
+            cursor: pointer;
+        }
+
+        #address-1 {
+            color: #0cb46a;
+            cursor: pointer;
+        }
+
+        #address-1-p {
+            width: 100px;
+            height: 40px;
+            border-left: 1px solid #b0b0b0;
+            border-right: 1px solid #b0b0b0;
+            position: absolute;
+            top: 0;
+            display: none;
+        }
+
+        #address-1:hover #address-1-p {
+            display: block;
+        }
+
+        #address-1-p2 {
+            width: 400px;
+            height: 230px;
+            background-color: #f4f4f4;
+            border: 1px solid #b0b0b0;
+            position: absolute;
+            top: 40px;
+            z-index: 99;
+            display: none;
+        }
+
+        #address-1:hover #address-1-p2 {
+            display: block;
+        }
+
+        #p2-1 {
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            border-bottom: 3px solid;
+            margin-left: 30px;
+        }
+
+        #p2-2 {
+            border-top: 1px solid #b0b0b0;
+            margin-top: -1px;
+            background-color: #ffffff;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: left;
+        }
+
+        .p2-2-1 {
+            width: 50px;
+            height: 22px;
+            color: #666666;
+            margin-left: 15px;
+            margin-top: 8px;
+        }
+
+        .p2-2-1:hover {
+            color: #0cb46a;
+        }
+
+        #p2-3 {
+            width: 100px;
+            height: 3px;
+            background-color: #f4f4f4;
+            position: relative;
+            top: -45px;
+        }
+
+        /*****************  登录  *****************************/
+
+        #box-login {
+            width: 700px;
+            display: flex;
+            float: right;
+        }
+
+        #login {
+            width: 40px;
+            color: #999999;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #login:hover {
+            color: #0cb496;
+        }
+
+        #login-1 {
+            width: 40px;
+            color: #999999;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #login-1:hover {
+            color: #0cb496;
+        }
+
+        #login-2 {
+            width: 100px;
+            color: #999999;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #login-2:hover {
+            width: 98px;
+            height: 40px;
+            background-color: #ffffff;
+            border-left: 1px solid #dcdcdc;
+            border-right: 1px solid #dcdcdc;
+        }
+
+        #login-2-1 {
+            width: 99px;
+            height: 15px;
+            border-left: 1px solid #dcdcdc;
+            position: relative;
+            top: -28px;
+            left: -1px;
+        }
+
+        #login-2-2 {
+            width: 98px;
+            height: 80px;
+            border: 1px solid #dcdcdc;
+            background-color: #ffffff;
+            position: relative;
+            top: -15px;
+            left: -1px;
+            display: none;
+        }
+
+        #login-2:hover #login-2-2 {
+            display: block;
+        }
+
+        #login-3 {
+            width: 80px;
+            height: 40px;
+            color: #999999;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #login-3:hover {
+            width: 78px;
+            background-color: #ffffff;
+            border-left: 1px solid #dcdcdc;
+            border-right: 1px solid #dcdcdc;
+        }
+
+        #login-3-1 {
+            width: 79px;
+            height: 15px;
+            border-left: 1px solid #dcdcdc;
+            position: relative;
+            top: -28px;
+            left: -1px;
+        }
+
+        #login-3-2 {
+            width: 78px;
+            border: 1px solid #dcdcdc;
+            background-color: #ffffff;
+            position: relative;
+            top: -15px;
+            left: -1px;
+            z-index: 99;
+            display: none;
+        }
+
+        #login-3:hover #login-3-2 {
+            display: block;
+        }
+
+        #login-4 {
+            width: 80px;
+            height: 40px;
+            color: #999999;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #login-4:hover {
+            width: 78px;
+            background-color: #ffffff;
+            border-left: 1px solid #dcdcdc;
+            border-right: 1px solid #dcdcdc;
+        }
+
+        #login-4-1 {
+            width: 79px;
+            height: 15px;
+            border-left: 1px solid #dcdcdc;
+            position: relative;
+            top: -28px;
+            left: -1px;
+        }
+
+        #login-4-2 {
+            width: 78px;
+            height: 80px;
+            border: 1px solid #dcdcdc;
+            background-color: #ffffff;
+            position: relative;
+            top: -15px;
+            left: -1px;
+            display: none;
+        }
+
+        #login-4:hover #login-4-2 {
+            display: block;
+        }
+
+        #login-5 {
+            width: 80px;
+            color: #999999;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #login-5:hover {
+            color: #0cb46a;
+        }
+
+        #login-5-1 {
+            width: 79px;
+            height: 15px;
+            border-left: 1px solid #dcdcdc;
+            position: relative;
+            top: -28px;
+            left: -1px;
+        }
+
+        #login-6 {
+            width: 100px;
+            color: #999999;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #login-6:hover {
+            color: #0cb46a;
+        }
+
+        #login-6-1 {
+            width: 100px;
+            height: 15px;
+            border-left: 1px solid #dcdcdc;
+            border-right: 1px solid #dcdcdc;
+            position: relative;
+            top: -28px;
+            left: -1px;
+        }
+
+        /*************  热线  *********************/
+
+        #Phone {
+            width: 200px;
+            text-align: center;
+            color: #ff6700;
+            cursor: pointer;
+        }
+
+        #Phone-1 {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            background: url("图/1.png") no-repeat;
+            background-position: -184px -238px;
+        }
+
+        .login-tu {
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+            background: url("图/1.png") no-repeat;
+            background-position: -189px -230px;
+        }
+
+        #Phone:hover .login-tu {
+            background: url("图/1.png") no-repeat;
+            background-position: -189px -293px;
+        }
+
+        .v:hover {
+            color: #0cb496;
+        }
+
+        #Phone-2 {
+            width: 300px;
+            height: 0;
+            overflow: hidden;
+            box-shadow: 1px 1px 10px #dee2e6;
+            position: absolute;
+            right: 250px;
+            z-index: 99;
+            background-color: #ffffff;
+        }
+
+        #Phone-2-1 {
+            font-size: 20px;
+            color: #555555;
+            position: relative;
+            top: 20px;
+        }
+
+        #Phone-2-2 {
+            width: 240px;
+            height: 40px;
+            border: 1px solid #dee2e6;
+            margin: auto;
+            position: relative;
+            top: 30px;
+        }
+
+        #Phone-input {
+            width: 230px;
+            border: 0;
+            outline: none;
+        }
+
+        #Phone-input::-webkit-input-placeholder {
+            color: #dadada;
+        }
+
+        #Phone-2-3 {
+            width: 240px;
+            height: 20px;;
+            margin: auto;
+            position: relative;
+            top: 55px;
+        }
+
+        #Phone-input-1 {
+            position: absolute;
+            left: 0;
+            top: 7px;
+        }
+
+        #Phone-2-3-1 {
+            color: #555555;
+            position: absolute;
+            left: 20px;
+            top: -6px;
+        }
+
+        #Phone-2-4 {
+            width: 240px;
+            height: 40px;
+            background-color: #05b56a;
+            border-radius: 4px;
+            margin: auto;
+            position: relative;
+            top: 70px;
+            color: white;
+            font-size: 15px;
+        }
+
+        #Phone-2-5 {
+            width: 240px;
+            height: 60px;
+            text-align: left;
+            margin: 80px auto;
+            line-height: 20px;
+        }
+
+        #Phone:hover #Phone-2 {
+            height: 300px;
+            transition: all 1s;
+        }
+
+        /************  首页   ****************/
+
+        #div-1 {
+            width: 100%;
+            height: 90px;
+            border-bottom: 1px solid #e3e3e3;
+        }
+
+        #bot {
+            width: 1400px;
+            height: 70px;
+            display: flex;
+            margin: auto;
+        }
+
+        #home {
+            width: 160px;
+            height: 50px;
+            margin-top: 20px;
+            background-color: #ffffff;
+            background: url("图/1.png") no-repeat;
+            background-position: 0 -210px;
+            cursor: pointer;
+        }
+
+        #home-img {
+            width: 120px;
+            height: 50px;
+            margin-left: 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        #home-ul {
+            width: 1000px;
+            height: 70px;
+            display: flex;
+        }
+
+        #home-li {
+            width: 35px;
+            height: 65px;
+            color: #0cb46a;
+            font-size: 16px;
+            text-align: center;
+            line-height: 90px;
+            margin-left: 100px;
+            border-bottom: #0cb46a 2px solid;
+            cursor: pointer;
+        }
+
+        /*****************   效果图   **********************/
+
+        .home-li-1 {
+            width: 90px;
+            height: 100%;
+            font-size: 16px;
+            margin-left: 25px;
+            line-height: 90px;
+            text-align: center;
+            color: #333333;
+            cursor: pointer;
+        }
+
+        .home-li-1:hover {
+            color: #0cb46a;
+        }
+
+        #home-effect {
+            width: 1200px;
+            height: 150px;
+            color: #333333;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e3e3e3;
+            position: relative;
+            left: -200px;
+            top: -15px;
+            z-index: 99;
+            display: none;
+        }
+
+        .effect {
+            width: 100px;
+            height: 10px;
+            float: left;
+            font-size: 15px;
+            position: relative;
+            top: -10px;
+        }
+
+        #effect-n {
+            color: #0cb46a;
+        }
+
+        .effect:hover {
+            color: #0cb46a !important;
+        }
+
+        #home-effect:hover #effect-n {
+            color: #333333;
+        }
+
+        #effect-1, #effect-2, #effect-3 {
+            width: 750px;
+            display: flex;
+            margin-top: -20px;
+        }
+
+        #effect-1 {
+            position: relative;
+            z-index: 9;
+            background-color: #ffffff;
+        }
+
+        #effect-2 {
+            position: relative;
+            left: -100px;
+            z-index: 5;
+            background-color: #ffffff;
+        }
+
+        #effect-3 {
+            position: relative;
+            z-index: 2;
+            background-color: #ffffff;
+            margin-left: -200px;
+        }
+
+        .effect:hover #effect-2 {
+            z-index: 20;
+        }
+
+        .effect:hover #effect-3 {
+            z-index: 30;
+        }
+
+        .effect-ul-1, #effect-ul-2 {
+            width: 180px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: left;
+            font-size: 13px;
+            line-height: 20px;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .effect-li-1, .effect-li-2 {
+            width: 60px;
+            text-align: left;
+            color: #666666;
+        }
+
+        .effect-li-1:hover {
+            color: #0cb46a;
+        }
+
+        #effect-ul-2 {
+            width: 300px;
+        }
+
+        .effect-li-2 {
+            width: 90px;
+        }
+
+        .effect-li-2:hover {
+            color: #0cb46a;
+        }
+
+        .effect-ul2 {
+            width: 150px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: left;
+            font-size: 13px;
+            line-height: 20px;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .effect-li2 {
+            width: 70px;
+            text-align: left;
+            color: #666666;
+        }
+
+        .effect-li2:hover {
+            color: #0cb46a;
+        }
+
+        #effect-line {
+            width: 0;
+            height: 110px;
+            border-left: 1px dashed #d9d9d9;
+            position: relative;
+            left: 750px;
+            top: 20px;
+        }
+
+        #effect-devise1, #effect-devise2, #effect-devise3 {
+            width: 100px;
+            height: 80px;
+            position: absolute;
+        }
+
+        #effect-devise1 {
+            left: 800px;
+            top: 35px;
+        }
+
+        #devise1-1 {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            top: 20px;
+            left: 25px;
+            background: url("图/1.png") no-repeat;
+            background-position: -76px -32px;
+        }
+
+        #devise1-2 {
+            width: 40px;
+            height: 20px;
+            position: relative;
+            left: 65px;
+            top: -25px;
+            background: url("图/1.png") no-repeat;
+            background-position: 0 -185px;
+        }
+
+        #devise1-3 {
+            font-size: 14px;
+            position: relative;
+            top: -35px;
+            left: -5px;
+        }
+
+        #effect-devise1:hover #devise1-1 {
+            background: url("图/1.png") no-repeat;
+            background-position: -76px 4px;
+        }
+
+        #effect-devise1:hover #devise1-3 {
+            color: #0cb46a;
+        }
+
+        #effect-devise2 {
+            left: 910px;
+            top: 35px;
+        }
+
+        #devise2-1, #devise3-1 {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            top: 20px;
+            left: 25px;
+        }
+
+        #devise2-1 {
+            background: url("图/1.png") no-repeat;
+            background-position: -112px -140px;
+        }
+
+        #devise2-2, #devise3-2 {
+            font-size: 14px;
+            position: relative;
+            top: -15px;
+            left: -5px;
+        }
+
+        #effect-devise2:hover #devise2-1 {
+            background: url("图/1.png") no-repeat;
+            background-position: -72px -140px;
+        }
+
+        #effect-devise2:hover #devise2-2 {
+            color: #0cb46a;
+        }
+
+        #effect-devise3 {
+            left: 1020px;
+            top: 35px;
+        }
+
+        #devise3-1 {
+            background: url("图/1.png") no-repeat;
+            background-position: -279px -313px;
+        }
+
+        #effect-devise3:hover #devise3-1 {
+            background: url("图/1.png") no-repeat;
+            background-position: -229px -313px;
+        }
+
+        #effect-devise3:hover #devise3-2 {
+            color: #0cb46a;
+        }
+
+        .home-li-1:hover #home-effect {
+            display: block;
+        }
+
+        /**************   装修公司  *******************/
+
+        #home-fitment {
+            width: 1000px;
+            height: 120px;
+            color: #909090;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e3e3e3;
+            position: relative;
+            left: -300px;
+            top: -15px;
+            z-index: 99;
+            display: none;
+        }
+
+        #fitment-ul-1, #fitment-ul-2, #fitment-ul-3, #fitment-ul-4 {
+            width: 180px;
+            font-size: 13px;
+            position: absolute;
+            top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: left;
+            text-align: left;
+        }
+
+        #fitment-ul-1 {
+            left: 30px;
+        }
+
+        #fitment-ul-2 {
+            left: 260px;
+        }
+
+        #fitment-ul-3 {
+            left: 500px;
+        }
+
+        #fitment-ul-4 {
+            left: 730px;
+        }
+
+        .fitment-li-1 {
+            width: 130px;
+            height: 30px;
+            line-height: 20px;
+        }
+
+        .fitment-span, .strategy-span {
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            position: relative;
+            top: 1px;
+            background: url("图/1.png") no-repeat;
+            background-position: -190px -196.5px;
+        }
+
+        .fitment-li-1:hover .fitment-span {
+            background: url("图/1.png") no-repeat;
+            background-position: -178px -196.5px;
+        }
+
+        .fitment-li-2 {
+            width: 60px;
+            line-height: 20px;
+        }
+
+        #home-fitment li:hover {
+            color: #0cb46a;
+        }
+
+        .fitment-line {
+            width: 0;
+            height: 80px;
+            position: absolute;
+            top: 20px;
+            border-left: 1px dashed #d8d8d8;
+        }
+
+        #line-1 {
+            left: 220px;
+        }
+
+        #line-2 {
+            left: 460px;
+        }
+
+        #line-3 {
+            left: 690px;
+        }
+
+        .home-li-1:hover #home-fitment {
+            display: block;
+        }
+
+        /***************   装修攻略   ***************************/
+
+        #home-strategy {
+            width: 1000px;
+            height: 120px;
+            color: #333333;
+            font-size: 13px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e3e3e3;
+            position: relative;
+            left: -400px;
+            top: -15px;
+            z-index: 99;
+            display: none;
+        }
+
+        #strategy-ul1, #strategy-ul2, #strategy-ul3 {
+            color: #909090;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: left;
+            line-height: 20px;
+            position: absolute;
+            top: 30px;
+            text-align: left;
+        }
+
+        #strategy-ul1 {
+            width: 120px;
+            left: 30px;
+        }
+
+        #strategy-ul2 {
+            width: 180px;
+            left: 210px;
+        }
+
+        #strategy-ul3 {
+            width: 80px;
+            left: 440px;
+        }
+
+        #strategy-ul1-li1 {
+            width: 70px;
+            height: 30px;
+        }
+
+        .strategy-ul-li2 {
+            width: 60px;
+        }
+
+        #strategy-ul2-li1 {
+            width: 130px;
+            height: 30px;
+        }
+
+        #strategy-ul3-li1 {
+            width: 80px;
+            height: 30px;
+        }
+
+        #home-strategy li:hover {
+            color: #0cb46a;
+        }
+
+        #strategy-ul1-li1:hover .strategy-span {
+            background: url("图/1.png") no-repeat;
+            background-position: -178px -196.5px;
+        }
+
+        #strategy-ul2-li1:hover .strategy-span {
+            background: url("图/1.png") no-repeat;
+            background-position: -178px -196.5px;
+        }
+
+        #strategy-ul3-li1:hover .strategy-span {
+            background: url("图/1.png") no-repeat;
+            background-position: -178px -196.5px;
+        }
+
+        #strategy-link1, #strategy-link2, #strategy-link3 {
+            width: 0;
+            height: 80px;
+            border-left: 1px dashed #e1e1e1;
+            position: absolute;
+            top: 20px;
+        }
+
+        #strategy-link1 {
+            left: 170px;
+        }
+
+        #strategy-link2 {
+            left: 400px;
+        }
+
+        #strategy-link3 {
+            left: 540px;
+        }
+
+        #strategy-tu1, #strategy-tu2, #strategy-tu3 {
+            width: 80px;
+            height: 60px;
+            position: absolute;
+            top: 20px;
+        }
+
+        #strategy-tu1 {
+            left: 570px;
+        }
+
+        #strategy-tu1-1 {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: url("图/1.png") no-repeat;
+            background-position: -188px -104px;
+        }
+
+        #strategy-tu1-2 {
+            width: 100px;
+            height: 20px;
+            position: absolute;
+            top: 20px;
+            font-size: 15px;
+            text-align: left;
+        }
+
+        #strategy-tu1:hover {
+            color: #0cb46a;
+        }
+
+        #strategy-tu1:hover #strategy-tu1-1 {
+            background: url("图/1.png") no-repeat;
+            background-position: -188px -68px;
+        }
+
+        #strategy-tu2 {
+            left: 680px;
+        }
+
+        #strategy-tu2-1 {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 15px;
+            left: 10px;
+            background: url("图/1.png") no-repeat;
+            background-position: -112px 4px;
+        }
+
+        #strategy-tu2-2 {
+            width: 35px;
+            height: 16px;
+            position: absolute;
+            left: 45px;
+            top: 5px;
+            background: url("图/1.png") no-repeat;
+            background-position: -38px -185px;
+        }
+
+        #strategy-tu2-3 {
+            position: absolute;
+            font-size: 15px;
+            top: 20px;
+        }
+
+        #strategy-tu2:hover {
+            color: #0cb46a;
+        }
+
+        #strategy-tu2:hover #strategy-tu2-1 {
+            background: url("图/1.png") no-repeat;
+            background-position: -112px -32px;
+        }
+
+        #strategy-tu3 {
+            left: 780px;
+        }
+
+        #strategy-tu3-1 {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: url("图/1.png") no-repeat;
+            background-position: -31px -140px;
+        }
+
+        #strategy-tu3-2 {
+            position: absolute;
+            font-size: 15px;
+            top: 20px;
+        }
+
+        #strategy-tu3:hover {
+            color: #0cb46a;
+        }
+
+        #strategy-tu3:hover #strategy-tu3-1 {
+            background: url("图/1.png") no-repeat;
+            background-position: 5px -144px;
+        }
+
+        .home-li-1:hover #home-strategy {
+            display: block;
+        }
+
+        /**************  更多 **********************/
+
+        #home-more {
+            width: 1000px;
+            height: 120px;
+            color: #333333;
+            font-size: 13px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e3e3e3;
+            position: relative;
+            left: -600px;
+            top: -15px;
+            display: none;
+        }
+
+        #more-1, #more-2, #more-3, #more-4, #more-5, #more-6 {
+            width: 100px;
+            height: 80px;
+            position: absolute;
+            top: 20px;
+        }
+
+        #more-1 {
+            left: 30px;
+        }
+
+        #more-2 {
+            left: 160px;
+        }
+
+        #more-3 {
+            left: 290px;
+        }
+
+        #more-4 {
+            left: 420px;
+        }
+
+        #more-5 {
+            left: 550px;
+        }
+
+        #more-6 {
+            left: 680px;
+        }
+
+        #more-1-1, #more-2-1, #more-3-1 {
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+
+        #more-1-1 {
+            background: url("图/1.png") no-repeat;
+            background-position: -175px -317px;
+        }
+
+        #more-2-1 {
+            background: url("图/1.png") no-repeat;
+            background-position: -35px -103px;
+        }
+
+        #more-3-1 {
+            background: url("图/1.png") no-repeat;
+            background-position: -149px 4px;
+        }
+
+        #more-1-2, #more-2-2, #more-3-2 {
+            width: 35px;
+            height: 15px;
+            position: absolute;
+            top: 10px;
+            left: 55px;
+        }
+
+        #more-1-2 {
+            background: url("图/1.png") no-repeat;
+            background-position: -128px -331px;
+        }
+
+        #more-2-2 {
+            background: url("图/1.png") no-repeat;
+            background-position: -78px -185px;
+        }
+
+        #more-3-2 {
+            background: url("图/1.png") no-repeat -425px -192px;
+        }
+
+        #more-1-3, #more-2-3, #more-3-3 {
+            position: absolute;
+            top: 25px;
+            left: 14px;
+        }
+
+        #more-4-1, #more-5-1, #more-6-1 {
+            width: 36px;
+            height: 35px;
+            position: absolute;
+            top: 10px;
+            left: 30px;
+        }
+
+        #more-4-2, #more-5-2, #more-6-2 {
+            position: absolute;
+            top: 25px;
+            left: 20px;
+        }
+
+        #more-4-1 {
+            background: url("图/1.png") no-repeat;
+            background-position: -72px -105px;
+        }
+
+        #more-5-1 {
+            background: url("图/1.png") no-repeat;
+            background-position: -150px -68px;
+        }
+
+        #more-6-1 {
+            background: url("图/2.png") no-repeat;
+            background-position: -113px -42px;
+        }
+
+        #more-1:hover #more-1-1 {
+            background: url("图/1.png") no-repeat;
+            background-position: -76px -316.5px;
+        }
+
+        #more-2:hover #more-2-1 {
+            background: url("图/1.png") no-repeat;
+            background-position: -35px -67px;
+        }
+
+        #more-3:hover #more-3-1 {
+            background: url("图/1.png") no-repeat;
+            background-position: -149px -32px;
+        }
+
+        #more-4:hover #more-4-1 {
+            background: url("图/1.png") no-repeat;
+            background-position: -72px -69px;
+        }
+
+        #more-5:hover #more-5-1 {
+            background: url("图/1.png") no-repeat;
+            background-position: -150px -104px
+        }
+
+        #more-6:hover #more-6-1 {
+            background: url("图/2.png") no-repeat;
+            background-position: -113px 5px;
+        }
+
+        #more-1:hover {
+            color: #0cb46a;
+        }
+
+        #more-2:hover {
+            color: #0cb46a;
+        }
+
+        #more-3:hover {
+            color: #0cb46a;
+        }
+
+        #more-4:hover {
+            color: #0cb46a;
+        }
+
+        #more-5:hover {
+            color: #0cb46a;
+        }
+
+        #more-6:hover {
+            color: #0cb46a;
+        }
+
+        .home-li-1:hover #home-more {
+            display: block;
+            z-index: 99;
+        }
+
+        .home-li-tu {
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+            background: url("图/1.png") no-repeat;
+            background-position: -150px -176px;
+        }
+
+        .home-li-1:hover .home-li-tu {
+            background: url("图/1.png") no-repeat;
+            background-position: -162px -176px;
+        }
+
+        #home-li-tu1 {
+            width: 15px;
+            height: 20px;
+            display: inline-block;
+            background: url("图/1.png") no-repeat;
+            background-position: -174px -176px;
+        }
+
+        #home-QR {
+            width: 390px;
+            height: 0;
+            overflow: hidden;
+            position: relative;
+            right: 150px;
+            top: -15px;
+            background: url("图/QR.jpg") no-repeat;
+            background-size: cover;
+        }
+
+        .home-li-1:hover #home-QR {
+            height: 210px;
+            z-index: 99;
+            transition: all 1s;
+        }
+
+        #Search {
+            width: 270px;
+            height: 35px;
+            border: 1px solid #e5e5e5;
+            margin-top: 20px;
+            line-height: 35px;
+        }
+
+        #Search-input {
+            width: 190px;
+            border: 0;
+            outline: none;
+            margin-left: 10px;
+        }
+
+        #Search-input::-webkit-input-placeholder {
+            color: #999999;
+        }
+
+        #Search-tu {
+            width: 30px;
+            height: 30px;
+            float: right;
+            margin-top: 5px;
+            background: url("图/1.png") no-repeat;
+            background-position: -200px -216px;
+            cursor: pointer;
+        }
+
+        /*******************   轮播图   ********************************/
+
+        #div-2 {
+            width: 1900px;
+            height: 415px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        #div-img1 {
+            position: relative;
+            width: 1900px;
+            overflow: hidden;
+            animation: a 10s linear infinite;
+        }
+
+        @keyframes a {
+            0% {
+                left: -1900px;
+            }
+            25% {
+                left: 0;
+            }
+            50% {
+                left: 0;
+            }
+            75% {
+                left: -1900px;
+            }
+            100% {
+                left: -1900px;
+            }
+        }
+
+        #div-img2 {
+            width: 1900px;
+            height: 415px;
+            position: relative;
+            top: -464px;
+            overflow: hidden;
+            animation: b 10s linear infinite;
+        }
+
+        @keyframes b {
+            0% {
+                left: 0;
+            }
+            25% {
+                left: 1900px;
+            }
+            50% {
+                left: 1900px;
+            }
+            75% {
+                left: 0;
+            }
+            100% {
+                left: 0;
+            }
+        }
+
+        #div-2-zuo, #div-2-you {
+            width: 50px;
+            height: 80px;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.16);
+            top: 300px;
+            display: none;
+        }
+
+        #div-2-zuo1 {
+            width: 10px;
+            height: 20px;
+            margin: 30px auto;
+            background: url("图/3.png") no-repeat -1px 0;
+        }
+
+        #div-2-you {
+            left: 1860px;
+        }
+
+        #div-2-you1 {
+            width: 10px;
+            height: 20px;
+            margin: 30px auto;
+            background: url("图/3.png") no-repeat -15px 0;
+        }
+
+        #div-2:hover #div-2-zuo {
+            display: block;
+        }
+
+        #div-2:hover #div-2-you {
+            display: block;
+        }
+
+        #div-2-price {
+            width: 320px;
+            height: 360px;
+            background-color: #ffffff;
+            position: absolute;
+            top: 150px;
+            left: 200px;
+        }
+
+        #price-1 {
+            width: 200px;
+            font-size: 25px;
+            font-weight: bold;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        #price-2 {
+            width: 200px;
+            text-align: center;
+            margin: auto;
+            position: relative;
+            top: -20px;
+            color: #f5ba81;
+        }
+
+        #price-3, #price-4 {
+            width: 250px;
+            height: 40px;
+            margin: auto;
+            background-color: #f7f7f7;
+            line-height: 40px;
+        }
+
+        .price-input {
+            border: 0;
+            outline: none;
+            margin-left: 20px;
+            background-color: #f7f7f7;
+        }
+
+        #price-4 {
+            margin-top: 20px;
+        }
+
+        #price-5 {
+            width: 250px;
+            height: 10px;
+            font-size: 12px;
+            margin: 20px auto;
+            color: #b5b5b5;
+        }
+
+        #price-6 {
+            width: 250px;
+            height: 40px;
+            background-color: #52b16e;
+            text-align: center;
+            margin: 20px auto;
+            line-height: 40px;
+            color: white;
+        }
+
+        #price-7 {
+            width: 250px;
+            height: 10px;
+            text-align: center;
+            font-size: 13px;
+            color: #d6d6d6;
+            margin: -5px auto;
+        }
+
+        #div-3 {
+            width: 100%;
+            height: 140px;
+            background-color: #f5f5f5;
+        }
+
+        #div-3-function {
+            width: 1370px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: left;
+            margin: auto;
+            position: relative;
+            top: 25px;
+        }
+
+        .function {
+            width: 250px;
+            height: 100px;
+            background-color: #ffffff;
+            margin-left: 20px;
+        }
+
+        .function-div1 {
+            width: 120px;
+            height: 50px;
+            font-size: 13px;
+            float: left;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+
+        .function-div2 {
+            width: 85px;
+            float: right;
+            margin-right: 20px;
+            background: url("图/1.png");
+        }
+
+        .function:hover {
+            position: relative;
+            top: -5px;
+            box-shadow: 1px 1px 20px #e4e4e4;
+        }
+        #div-4{
+            width: 1400px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #5dd5c8;
+            margin: 100px auto;
+        }
+        #div-view1{
+            width: 400px;
+            height: 200px;
+            margin: auto;
+            border: 1px solid;
+        }
+        #div-view1-zuo{
+            width: 60px;
+            height: 0;
+            border-top: 1px solid #d8d8d8;
+            position: relative;
+            top: 55px;
+            left: 20px;
+        }
+        #div-view1 h1{
+            text-align: center;
+            margin-top: 30px;
+            font-weight: normal;
+            font-size: 35px;
+        }
+        #div-view1-you{
+            width: 60px;
+            height: 0;
+            border-top: 1px solid #d8d8d8;
+            position: relative;
+            top: -18px;
+            left: 320px;
+        }
+        #div-view1-xia{
+            width: 200px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+    <div id="box">
+        <span id="address"></span>
+        <span style="cursor: pointer;">深圳</span>
+        <span id="address-1">[切换]
+            <div id="address-1-p"></div>
+            <div id="address-1-p2">
+                <div id="p2-1">热门城市</div>
+                <div id="p2-3"></div>
+                <ul id="p2-2">
+                    <li class="p2-2-1">北京</li><li class="p2-2-1">上海</li><li class="p2-2-1">广州</li><li
+                        class="p2-2-1">深圳</li><li class="p2-2-1">成都</li><li class="p2-2-1">重庆</li>
+                    <li class="p2-2-1">武汉</li><li class="p2-2-1">沈阳</li><li class="p2-2-1">大连</li><li
+                        class="p2-2-1">郑州</li><li class="p2-2-1">西安</li><li class="p2-2-1">南京</li>
+                    <li class="p2-2-1">苏州</li><li class="p2-2-1">无锡</li><li class="p2-2-1">徐州</li><li
+                        class="p2-2-1">杭州</li><li class="p2-2-1">宁波</li><li class="p2-2-1">天津</li>
+                    <li class="p2-2-1">昆明</li><li class="p2-2-1">南宁</li><li class="p2-2-1">合肥</li><li
+                        class="p2-2-1">长沙</li><li class="p2-2-1">青岛</li><li class="p2-2-1">哈尔滨</li>
+                    <li class="p2-2-1">兰州</li><li class="p2-2-1">东菀</li><li class="p2-2-1">惠州</li><li
+                        class="p2-2-1">佛山</li><li class="p2-2-1">贵阳</li><li class="p2-2-1">泉州</li>
+                    <li class="p2-2-1">更多&nbsp;></li>
+                </ul>
+            </div>
+        </span>
+        <div id="box-login">
+            <div id="login">登录</div>
+            <div id="login-1">注册</div>
+            <div id="login-2">我的土巴兔
+                <div class="login-tu"></div>
+                <div id="login-2-1"></div>
+                <ul id="login-2-2">
+                    <li class="v">我的工地播报</li>
+                    <li class="v">我的商城订单</li>
+                    <li style="width: 98px;height: 5px;background-color: #ffffff; position:absolute;top: -1px;"></li>
+                </ul>
+            </div>
+            <div id="login-3">商家中心
+                <div class="login-tu"></div>
+                <div id="login-3-1"></div>
+                <ul id="login-3-2">
+                    <li class="v">装修公司登录</li>
+                    <li class="v">装修公司入住</li>
+                    <li class="v">装修公司App</li>
+                    <li style="width: 78px;height: 5px;background-color: #ffffff; position:absolute;top: -1px;"></li>
+                </ul>
+            </div>
+            <div id="login-4">建材中心
+                <div class="login-tu"></div>
+                <div id="login-4-1"></div>
+                <ul id="login-4-2">
+                    <li class="v">建材商登录</li>
+                    <li class="v">建材商入住</li>
+                    <li style="width: 78px;height: 5px;background-color: #ffffff; position:absolute;top: -1px;"></li>
+                </ul>
+            </div>
+            <div id="login-5">创作者中心
+                <div id="login-5-1"></div>
+            </div>
+            <div id="login-6">图满意云设计
+                <div id="login-6-1"></div>
+            </div>
+            <div id="Phone">
+                <div id="Phone-1"></div>
+                咨询热线：<u>4006-900-288</u>
+                <div class="login-tu"></div>
+                <div id="Phone-2">
+                    <div id="Phone-2-1">联系土巴兔装修管家</div>
+                    <div id="Phone-2-2">
+                        <input id="Phone-input" type="text" placeholder="输入手机号，装修顾问稍后联系您">
+                    </div>
+                    <div id="Phone-2-3">
+                        <input type="checkbox" id="Phone-input-1">
+                        <div id="Phone-2-3-1">我已阅读并同意 &emsp;<span style="color: #999999">《服务须知》</span></div>
+                    </div>
+                    <div id="Phone-2-4">立即免费获取</div>
+                    <div id="Phone-2-5">*
+                        <span style="color: #666666">通话结束后，本次通话记录将以短信形式<br>&ensp;&nbsp;免费发送到手机上!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="div-1">
+    <div id="bot">
+        <div id="home"></div>
+        <img id="home-img" src="图/2.gif">
+        <ul id="home-ul">
+            <li id="home-li">首页</li>
+            <li class="home-li-1">效果图
+                <span class="home-li-tu"></span>
+                <div id="home-effect">
+                    <div class="effect" id="effect-n">家具美图
+                        <div id="effect-1">
+                            <ul class="effect-ul-1">
+                                <li class="effect-li-1">客厅</li>
+                                <li class="effect-li-1">卧室</li>
+                                <li class="effect-li-1">厨房</li>
+                                <li class="effect-li-1">卫生间</li>
+                                <li class="effect-li-1">餐厅</li>
+                                <li class="effect-li-1">玄关</li>
+                            </ul>
+                            <ul id="effect-ul-2">
+                                <li class="effect-li-2">北欧极简</li>
+                                <li class="effect-li-2">现代极简</li>
+                                <li class="effect-li-2">美式田园</li>
+                                <li class="effect-li-2">日式</li>
+                                <li class="effect-li-2">中式现代</li>
+                                <li class="effect-li-2">美式经典</li>
+                            </ul>
+                            <ul class="effect-ul-1">
+                                <li class="effect-li-1">白色</li>
+                                <li class="effect-li-1">灰色</li>
+                                <li class="effect-li-1">蓝色</li>
+                                <li class="effect-li-1">绿色</li>
+                                <li class="effect-li-1">橙色</li>
+                                <li class="effect-li-1">红色</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="effect">整屋案例
+                        <div id="effect-2">
+                            <ul class="effect-ul2">
+                                <li class="effect-li2">一居</li>
+                                <li class="effect-li2">二居</li>
+                                <li class="effect-li2">三居</li>
+                                <li class="effect-li2">四居以上</li>
+                            </ul>
+                            <ul class="effect-ul2">
+                                <li class="effect-li2">北欧极简</li>
+                                <li class="effect-li2">现代简约</li>
+                                <li class="effect-li2">美式田园</li>
+                                <li class="effect-li2">日式</li>
+                            </ul>
+                            <ul class="effect-ul2">
+                                <li class="effect-li2">60m²以下</li>
+                                <li class="effect-li2">61-80m²</li>
+                                <li class="effect-li2">81-100m²</li>
+                                <li class="effect-li2">101-120m²</li>
+                            </ul>
+                            <ul class="effect-ul2">
+                                <li class="effect-li2">3万以下</li>
+                                <li class="effect-li2">3-5万</li>
+                                <li class="effect-li2">5-8万</li>
+                                <li class="effect-li2">8-12万</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="effect">3D效果图
+                        <div id="effect-3">
+                            <ul class="effect-ul2">
+                                <li class="effect-li2">一居</li>
+                                <li class="effect-li2">二居</li>
+                                <li class="effect-li2">三居</li>
+                                <li class="effect-li2">四居以上</li>
+                            </ul>
+                            <ul class="effect-ul2">
+                                <li class="effect-li2">现代</li>
+                                <li class="effect-li2">新中式</li>
+                                <li class="effect-li2">欧式</li>
+                                <li class="effect-li2">田园</li>
+                            </ul>
+                            <ul class="effect-ul2">
+                                <li class="effect-li2">60m²以下</li>
+                                <li class="effect-li2">61-80m²</li>
+                                <li class="effect-li2">81-100m²</li>
+                                <li class="effect-li2">101-120m²</li>
+                            </ul>
+                            <ul class="effect-ul2">
+                                <li class="effect-li2">3万以下</li>
+                                <li class="effect-li2">3-5万</li>
+                                <li class="effect-li2">5-8万</li>
+                                <li class="effect-li2">8-12万</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="effect-line"></div>
+                    <div id="effect-devise1">
+                        <div id="devise1-1"></div>
+                        <div id="devise1-2"></div>
+                        <div id="devise1-3">免费设计</div>
+                    </div>
+                    <div id="effect-devise2">
+                        <div id="devise2-1"></div>
+                        <div id="devise2-2">定制设计</div>
+                    </div>
+                    <div id="effect-devise3">
+                        <div id="devise3-1"></div>
+                        <div id="devise3-2">定制设计</div>
+                    </div>
+                </div>
+            </li>
+            <li class="home-li-1">装修公司
+                <span class="home-li-tu"></span>
+                <div id="home-fitment">
+                    <ul id="fitment-ul-1">
+                        <li class="fitment-li-1">按服务区域
+                            <span class="fitment-span"></span>
+                        </li>
+                        <li class="fitment-li-2">南山</li>
+                        <li class="fitment-li-2">宝安</li>
+                        <li class="fitment-li-2">福田</li>
+                        <li class="fitment-li-2">龙岗</li>
+                        <li class="fitment-li-2">福田</li>
+                        <li class="fitment-li-2">盐田</li>
+                    </ul>
+                    <div class="fitment-line" id="line-1"></div>
+                    <ul id="fitment-ul-2">
+                        <li class="fitment-li-1">按价格
+                            <span class="fitment-span"></span>
+                        </li>
+                        <li class="fitment-li-2">3万以下</li>
+                        <li class="fitment-li-2">3-5万</li>
+                        <li class="fitment-li-2">5-8万</li>
+                        <li class="fitment-li-2">8-12万</li>
+                        <li class="fitment-li-2">12-18万</li>
+                        <li class="fitment-li-2">18-30万</li>
+                    </ul>
+                    <div class="fitment-line" id="line-2"></div>
+                    <ul id="fitment-ul-3">
+                        <li class="fitment-li-1">按类型
+                            <span class="fitment-span"></span>
+                        </li>
+                        <li class="fitment-li-2">普通类型</li>
+                        <li class="fitment-li-2">小户型</li>
+                        <li class="fitment-li-2">别墅</li>
+                        <li class="fitment-li-2">局部装修</li>
+                    </ul>
+                    <div class="fitment-line" id="line-3"></div>
+                    <ul id="fitment-ul-4">
+                        <li class="fitment-li-1">按风格
+                            <span class="fitment-span"></span>
+                        </li>
+                        <li class="fitment-li-2">简约</li>
+                        <li class="fitment-li-2">现代</li>
+                        <li class="fitment-li-2">中式</li>
+                        <li class="fitment-li-2">简欧</li>
+                        <li class="fitment-li-2">美式</li>
+                        <li class="fitment-li-2">北欧</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="home-li-1">装修攻略
+                <span class="home-li-tu"></span>
+                <div id="home-strategy">
+                    <ul id="strategy-ul1">
+                        <li id="strategy-ul1-li1">装修前
+                            <span class="strategy-span"></span>
+                        </li>
+                        <li class="strategy-ul-li2">收房</li>
+                        <li class="strategy-ul-li2">设计</li>
+                        <li class="strategy-ul-li2">合同</li>
+                        <li class="strategy-ul-li2">预算</li>
+                    </ul>
+                    <div id="strategy-link1"></div>
+                    <ul id="strategy-ul2">
+                        <li id="strategy-ul2-li1">装修中
+                            <span class="strategy-span"></span>
+                        </li>
+                        <li class="strategy-ul-li2">拆改</li>
+                        <li class="strategy-ul-li2">水电</li>
+                        <li class="strategy-ul-li2">防水</li>
+                        <li class="strategy-ul-li2">泥瓦</li>
+                        <li class="strategy-ul-li2">木工</li>
+                        <li class="strategy-ul-li2">油漆</li>
+                    </ul>
+                    <div id="strategy-link2"></div>
+                    <ul id="strategy-ul3">
+                        <li id="strategy-ul3-li1">装修后
+                            <span class="strategy-span"></span>
+                        </li>
+                        <li class="strategy-ul-li2">拆改</li>
+                        <li class="strategy-ul-li2">水电</li>
+                    </ul>
+                    <div id="strategy-link3"></div>
+                    <div id="strategy-tu1">
+                        <div id="strategy-tu1-1"></div>
+                        <div id="strategy-tu1-2">3分钟学装修</div>
+                    </div>
+                    <div id="strategy-tu2">
+                        <div id="strategy-tu2-1"></div>
+                        <div id="strategy-tu2-2"></div>
+                        <div id="strategy-tu2-3">业主日记</div>
+                    </div>
+                    <div id="strategy-tu3">
+                        <div id="strategy-tu3-1"></div>
+                        <div id="strategy-tu3-2">在线回答</div>
+                    </div>
+                </div>
+            </li>
+            <li class="home-li-1">保障服务</li>
+            <li class="home-li-1">更多
+                <span class="home-li-tu"></span>
+                <div id="home-more">
+                    <div id="more-1">
+                        <div id="more-1-1"></div>
+                        <div id="more-1-2"></div>
+                        <div id="more-1-3">家具建材</div>
+                    </div>
+                    <div id="more-2">
+                        <div id="more-2-1"></div>
+                        <div id="more-2-2"></div>
+                        <div id="more-2-3">免费报价</div>
+                    </div>
+                    <div id="more-3">
+                        <div id="more-3-1"></div>
+                        <div id="more-3-2"></div>
+                        <div id="more-3-3">找设计师</div>
+                    </div>
+                    <div id="more-4">
+                        <div id="more-4-1"></div>
+                        <div id="more-4-2">全程质检</div>
+                    </div>
+                    <div id="more-5">
+                        <div id="more-5-1"></div>
+                        <div id="more-5-2">装修分期</div>
+                    </div>
+                    <div id="more-6">
+                        <div id="more-6-1"></div>
+                        <div id="more-6-2">全屋定制</div>
+                    </div>
+                </div>
+            </li>
+            <li class="home-li-1">下载APP
+                <span id="home-li-tu1"></span>
+                <div id="home-QR"></div>
+            </li>
+        </ul>
+        <div id="Search">
+            <input type="text" id="Search-input" placeholder="搜索装修公司/问题/攻略/效果图">
+            <div id="Search-tu"></div>
+        </div>
+    </div>
+</div>
+<div id="div-2">
+    <div id="div-img1">
+        <img style="margin-left: -350px" src="图/5.jpg">
+    </div>
+    <div id="div-img2">
+        <img style="height: 415px;margin-left: 80px" src="图/6.jpg">
+    </div>
+    <div id="div-2-zuo">
+        <div id="div-2-zuo1"></div>
+    </div>
+    <div id="div-2-you">
+        <div id="div-2-you1"></div>
+    </div>
+    <div id="div-2-price">
+        <div id="price-1">装修要花多少钱</div>
+        <div id="price-2">10秒获取报价清单</div>
+        <div id="price-3">
+            <input class="price-input" type="text" placeholder="输入房屋面积">
+            <p style="float: right;margin-right: 20px;font-size: 15px">m²</p>
+        </div>
+        <div id="price-4">
+            <input class="price-input" type="text" placeholder="输入手机号获取报价结果">
+        </div>
+        <div id="price-5">
+            <input type="checkbox">
+            <samp>我已阅读并接受《隐私政策》《服务条款》</samp>
+        </div>
+        <div id="price-6">获取报价</div>
+        <div id="price-7">报价后将会有装修顾问致电为你解读报价</div>
+    </div>
+</div>
+<div id="div-3">
+    <div id="div-3-function">
+        <div class="function">
+            <div class="function-div1">
+                <p style="font-size: 22px">免费设计</p>
+                <p style="color: #767676">获取三分设计方案</p>
+            </div>
+            <img class="function-div2" src="图/a.jpg">
+        </div>
+        <div class="function">
+            <div class="function-div1">
+                <p style="font-size: 22px">免费报价</p>
+                <p style="color: #767676">算算装修要花多少钱</p>
+            </div>
+            <img class="function-div2" src="图/b.jpg">
+        </div>
+        <div class="function">
+            <div class="function-div1">
+                <p style="font-size: 22px">全屋定制</p>
+                <p style="color: #767676">让家轻松扩大n平方</p>
+            </div>
+            <img class="function-div2" src="图/c.jpg">
+        </div>
+        <div class="function">
+            <div class="function-div1">
+                <p style="font-size: 22px">装修分期</p>
+                <p style="color: #767676">按月付款轻松住新家</p>
+            </div>
+            <img class="function-div2" src="图/d.jpg">
+        </div>
+        <div class="function">
+            <div class="function-div1">
+                <p style="font-size: 22px">全程质检</p>
+                <p style="color: #767676">请个质检盯工地</p>
+            </div>
+            <img class="function-div2" src="图/e.jpg">
+        </div>
+    </div>
+</div>
+<div id="div-4">
+    <div id="div-view1">
+        <div id="div-view1-zuo"></div>
+        <h1>深圳装修公司</h1>
+        <div id="div-view1-you"></div>
+        <div>
+            <div>小编推荐</div>
+            <div>优选公司</div>
+        </div>
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+</body>
+</html>

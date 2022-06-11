@@ -1,0 +1,87 @@
+<!--
+  ~ Time:2022/4/6 10:56 36
+  ~ Name:6 Vue的set的使用.html
+  ~ Path:Vue/01 vue/12 列表渲染
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>更新改变数组的方法</title>
+	<script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<h2>欢迎来到{{ name }}</h2>
+	<h2>{{ address }}</h2>
+	<hr>
+	<h2>名字：{{ student.name }}</h2>
+	<h2 v-if="student.sex">性别：{{ student.sex }}</h2>
+	<h2>年龄：{{ student.age.rAge }},虚岁：{{ student.age.sAge }}</h2>
+	<h2>爱好</h2>
+	<button @click="addHobby">点击添加打游戏</button>
+	<ul>
+		<li v-for="(p,index) in student.hobby" :key="index">
+			{{ p }}
+		</li>
+	</ul>
+	<h2>朋友</h2>
+	<ul>
+		<li v-for="(p,index) in student.friends" :key="index">
+			{{ p.name }}---{{ p.age }}
+		</li>
+	</ul>
+</div>
+</body>
+<script>
+
+	/*
+		数组变更方法：
+			Vue 将被侦听的数组的变更方法进行了包裹，所以它们也将会触发视图更新。这些被包裹过的方法包括：
+				push()
+				pop()
+				shift()
+				unshift()
+				splice()
+				sort()
+				reverse()
+	 */
+
+	Vue.config.productionTip = false;
+
+	const vm = new Vue({
+		el: '#root',
+		data () {
+			return {
+				name: 'Vue',
+				address: '郑州',
+				student: {
+					name: 'tom',
+					age: {
+						rAge: 18,
+						sAge: 20,
+					},
+					hobby: ['抽烟', '喝酒', '打扑克'],
+					friends: [
+						{ name: 'jerry', age: 19 },
+						{ name: 'tony', age: 21 },
+					],
+				},
+			};
+		},
+		methods: {
+			addHobby () {
+				this.student.hobby.push('打游戏');
+			},
+		},
+	});
+
+
+</script>
+</html>

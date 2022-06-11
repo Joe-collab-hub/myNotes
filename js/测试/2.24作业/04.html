@@ -1,0 +1,68 @@
+<!--
+  ~ Time:2022/2/24 19:15 00
+  ~ Name:04.html
+  ~ Path:js/测试/2.24作业
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>设置背景2</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		div {
+			width: 100%;
+			height: 100px
+		;
+		}
+	</style>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+<body>
+<div>红</div>
+<div>黄</div>
+<div>蓝</div>
+<div>红</div>
+<div>黄</div>
+<div>蓝</div>
+<div>红</div>
+<div>黄</div>
+<div>蓝</div>
+<div>红</div>
+<div>黄</div>
+<div>蓝</div>
+<div>红</div>
+<div>黄</div>
+<div>蓝</div>
+</body>
+<script>
+	let $div = $('div');
+	$div.each(function (i, el) {
+		i % 3 === 0 ?
+				$(el).css('backgroundColor', 'red')
+				: i % 3 === 1 ?
+						$(el).css('backgroundColor', 'yellow')
+						:
+						$(el).css('backgroundColor', 'blue');
+	});
+</script>
+</html>

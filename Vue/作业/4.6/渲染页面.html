@@ -1,0 +1,93 @@
+<!--
+  ~ Time:2022/4/6 17:06 15
+  ~ Name:渲染页面.html
+  ~ Path:Vue/作业/4.6
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>渲染页面</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		#root {
+			width: 1000px;
+			border: 1px solid #ccc;
+			margin: auto;
+		}
+
+		#root > ul {
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: left;
+		}
+
+		#root > ul > li {
+			width: 18%;
+			text-align: center;
+			border: 1px solid #00FFFF;
+			margin-left: 1.5%;
+			margin-top: 20px;
+		}
+
+		#root > ul > li > img {
+			width: 80%;
+		}
+		#root > ul > li >div{
+			font-size: 16px;
+			line-height: 30px;
+			font-weight: bold;
+		}
+		#root > ul > li >p{
+			font-size: 12px;
+			line-height: 30px;
+		}
+	</style>
+	<script src="vue.js"></script>
+	<script src="yzs.js"></script>
+</head>
+<body>
+<div id="root">
+	<ul>
+		<li v-for="(data,index) in apply()" :key="index">
+			<img :src="data.imgSrc" alt="">
+			<div>{{data.title1}}</div>
+			<p>{{data.desc2}}</p>
+		</li>
+	</ul>
+</div>
+</body>
+<script>
+	Vue.config.productionTip = false;
+
+	const vm = new Vue({
+		el: '#root',
+		methods: {
+			apply () {
+				console.log(goods);
+				return goods;
+			},
+		},
+
+	});
+</script>
+</html>

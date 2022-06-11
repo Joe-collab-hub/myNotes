@@ -1,0 +1,109 @@
+<!--
+  ~ Time:2022/3/19 16:07 09
+  ~ Name:茶百道.html
+  ~ Path:html5/饿了么
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+	<link rel="stylesheet" href="./css/店铺.css">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		header {
+			width: 100vw;
+			height: 30vh;
+			background: url("img/O1CN01BZU5hq23OGE1wK0Bn_!!6000000007245-0-tbvideo.jpg") no-repeat;
+			background-size: 100% 100%;
+			position: relative;
+		}
+
+		
+
+	</style>
+	<script src="js/batch_shop-data.json"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+	<script src="js/渲染.js"></script>
+	<script src="./js/店铺.js"></script>
+</head>
+<body>
+<header>
+	<div id="z">
+		<div id="return">
+			<a href="已登录首页.html">
+				<img src="img/fanhuijiantou.png" alt="">
+			</a>
+		</div>
+		<div>
+			<div id="search"></div>
+			<div id="attention">关注</div>
+		</div>
+	</div>
+	<div id="play">
+		<img src="img/O1CN01F6ZoEZ1Xq8YYgnapt_!!6000000002974-2-tps-47-63.png" alt="">
+	</div>
+</header>
+<nav>
+	<div id="m">
+		<h3></h3>
+		<p></p>
+	</div>
+	<img src="img/BE67F672C4F0E9DF41CADAC63838Bjpeg.png" alt="">
+	<p></p>
+	<div id="threshold">
+		<img src="img/O1CN011p0sD11Vqw3GGP4ME_!!6000000002705-2-tps-72-72.png" alt="">
+		<p>无门槛</p>
+		<div>兑</div>
+	</div>
+</nav>
+<main>
+	<div id="order">
+		<span>点餐</span>
+		<span>评价</span>
+		<span>商家</span>
+	</div>
+</main>
+<footer>
+	<div>
+		<img src="./img/O1CN01Zv28qf1jRemMhqjmE_!!6000000004545-2-tps-249-249.png_125x125Q90s50g_.webp" alt="">
+		<div>
+			<p>￥<span style="font-weight: bold; font-size: 6vw">0</span></p>
+			<p style="font-size: 1vh; color: #999">免费配送</p>
+		</div>
+	</div>
+	<div id="n"><p style="width: 100%; text-align: center">￥15起送</p></div>
+</footer>
+</body>
+<script>
+	$.getJSON('./js/batch_shop.json', function (data) {
+		let myData = eval(data.data.resultMap.storeHead);
+		console.log(myData);
+		fun1(myData)
+	});
+	$.getJSON('./js/batch_shop-data.json',function (data) {
+		let myData = eval(data.data.resultMap.menu.itemGroups);
+		// console.log(myData);
+		fun2(myData)
+	});
+</script>
+</html>

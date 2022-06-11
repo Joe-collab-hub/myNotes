@@ -1,0 +1,132 @@
+<!--
+  ~ Time:2022/4/3 15:18 33
+  ~ Name:2 事件修饰符.html
+  ~ Path:VUE/dey01/07 事件的基本用法
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>事件修饰符</title>
+	<style>
+		* {
+			margin-top: 20px;
+		}
+
+		.demo1 {
+			height: 50px;
+			background-color: skyblue;
+		}
+
+		.box1 {
+			padding: 20px;
+			background-color: skyblue;
+		}
+
+		.box2 {
+			padding: 20px;
+			background-color: orange;
+		}
+
+		.list {
+			width: 200px;
+			height: 200px;
+			background-color: peru;
+			overflow: auto;
+		}
+
+		.list > li {
+			height: 100px;
+		}
+	</style>
+	<script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<h2>欢迎来到{{ name }}</h2>
+	<!--	阻止默认事件-->
+	<a href="https://www.baidu.com" @click.prevent='showInfo'>点我提示信息</a>
+
+	<!--	阻止事件冒泡-->
+	<div class="demo1" @click="showInfo">
+		<button @click.stop="showInfo">点我提示信息</button>
+		<!--	修饰符可以连续写，谁在前先执行谁	-->
+		<a href="https://www.baidu.com" @click.stop.prevent='showInfo'>点我提示信息</a>
+	</div>
+
+	<!--	事件只触发一次-->
+	<button @click.once="shoeInfo">点我提示信息</button>
+
+	<!--	使用事件的捕获模式-->
+	<div class="box1" @click.capture="showMsg(1)">
+		<!--	不加 capture	先执行 box2 后执行 box1-->
+		<!--	加 capture	先执行 box1 后执行 box2-->
+		div1
+		<div class="box2" @click="showMsg(2)">dav2</div>
+	</div>
+
+	<!--	只有event.target是当前操作的元素时才触发事件-->
+	<div class="demo1" @click.self="showInfo">
+		<button @click.stop="showInfo">点我提示信息</button>
+	</div>
+
+	<!--	事件的默认行为立即执行，无需等待事件回调执行完毕-->
+	<ul class="list" @wheel.passive="demo">
+		<!--
+			两个滚轮事件：
+				scroll：滚动条事件,可以不加 passive ，也优先响应滚动
+				wheel：滚轮事件，只有加 passive ，才会优先响应滚动
+		-->
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</div>
+</body>
+<script>
+
+	/*
+		Vue中的事件修饰符：
+			1、prevent ：阻止默认事件（常用）
+			2、stop ：阻止事件冒泡（常用）
+			3、once ：事件只触发一次（常用）
+			4、capture ：使用事件的捕获模式
+			5、self ：只有event.target是当前操作的元素时才触发事件
+			6、passive ：事件的默认行为立即执行，无需等待事件回调执行完毕
+	 */
+
+	Vue.config.productionTip = false;
+	const vm = new Vue({
+		el: '#root',
+		data () {
+			return {
+				name: 'Vue',
+			};
+		},
+		methods: {
+			showInfo (e) {
+				// e.preventDefault() // 阻止默认事件
+				alert('Hello,Vue');
+				console.log(e.target);
+			},
+			showMsg (msg) {
+				console.log(msg);
+			},
+			demo () {
+				for (let i = 0; i < 100000; i++) {
+					console.log('#');
+				}
+				console.log('累了');
+			},
+		},
+	});
+
+</script>
+</html>

@@ -1,0 +1,65 @@
+<!--
+  ~ Time:2022/3/15 11:56 48
+  ~ Name:canvas样式.html
+  ~ Path:html5/画
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>canvas样式</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		canvas {
+			border: 1px solid red;
+		}
+
+
+	</style>
+</head>
+<body>
+<canvas width="500" height="500"></canvas>
+</body>
+<script>
+	const canvasDom = document.querySelector('canvas');
+	const context = canvasDom.getContext('2d');
+
+	context.moveTo(100, 100);    // 先移动画笔
+	context.lineTo(200, 200);    // 画线
+	context.strokeStyle = 'red';  // 设置线条颜色
+	context.lineWidth = 5;       // 设置线条宽度
+	context.lineTo(100, 200);
+	context.closePath();         // 闭合路径（封闭）
+	context.stroke();
+
+	context.beginPath();         // 重开性的路径（换一只新笔）,需要先调用stroke函数将之前的绘制操作到画布
+	context.moveTo(400, 300);   // 再次移动画笔，移动期间不会发生绘制操作
+	context.strokeStyle = '#000';
+	context.lineWidth = 2;
+	context.lineTo(300, 300);
+	context.lineTo(240, 390);
+	context.lineTo(460, 480);
+	context.closePath();
+
+	context.stroke();    // 向画布中绘制
+</script>
+</html>

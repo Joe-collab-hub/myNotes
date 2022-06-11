@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+
+	var arr = [10, 22, 54, 5, 3, 35, 31, 51];
+
+	// 选择排序
+
+	function findMax (arr) {
+		var max = arr[0];
+		for (var i = 0; i < arr.length; i++) {
+			if (arr[i] > max) {
+				max = arr[i];
+			}
+		}
+		return max;
+	}
+
+	function selectSort (arr) {
+		var arr1 = [];
+		while (arr.length > 0) {
+			var max = findMax(arr);
+			arr1.push(max);
+			var maxNum = arr.indexOf(max);
+			arr.splice(maxNum, 1);
+		}
+		arr1.forEach(function (value) {
+			arr.push(value);
+		});
+		return arr1;
+	}
+
+	var arr1 = selectSort(arr);
+	console.log(arr1);
+
+	// 冒泡排序
+	function fun (arr) {
+		for (var i = 0; i < arr.length; i++) {
+			for (var j = i + 1; j < arr.length; j++) {
+				if (arr[i] > arr[j]) {
+					var c = arr[i];
+					arr[i] = arr[j];
+					arr[j] = c;
+				}
+			}
+		}
+	}
+
+	fun(arr);
+	console.log(arr);
+</script>
+</body>
+</html>

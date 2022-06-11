@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组的增删改查</title>
+</head>
+<body>
+<script>
+	let arr = ['a', 'b', 'c'];
+	console.log(arr);
+
+	// 增
+
+	// unshift: 在数组前面添加数据，参数可以传递多个，返回添加完成之后数组的长度
+
+	function fun () {
+		arr.unshift('-a', '-b');
+		console.log(arr);
+	}
+
+	fun();
+
+	// push : 在数组后面添加数据，参数可以添加多个，返回添加完成之后数组的长度
+
+	var puR = arr.push('e', 'f');
+	console.log(puR);
+	console.log(typeof puR);
+	console.log(arr);
+
+	// 删
+
+	// shift : 在数组前删除数据
+
+	var shR = arr.shift();
+	console.log(shR);
+	console.log(typeof shR);
+	console.log(arr);
+
+	// pop : 在数组后删除数据
+
+	var poR = arr.pop();
+	console.log(poR);
+	console.log(typeof poR);
+	console.log(arr);
+
+	// 改
+
+	arr[1] = 'ass';
+	console.log(arr);
+
+	// 查
+
+	// find: 查找数组的第一的数据
+
+</script>
+</body>
+</html>

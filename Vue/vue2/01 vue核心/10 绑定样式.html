@@ -1,0 +1,129 @@
+<!--
+  ~ Time:2022/4/4 14:26 32
+  ~ Name:class绑定样式.html
+  ~ Path:Vue/dey01/10 绑定样式
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>class绑定样式</title>
+	<style>
+		.basic {
+			width: 300px;
+			height: 100px;
+			border: 1px solid #000;
+			padding: 10px;
+		}
+
+		.happy {
+			background-color: pink;
+			border: 5px solid red;
+		}
+
+		.sad {
+			background-color: #ccc;
+			border: 5px #0cb46a dashed;
+		}
+
+		.normal {
+			border: 2px solid #d6d6d6;
+			background-color: #00FFFF;
+		}
+
+		.box1 {
+			background-color: #00FF00;
+		}
+
+		.box2 {
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+		.box3 {
+			border-radius: 20px;
+		}
+	</style>
+	<script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+
+	<!--	绑定class样式--字符串写法，适用于：样式类名不确定，需要动态指定    -->
+	<div class="basic" :class="mood" @click="changeMood"> {{ name }}</div>
+	<br><br>
+	<div class="basic" :class="mood1" @click="changeMood1"> {{ name }}</div>
+	<br><br>
+
+	<!--	绑定class样式--数组写法，适用于：要绑定的样式个数不确定、名字也不确定    -->
+	<div class="basic" :class="classArr"> {{ name }}</div>
+	<br><br>
+
+	<!--	绑定class样式--对象写法，适用于：要绑定的样式个数不确定、名字也确定、但要动态决定用不用    -->
+	<div class="basic" :class="classObj"> {{ name }}</div>
+	<br><br>
+
+	<!--	绑定style样式-->
+	<div class="basic" :style="{fontSize: fSize+'px'}"> {{ name }}</div>
+	<br><br>
+	<!--	对象写法-->
+	<div class="basic" :style="styleObj"> {{ name }}</div>
+	<br><br>
+	<!--	数组写法-->
+	<div class="basic" :style="styleArr"> {{ name }}</div>
+	<br><br>
+</div>
+</body>
+<script>
+	Vue.config.productionTip = false;
+
+	const vm = new Vue({
+		el: '#root',
+		data () {
+			return {
+				name: 'Vue',
+				mood: 'sad',
+				mood1: 'happy',
+				classArr: ['box1', 'box2', 'box3'],
+				classObj: {
+					box1: false,
+					box2: true,
+				},
+				fSize: '40',
+				styleObj: {
+					fontSize: '20px',
+					fontWeight: 'bold',
+				},
+				styleObj2: {
+					backgroundColor: '#ccc',
+				},
+				styleArr: [
+					{
+						fontSize: '20px',
+						fontWeight: 'bold',
+					},
+					{
+						backgroundColor: '#ccc',
+					},
+				],
+			};
+		},
+		methods: {
+			changeMood () {
+				this.mood = 'happy';
+			},
+			changeMood1 () {
+				const arr = ['happy', 'sad', 'normal'];
+				this.mood1 = arr[Math.floor(Math.random() * 3)];
+			},
+		},
+
+	});
+</script>
+</html>

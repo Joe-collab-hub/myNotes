@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算器</title>
+</head>
+<body>
+<script>
+    var a = Number(prompt("请输入第一个值"));
+    var b = String(prompt("请输入运算符"));
+    var c = Number(prompt("请输入的二个值"));
+    switch (b) {
+        case "+":
+            var d = a + c;
+            alert(a + b + c +"=" + d);
+            break;
+        case "-":
+            d = a - c;
+            alert(a + b + c +"=" + d);
+            break;
+        case "*":
+            d = a * c;
+            alert(a + b + c +"=" + d);
+            break;
+        case "/":
+            d = a / c;
+            alert(a + b + c +"=" + d);
+            break;
+        case "%":
+            d = a % c;
+            alert(a + b + c +"=" + d);
+            break;
+        case "**":
+            d = a ** c;
+            alert(a + b + c +"=" + d);
+            break;
+        default:
+            alert("输入正确的运算符");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板字符串</title>
+</head>
+<body>
+<!-- <pre>标签格式化文本，保留原有书写格式 -->
+<pre>
+            假条
+    你好：
+                    此致
+</pre>
+<script>
+    /*
+        反比号|(`)保留原有书写格式
+     */
+    var a = "aaa";
+    var b = `aaa`;
+    console.log(a,b)
+
+    var c = "ssss \n ddd"
+    var d = `ssss
+    ddd`
+    console.log(c)
+    console.log(d)
+
+    var e = 10, f = 2;
+    g = e + f + e * f +"qqq"
+    h = `${e + f + e * f}qqq`
+    console.log(g);
+    console.log(h)
+</script>
+</body>
+</html>

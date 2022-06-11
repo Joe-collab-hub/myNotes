@@ -1,0 +1,192 @@
+<!--
+  ~ Time:2022/3/9 16:58 47
+  ~ Name:弹钢琴.html
+  ~ Path:html5
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>弹钢琴</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		#bot {
+			width: 560px;
+			height: 300px;
+			border: 1px solid #999999;
+			margin: 100px auto;
+			display: flex;
+			position: relative;
+		}
+
+		#bot > li {
+			width: 70px;
+			height: 100%;
+			border: 1px solid #999999;
+			background-color: #cccccc;
+			text-align: center;
+			font-weight: bold;
+		}
+
+
+		#bot > .box {
+			width: 40px;
+			height: 60%;
+			position: absolute;
+			background-color: #000;
+			color: #fff;
+		}
+
+		#bot > .box:nth-child(9) {
+			left: 50px;
+		}
+
+		#bot > .box:nth-of-type(10) {
+			left: 120px;
+		}
+
+		#bot > .box:nth-of-type(11) {
+			left: 260px;
+		}
+
+		#bot > .box:nth-of-type(12) {
+			left: 330px;
+		}
+
+		#bot > .box:nth-of-type(13) {
+			left: 400px;
+		}
+
+		/* #bot > .box:nth-of-type(14) { */
+		/* 	left: 82.5px; */
+		/* } */
+
+	</style>
+<!--	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>-->
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+	<script src="sounds.js"></script>
+</head>
+<body>
+
+<ul id="bot">
+	<li data-id="60"><p>1<br>a<br>z</p></li>
+	<li data-id="61"><p>2<br>s<br>x</p></li>
+	<li data-id="62"><p>3<br>d<br>c</p></li>
+	<li data-id="63"><p>4<br>f<br>v</p></li>
+	<li data-id="64"><p>5<br>g<br>b</p></li>
+	<li data-id="65"><p>6<br>h<br>n</p></li>
+	<li data-id="66"><p>7<br>j<br>m</p></li>
+	<li data-id="67"><p>8<br>k<br>,</p></li>
+	<li data-id="68" class="box"><p>w</p></li>
+	<li data-id="69" class="box"><p>e</p></li>
+	<li data-id="70" class="box"><p>t</p></li>
+	<li data-id="71" class="box"><p>y</p></li>
+	<li data-id="72" class="box"><p>u</p></li>
+</ul>
+</body>
+<script>
+
+	function fun (i, id) {
+		let audio = new Audio();
+		audio.src = oggSound['sound' + id];
+		audio.play();
+		$('li').eq(i).css({
+			backgroundColor: '#5dd5c8',
+		});
+	}
+
+	$('li').each(function (i, el) {
+		$(el).mousedown(function () {
+			fun(i, this.dataset.id);
+		});
+		$(el).mouseup(function () {
+			$(this).css({
+				backgroundColor: '',
+			});
+		});
+	});
+
+	$(window).keypress(function (e) {
+		let k = e.key;
+		switch (k) {
+			case 'a':
+			case 'z':
+				fun(0, 60);
+				fun();
+				break;
+			case 's':
+			case 'x':
+				fun(1, 61);
+				break;
+			case 'd':
+			case 'c':
+				fun(2, 62);
+				break;
+			case 'r':
+			case 'f':
+			case 'v':
+				fun(3, 63);
+				break;
+			case 'g':
+			case 'b':
+				fun(4, 64);
+				break;
+			case 'h':
+			case 'n':
+				fun(5, 65);
+				break;
+			case 'j':
+			case 'm':
+				fun(6, 66);
+				break;
+			case 'k':
+			case ',':
+				fun(7, 67);
+				break;
+			case 'w':
+				fun(8, 68);
+				break;
+			case 'e':
+				fun(9, 69);
+				break;
+			case 't':
+				fun(10, 70);
+				break;
+			case 'y':
+				fun(11, 71);
+				break;
+			case 'u':
+				fun(12, 72);
+				break;
+		}
+	});
+
+	$(window).keyup(function () {
+		$('li').each(function () {
+			$(this).css({
+				backgroundColor: '',
+			});
+		});
+	});
+</script>
+</html>

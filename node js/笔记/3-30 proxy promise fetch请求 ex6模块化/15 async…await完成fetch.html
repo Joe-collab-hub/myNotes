@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // async函数可以像普通函数一样自执行
+    (async function f() {
+        const res = await fetch("http://127.0.0.1:3000/kuwo/api/www/bang/bang/musicList?bangId=93&pn=1&rn=30&httpsStatus=1&reqId=1fafa6a0-affb-11ec-b777-4d80ee1b1b68");
+        const data = await res.json();
+        console.log(data);
+    })();
+
+
+    (async function p() {
+        const res = await fetch('http://127.0.0.1:3000/kuwo/api/www/register/regSms?reqId=84aa9040-affd-11ec-b54a-fff4dcb56272&httpsStatus=1', {
+            method: 'POST',
+        });
+        const data = await res.json();
+        console.log(data);
+    })();
+</script>

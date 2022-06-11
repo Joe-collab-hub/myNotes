@@ -1,0 +1,55 @@
+<!--
+  ~ Time:2022/4/29 14:05 57
+  ~ Name:验证diff算法.html
+  ~ Path:react基础/11_DOM的Diffing算法
+  ~ ProjectName:react
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>验证diff算法</title>
+
+</head>
+<body>
+<div id="test"></div>
+</body>
+<script src="../../js/旧版本/react.development.js"></script>
+<script src="../../js/旧版本/react-dom.development.js"></script>
+<script src="../../js/旧版本/babel.min.js"></script>
+<script type="text/babel">
+	class Time extends React.Component {
+		
+		state= {
+			time: new Date()
+		}
+		
+		componentDidMount() {
+			setInterval(() => {
+			  this.setState({
+				time: new Date()
+			  })
+			},1000)
+		}
+		
+		render () {
+			return (
+					<div>
+						<h1>hell</h1>
+						<input type="text"/>
+						<span>现在是：{this.state.time.toTimeString()}</span>
+					</div>
+			)
+		}
+		
+	}
+
+	ReactDOM.render(<Time/>, document.getElementById('test'))
+	
+</script>
+</html>

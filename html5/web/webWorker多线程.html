@@ -1,0 +1,42 @@
+<!--
+  ~ Time:2022/3/11 10:09 36
+  ~ Name:webWorker多线程.html
+  ~ Path:html5
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>webWorker多线程</title>
+
+</head>
+<body>
+<h1 id="h1Dom"></h1>
+</body>
+<script>
+	// let num = 0;
+	// let h1 = document.getElementById('h1Dom');
+	// for (let i = 0; i < 1000000; i++) {
+	// 	if (i % 3 === 0) {
+	// 		console.log(i);
+	// 		num += i;
+	// 	}
+	// }
+	// 如果一个标签拥有id属性，那么js全局作用域中就会有一个同名的变量指向该元素
+	// h1.innerText = num;
+	// 上面操作会等待循环执行完毕之后再执行后面代码，导致线程被堵塞
+	// 我们可以重新开辟一个新线程来帮助我们执行耗时的任务
+
+	// 1、开启新的线程
+	// 主线程（页面中引入的js）中使用new命令来创建一个新的线程
+	// 参数是要执行的js文件（只能执行js文件）
+	const myWorker = new Worker('./计算1到100000能被3整除的和.js')
+	alert('看看我在那执行'); // 会先执行
+</script>
+</html>

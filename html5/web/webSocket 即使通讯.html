@@ -1,0 +1,57 @@
+<!--
+  ~ Time:2022/3/11 11:36 16
+  ~ Name:webSocket 即使通讯.html
+  ~ Path:html5
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>webSocket 即使通讯</title>
+
+</head>
+<body>
+<input type="text">
+<button>点击</button>
+<ul></ul>
+</body>
+<script>
+	// 1、建立webSocket连接，参数为服务器地址
+	// 使用webSocket协议，简称ws
+	const socket = new WebSocket('ws://192.168.107.2:5000');
+	// 2、监听连接成功事件
+	socket.onopen = function () {
+		// console.log('即时通讯连接建立成功！！！');
+		// socket.send('我试试好使不');
+	};
+	// 3、监听接收信息事件
+	socket.onmessage = function (result) {
+		// result：存储了接手的数据
+		console.log(result);
+		let li = document.createElement('li');
+		li.innerText = result.data;
+		document.getElementsByTagName('ul')[0].prepend(li);
+	};
+	// socket.send();
+
+	// 监听服务器断开
+	socket.onclose = function () {
+		let li = document.createElement('li');
+		li.innerText = '服务器已经断开';
+		document.getElementsByTagName('ul')[0].prepend(li);
+	}
+
+	// 点击将数据发送给服务器
+	document.querySelector('button').onclick = function () {
+		for (let i=0;i<1200;i++){
+			socket.send(document.querySelector('input').value);
+		}
+	};
+</script>
+</html>

@@ -1,0 +1,63 @@
+<!--
+  ~ Time:2022/3/15 11:19 00
+  ~ Name:canvas.html
+  ~ Path:html5/画
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>canvas</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		canvas {
+			border: 1px solid red;
+			width: 500px;
+			height: 500px;
+		}
+
+
+	</style>
+</head>
+<body>
+<!-- canvas标签是html5新增的标签，可以通过js绘制图形 -->
+<!-- canvas标签相当于一张画布，在标签属性上使用width、height指定的画布的尺寸，修改画布本身的密度（类似于图片的分辨率） -->
+<canvas width="500" height="500"></canvas>
+</body>
+<script>
+	/*
+
+	 */
+	// canvas本身不具备绘画的功能，他仅仅是一张画布（画纸）而已，我们需要使用绘画对象来绘制
+	const canvasDom = document.querySelector('canvas'); // 获取画布
+	/** @type{CanvasRenderingContext2D} **/  // 如果没有canvas语法提示，就添加这句注释，需要写在获取绘图上边
+	const context = canvasDom.getContext('2d'); // 获取绘画对象，使用绘画对象来绘制，参数表示要进行平面绘图
+
+	context.moveTo(100, 100); // 将画笔移动到对应的位置   （ x , y）
+	context.lineTo(200, 200); // 绘制线段  （ x , y）
+	context.stroke();         // 开始绘制线条
+
+	context.lineTo(100, 200); // 绘制线段
+	context.lineTo(100, 100); // 绘制线段
+	context.stroke();         // 向画布上渲染
+</script>
+</html>

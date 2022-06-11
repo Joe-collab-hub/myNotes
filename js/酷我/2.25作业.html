@@ -1,0 +1,235 @@
+<!--
+  ~ Time:2022/2/25 18:16 10
+  ~ Name:2.25作业.html
+  ~ Path:js/测试/03/07
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		#bot {
+			width: 1000px;
+			/* background-color: #e3adaf; */
+			margin: auto;
+			padding: 20px 40px;
+		}
+
+		#header {
+			width: 90%;
+			height: 50px;
+			background-color: #fafafa;
+			display: flex;
+			padding: 0 50px;
+
+		}
+
+		#header > li {
+			color: #999999;
+			line-height: 50px;
+		}
+
+		.box1 {
+			width: 15%;
+		}
+
+		.box2 {
+			width: 25%;
+			display: flex;
+		}
+
+		.box3 {
+			width: 25%;
+		}
+
+		.box4 {
+			width: 25%;
+		}
+
+		.box5 {
+			width: 10%;
+		}
+
+		#content {
+			width: 90%;
+			/* background-color: #c6faf1; */
+			padding: 0 50px;
+		}
+
+		#content > li {
+			width: 100%;
+			height: 50px;
+			display: flex;
+			/* background-color: #cccccc; */
+			padding: 10px 0;
+			color: #707070;
+			font-size: 14px;
+			position: relative;
+
+		}
+
+		.box1 > img {
+			width: 40px;
+			height: 40px;
+			margin-top: 10px;
+		}
+
+		.box1 > span {
+			font-size: 20px;
+			color: black;
+			line-height: 50px;
+			margin-left: 13px;
+		}
+
+		.box2 > img {
+			width: 50px;
+			height: 50px;
+		}
+
+		.box2 > span {
+			line-height: 50px;
+			margin-left: 30px;
+		}
+
+		.box3 > span, .box4 > span, .box5 > span {
+			line-height: 50px;
+		}
+
+		.box6 {
+			width: 20%;
+			height: 100%;
+			position: absolute;
+			background-color: #f5f5f5;
+			right: 0;
+		}
+
+		.box6 > img {
+			width: 22px;
+			height: 22px;
+			margin-top: 14px;
+			margin-left: 15px;
+		}
+	</style>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+<body>
+<div id="bot">
+	<ul id="header">
+		<li class="box1">序号</li>
+		<li class="box2">歌曲</li>
+		<li class="box3">歌手</li>
+		<li class="box4">专辑</li>
+		<li class="box5">时长</li>
+	</ul>
+</div>
+</body>
+<script>
+
+	const xhr = new XMLHttpRequest();
+
+	xhr.open('get', 'http://39.96.88.57:9090/api/www/bang/bang/musicList?bangId=93&pn=1&rn=30', false);
+
+	xhr.send();
+
+	const a = JSON.parse(xhr.responseText);
+
+	const arr = a.data.musicList;
+
+	let ul = $('<ul id="content"></ul>');
+	for (let i = 0; i < arr.length; i++) {
+		let x = arr[i];
+		fun(x, i);
+	}
+
+	$('#bot').append(ul);
+
+	function fun (x, i) {
+		if (i % 2 === 0) {
+			var li = $(`<li style="background-color: #fff">${fun1(i, x)}</li>`);
+			li.mouseleave(function () {
+				li.css({
+					backgroundColor: '#fff',
+				});
+			});
+		} else {
+			var li = $(`<li style="background-color: #fafafa">${fun1(i, x)}</li>`);
+			li.mouseleave(function () {
+				li.css({
+					backgroundColor: '#fafafa',
+				});
+			});
+		}
+		fun3(li);
+		ul.append(li);
+	}
+
+	function fun1 (i, x) {
+		return `${fun2(i)}
+				<div class="box2">
+					<img src="${x.albumpic}" alt="">
+				<span>${x.name}</span>
+				</div>
+				<div class="box3"><span>${x.artist}</span></div>
+				<div class="box4"><span>${x.album}</span></div>
+				<div class="box5"><span>${x.songTimeMinutes}</span></div>`;
+	}
+
+	function fun2 (i) {
+		if (i === 0) {
+			return ` <div class="box1">
+                        <img src="./imgs/1.png" alt="">
+                       </div>`;
+		} else if (i === 1) {
+			return `<div class="box1">
+						<img src="./imgs/2.png" alt="">
+					</div>`;
+		} else if (i === 2) {
+			return `<div class="box1">
+						<img src="./imgs/3.png" alt="">
+					</div>`;
+		} else {
+			return `<div class="box1">
+						<span>${i + 1}</span>
+					</div>`;
+		}
+	}
+
+	function fun3 (li) {
+		li.mouseenter(function () {
+			li.css({
+				backgroundColor: '#f5f5f5',
+			});
+			li.append(`<div class="box6">
+							<img src="./imgs/24gl-play.png" alt="">
+							<img src="./imgs/tianjia.png" alt="">
+							<img src="./imgs/xihuan.png" alt="">
+							<img src="./imgs/xiazai.png" alt="">
+						</div>`);
+		});
+		li.mouseleave(function () {
+			$('.box6').remove();
+		});
+	}
+</script>
+</html>

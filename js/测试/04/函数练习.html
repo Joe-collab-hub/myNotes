@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数练习</title>
+    <script>
+
+        /* 封装一个输入半径求圆的面积的函数 */
+
+        // var radius = Number(prompt("请输入半径"));
+        // function fun(radius) {
+        //     if (radius > 0){
+        //         var area = radius ** 2 * Math.PI;  // Math.PI 表示圆周率 3.14
+        //     }
+        //     return area;
+        // }
+        // var area = fun(radius);
+        // alert(area);
+
+
+        /* 求m-n之间数字的和 */
+
+        function fun(n, m) {
+            var num = 0;
+            if (n < m) {
+                for (var i = n; i <= m; i++) {
+                    num += i
+                }
+            } else {
+                for (var j = m; j <= n; j++) {
+                    num += j;
+                }
+            }
+            return num;
+        }
+
+        function fun2() {
+            var n = Number(prompt("请输入第一个数"));
+            if (isNaN(n)) {
+                alert("输入违法");
+            } else {
+                var m = Number(prompt("请输入第二个数"));
+                if (isNaN(m)) {
+                    alert("输入违法");
+                }
+            }
+            return [n, m];
+        }
+
+        var fun3 = fun2();
+        alert(fun(fun3[0], fun3[1]));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

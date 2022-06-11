@@ -1,0 +1,40 @@
+<!--
+  ~ Time:2022/4/2 15:51 53
+  ~ Name:2 何为数据代理.html
+  ~ Path:VUE/dey01/06 数据代理
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+
+</head>
+<body>
+#
+</body>
+<script>
+    let obj = {x:100}
+    let obj2 = {y:300}
+
+    Object.defineProperty(obj2,'x',{
+		get () {
+			return obj.x
+		},
+		set (v) {
+			obj.x = v
+		}
+    })
+
+    console.log(obj);
+    console.log(obj2);
+	obj2.x = 300;
+    console.log(obj);
+</script>
+</html>

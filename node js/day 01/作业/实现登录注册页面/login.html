@@ -1,0 +1,59 @@
+<!--
+  ~ Time:2022/3/24 19:52 32
+  ~ Name:login.html
+  ~ Path:node js/day 01/作业/实现登录注册页面
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>登录</title>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+<body>
+<div>
+	<label for="user">用户名</label><input type="text" id="user">
+</div>
+<div>
+	<label for="password">密&nbsp;&nbsp;&nbsp;码</label><input type="password" id="password">
+</div>
+<div>
+	<button id="login">登录</button>
+	<button id="register"><a href="register.html">注册</a></button>
+</div>
+</body>
+<script>
+	$(function () {
+		$('#login').click(function () {
+			if ($('#user').val().length === 0) {
+				return alert('请输入内容!');
+			}
+			if ($('#password').val().length === 0) {
+				return alert('请输入密码!');
+			}
+			
+			$.ajax({
+				url: 'http://localhost:3000/login',
+				type: 'POST',
+				data: {
+					username: $('#user').val(),
+					password: $('#password').val(),
+				},
+				success: function (res) {
+					alert(res);
+				},
+				// error: function (err) {
+				// 	console.log(err);
+				// },
+			});
+			
+		});
+	});
+</script>
+</html>

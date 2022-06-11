@@ -1,0 +1,45 @@
+<!--
+  ~ Time:2022/3/16 11:16 02
+  ~ Name:调用摄像头.html
+  ~ Path:html5/画
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>调用摄像头</title>
+
+</head>
+<body>
+<video id="videoDom"></video>
+<button>截图</button>
+<canvas width="500" height="500"></canvas>
+</body>
+<script>
+	const videoDom = document.getElementById('videoDom');
+	// js可以控制浏览器访问用户的摄像头和麦克风
+	// mediaDevices媒体设备
+	// getUserMedia 获取用户媒体
+	navigator.mediaDevices.getUserMedia({
+		video: true,   // 调用摄像头
+		audio: false,  // 调用麦克风
+	}).then(function (stream) {  // 获取摄像头信息成功
+		// 得到的是一个视频流对象，不能当作src设置
+		videoDom.srcObject = stream;  // 设置视频元素为摄像头信息
+		videoDom.play(); // 播放视频
+	});
+
+	const canvasDom = document.querySelector('canvas');
+	const context = canvasDom.getContext('2d');
+
+	document.querySelector('button').onclick = function () {
+		context.drawImage(videoDom,0,0,500,400)
+	}
+</script>
+</html>

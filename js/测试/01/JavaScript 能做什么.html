@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript 能做什么</title>
+	<style>
+		div {
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+<div>
+	<h2>改变HTML内容</h2>
+	<p id="demo">会变吗？</p>
+	<button type="buttom" onclick='document.getElementById("demo").innerHTML="hello JavaScript!"'>点击我</button>
+</div>
+<div>
+	<h2>改变 HTML 元素的样式</h2>
+	<p id="box">JavaScript 能够改变 HTML 元素的样式。</p>
+	<button type="button" onclick="document.getElementById('box').style.fontSize='35px';">点击我</button>
+</div>
+<div>ff
+	<h2>隐藏 HTML 元素</h2>
+	<p id="bot">JavaScript 能够隐藏 HTML 元素</p>
+	<button type="button" onclick="document.getElementById('bot').style.display='none';">点击我</button>
+</div>
+<div>
+	<h2>显示 HTML 元素</h2>
+	<p id="boos" style="display: none">JavaScript 能够显示 HTML 元素</p>
+	<button type="button" onclick="document.getElementById('boos').style.display='block';">点击我</button>
+</div>
+<div>
+	<h2>改变 HTML 属性值</h2>
+	<p>JavaScript 改变了图像的 src 属性值</p>
+	<img id="img" src="../../../html/练习/酷我/imgs/a.png" alt="">
+	<p>
+		<button type="button" onclick="document.getElementById('img').src='../../../html/练习/酷我/imgs/b.png';">第二</button>
+		<button type="button" onclick="document.getElementById('img').src='../../../html/练习/酷我/imgs/a.png';">第一</button>
+		<button type="button" onclick="document.getElementById('img').src='../../../html/练习/酷我/imgs/c.png';">第三</button>
+	</p>
+</div>
+<div>
+	<h2>点击显示时间</h2>
+	<p id="hjs">会显示时间吗？</p>
+	<button type="button" onclick="document.getElementById('hjs').innerHTML=Date()">点击我</button>
+</div>
+<script>
+</script>
+</body>
+</html>

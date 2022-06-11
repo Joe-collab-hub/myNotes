@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>别踩白块</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+			text-align: center;
+		}
+
+		#boa {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+
+		#bot {
+			width: 100%;
+			height: 100%;
+			position: relative;
+			/*overflow: hidden;*/
+			/*transition: all 500ms;*/
+		}
+
+		.box {
+			width: 100%;
+			height: 25%;
+			display: flex;
+		}
+
+		.call {
+			width: 25%;
+			height: 100%;
+			background-color: #fdfdfd;
+		}
+
+		.black {
+			background-color: black;
+		}
+
+		button {
+			width: 500px;
+			height: 200px;
+			font-size: 100px;
+		}
+	</style>
+</head>
+<body>
+<button>开始游戏</button>
+<div id="boa">
+	<div id="bot">
+	</div>
+</div>
+
+</body>
+</html>
+<script>
+	let bot = document.getElementById('bot')
+
+	function creaLire () {
+		let randomNum = parseInt(Math.random() * 4)
+		let ul = document.createElement('ul')
+		ul.classList.add('box')
+		for (let i = 0; i < 4; i++) {
+			let li = document.createElement('li')
+			li.classList.add('call')
+			if (randomNum === i) {
+				li.style.backgroundColor = 'black'
+				li.onclick = function () {
+					li.style.backgroundColor = '#cccccc'
+				}
+			} else {
+				li.onclick = function () {
+					li.style.backgroundColor = 'red'
+				}
+			}
+			ul.appendChild(li)
+		}
+		bot.prepend(ul)
+	}
+
+	let a = document.getElementsByTagName('button')[0]
+
+	a.onclick = function () {
+		a.style.display = 'none'
+		// for (let i = 0; i < 4; i++) {
+		//     creaLire();
+		// }
+		creaLire()
+		const box = document.querySelector('.box').offsetHeight
+		setInterval(function () {
+			if (bot.childElementCount > 5) {
+				bot.lastElementChild.remove()
+			}
+			let t = getComputedStyle(bot).top
+			t = parseInt(t)
+			bot.style.top = t + 10 + 'px'
+			if (t > -10) {
+				creaLire()
+				bot.style.top = -box + 1 + 'px'
+			}
+
+		}, 5)
+	}
+</script>

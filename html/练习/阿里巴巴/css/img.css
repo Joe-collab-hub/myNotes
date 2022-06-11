@@ -1,0 +1,36 @@
+body{
+    min-width: 1020px;
+    padding-top: 20px;
+}
+
+header{
+    width: 50%;
+    margin: 0 auto;
+    display: flow;
+    flex-wrap: wrap;
+    justify-content: left;
+
+}
+header div{
+    width: 200px;
+    height: 18px;
+    border: 1px solid #cccccc;
+    display: inline-block;
+    position: relative;
+    top: -10px;
+    left: 260px;
+}
+header div input{
+    border:none;
+    border:transparent;
+    outline: none;
+    margin-left: 10px;
+}
+header div::after{
+    content: "";
+    width: 16px;
+    height: 16px;
+    background: url("../img/2.png") no-repeat;
+    position: absolute;
+    top: 1px;
+}

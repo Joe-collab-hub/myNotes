@@ -1,0 +1,73 @@
+<!--
+  ~ Time:2022/4/3 17:03 48
+  ~ Name:姓名案例-插值语法实现.html
+  ~ Path:VUE/dey01/08 计算属性
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>姓名案例-计算属性实现</title>
+	<script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+	性：<input type="text" v-model="firstName"><br><br>
+	名：<input type="text" v-model="lastName"><br><br>
+	全名：<span>{{ fullName }}</span>
+</div>
+</body>
+<script>
+
+	/*
+		计算属性：
+			1、定义：要用的属性不存在，要通过已有属性计算得来
+			2、原理：底层借助了Object.defineProperty方法提供的 getter 和 setter
+			3、get函数什么时候执行
+				(1)、初次读取时会执行一次
+				(2)当依赖的函数发生改变时会被再次调用
+			4、优势：与methods实现相比，内部有缓存机制（复用），效率更高，调用方便
+			5、备注：
+				(1)、计算属性最终会出现在 vm 上，直接读取使用即可
+				(2)、如果计算属性要修改，那必须写set函数去影响修改，且set中要引起计算时依赖的数据发生改变
+	 */
+
+	Vue.config.productionTip = false;
+
+	const vm = new Vue({
+		el: '#root',
+		data () {
+			return {
+				firstName: '张',
+				lastName: '三',
+			};
+		},
+		computed: {
+			fullName: {
+				// get有什么作用：有人读取 fullName 时，get就会被调用，且返回值作为fullName的值
+				// get什么被调用：1、初次读取fullName时。2、所依赖ide数据发生变化时。
+				get () {
+					console.log('get被调用');
+					console.log(this); // 在这里this指的时 vm
+					return this.firstName + '-' + this.lastName;
+				},
+
+				// set什么时候被调用：当fullName被修改时
+				set (value) {
+					console.log('set', value);
+					const arr = value.split('-');
+					this.firstName = arr[0];
+					this.lsetName = arr[0];
+				},
+
+			},
+		},
+	});
+</script>
+</html>

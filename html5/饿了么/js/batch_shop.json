@@ -1,0 +1,367 @@
+{
+  "api": "mtop.alsc.waimai.store.miniapp.store.detail.head.query",
+  "data": {
+    "resultMap": {
+      "storeHead": {
+        "storeHeadPoster": {
+          "avid": "342289421188",
+          "bizType": 2,
+          "headImage": "103D90A48FA947F6BC04DF28CEE5116Apng",
+          "userTrack": {
+            "exposure_name": "exposure_headpicture",
+            "click_name": "click_headpicture",
+            "spm_d": "1",
+            "spm_c": "headpicture",
+            "bizParams": {
+              "type": "2",
+              "avid": "342289421188",
+              "restaurant_id": "E11774065930992251550",
+              "headpicture_type": "1"
+            }
+          },
+          "videoCoverPicUrl": "https://img.alicdn.com/imgextra/i4/6000000007245/O1CN01BZU5hq23OGE1wK0Bn_!!6000000007245-0-tbvideo.jpg",
+          "videoUrl": "http://koubei-auth.alicdn.com/edc9cea903e3f2db/kvCw7hD7JvUrwVBnuol/7MFK7smkkS0bOoZ1uQE_342289421188_mp4_264_hd_aliyun.mp4?auth_key=1648120172-0-0-8098ee3cff7913bddb04dbb95fbe9cbd&w=1280&h=720&e=hd&t=2112661316478609719087123e9875"
+        },
+        "storeInfo": {
+          "announcement": "轻盈有益，薯实有料！茶百道多款风味特饮正式上新，陪你开启春日之旅！新升级的禾米麻薯系列真香来袭，源自野生谷种——禾米做成的麻薯软糯留香，香滑细腻；新创乳酸菌菌系列则携手苹果脆啵啵踏春而来，助你喝出美好轻姿态！",
+          "brandId": 415590,
+          "deliveryTag": {
+            "bgColor": "",
+            "borderColor": "",
+            "deliveryType": 1,
+            "text": "蜂鸟快送",
+            "textColor": ""
+          },
+          "inAirport": false,
+          "jumpLink": "eleme://complexLayer?pageId=ShopInfo&selectedTab=0&requestParams=%7B%22eleStoreId%22%3A%22E11774065930992251550%22%2C%22couponVersion%22%3A%22v2%22%2C%22latitude%22%3A34.747506%2C%22headerType%22%3A%22ShopInfo%22%2C%22storeId%22%3A%22E11774065930992251550%22%2C%22selectedTab%22%3A0%2C%22longitude%22%3A113.625024%7D&utParams=%7B%22restaurant_id%22%3A%22E11774065930992251550%22%7D",
+          "name": "茶百道(碧沙岗店)",
+          "serviceDesc": [
+            "约30分钟",
+            "月售1502",
+            "可自取",
+            "开发票"
+          ],
+          "storeBusiness": {
+            "businessStatus": 1,
+            "closingCountDown": 11127,
+            "closingTime": 1647872100,
+            "nextCloseTime": "22:15",
+            "nextOpenTime": "明天 09:25",
+            "servingTime": [
+              "09:25-22:15"
+            ]
+          },
+          "storeId": "E11774065930992251550",
+          "storeLogo": "103D90A48FA947F6BC04DF28CEE5116Apng",
+          "storeLogoBadge": "35a1bb9025ab98c28112d82f83f73d7epng",
+          "tbStoreId": "E6833731791706662916"
+        },
+        "storePromotionInfo": {
+          "action": "2个优惠",
+          "jumpLink": "eleme://complexLayer?pageId=Redpack&selectedTab=0&requestParams=%7B%22eleStoreId%22%3A%22E11774065930992251550%22%2C%22couponVersion%22%3A%22v2%22%2C%22latitude%22%3A34.747506%2C%22headerType%22%3A%22Redpack%22%2C%22storeId%22%3A%22E11774065930992251550%22%2C%22selectedTab%22%3A0%2C%22longitude%22%3A113.625024%7D&utParams=%7B%22restaurant_id%22%3A%22E11774065930992251550%22%7D",
+          "storeActivityTags": [
+            {
+              "border": "FFA599",
+              "color": "FF4B33",
+              "desc": "",
+              "extensionList": [],
+              "separateType": 0,
+              "tagCode": 50,
+              "text": "25减1",
+              "type": 1
+            },
+            {
+              "border": "FFA599",
+              "color": "FF4B33",
+              "desc": "",
+              "extensionList": [],
+              "separateType": 0,
+              "tagCode": 50,
+              "text": "36减2",
+              "type": 1
+            },
+            {
+              "border": "FFA599",
+              "color": "FF4B33",
+              "desc": "",
+              "extensionList": [],
+              "separateType": 0,
+              "tagCode": 50,
+              "text": "56减4",
+              "type": 1
+            },
+            {
+              "border": "FFA599",
+              "color": "FF4B33",
+              "desc": "",
+              "extensionList": [],
+              "separateType": 0,
+              "tagCode": 101,
+              "text": "配送费优惠",
+              "type": 1
+            }
+          ],
+          "storeCouponInfo": [
+            {
+              "acceptText": "兑",
+              "amount": "6",
+              "backGroundDTO": {},
+              "couponId": 160,
+              "jumpLink": "eleme://complexLayer?pageId=Redpack&selectedTab=0&requestParams=%7B%22eleStoreId%22%3A%22E11774065930992251550%22%2C%22couponVersion%22%3A%22v2%22%2C%22latitude%22%3A34.747506%2C%22headerType%22%3A%22Redpack%22%2C%22storeId%22%3A%22E11774065930992251550%22%2C%22selectedTab%22%3A0%2C%22longitude%22%3A113.625024%7D&utParams=%7B%22restaurant_id%22%3A%22E11774065930992251550%22%7D",
+              "splitePhotoUrl": "https://cube.elemecdn.com/0/f1/a8151fc51544a0f9cd0ac7617ca7cpng.png",
+              "status": 0,
+              "titleDetail": "无门槛",
+              "type": 1,
+              "userTrack": {
+                "exposure_name": "exposure_coupon",
+                "spm_d": "1",
+                "control_name": "click_coupon",
+                "spm_c": "coupon",
+                "bizParams": {
+                  "type": 1,
+                  "restaurant_id": "E11774065930992251550"
+                }
+              }
+            }
+          ]
+        },
+        "userTrack": {
+          "switchShop": {
+            "exposure_name": "exposure_switchshop",
+            "spm_d": "1",
+            "control_name": "click_switchshop",
+            "spm_c": "switchshop"
+          },
+          "storeInfo": {
+            "exposure_name": "exposure_commoninformation",
+            "spm_d": "1",
+            "control_name": "click_commoninformation",
+            "spm_c": "commoninformation"
+          },
+          "activityInfo": {
+            "exposure_name": "exposure_ShopDropDown",
+            "spm_d": "1",
+            "control_name": "click_ShopDropDown",
+            "spm_c": "ShopDropDown"
+          },
+          "bizParams": {
+            "restaurant_id": "E11774065930992251550",
+            "trace_data": "{\"delivery_time\":\"30\"}"
+          }
+        }
+      },
+      "selfOperatedCard": {
+        "operatedCards": [],
+        "operatedCardsV2": []
+      },
+      "storeHeadNav": {
+        "favored": {
+          "favoredIconUrl": "https://gw.alicdn.com/tfs/TB1V8tNglFR4u4jSZFPXXanzFXa-84-84.png",
+          "iconUrl": "https://img.alicdn.com/imgextra/i3/O1CN01cKdTIN1EwZRT7eWAt_!!6000000000416-2-tps-84-84.png",
+          "iconUrlV2": "https://img.alicdn.com/imgextra/i1/O1CN01EUsXdn1UiP2jjFnXS_!!6000000002551-2-tps-84-84.png",
+          "isFavored": false,
+          "text": "关注",
+          "type": 2,
+          "userTrack": {
+            "click": {
+              "control_name": "click_collect",
+              "spm_c": "collect",
+              "spm_d": "1"
+            },
+            "bizParams": {
+              "action_type": "addfav",
+              "restaurant_id": "E11774065930992251550"
+            }
+          }
+        },
+        "moreAbility": {
+          "expandAbility": [
+            {
+              "iconUrl": "https://gw.alicdn.com/tfs/TB15uuHcsieb18jSZFvXXaI3FXa-66-60.png",
+              "jumpLink": "eleme://carts?alsccarts=true",
+              "text": "购物车",
+              "type": 0
+            },
+            {
+              "iconUrl": "https://gw.alicdn.com/tfs/TB16OhLd7cx_u4jSZFlXXXnUFXa-57-57.png",
+              "text": "分享商家",
+              "type": 1
+            }
+          ],
+          "iconUrl": "https://img.alicdn.com/imgextra/i1/O1CN01QNf9iB1t4tGb79BMY_!!6000000005849-2-tps-84-84.png",
+          "iconUrlV2": "https://img.alicdn.com/imgextra/i3/O1CN01gEmPO11gHAsqylsZ7_!!6000000004116-2-tps-84-84.png",
+          "type": 3,
+          "userTrack": {
+            "click": {
+              "control_name": "click_specilactionentr",
+              "spm_c": "specilactionentr",
+              "spm_d": "1"
+            },
+            "bizParams": {
+              "action_type": "addfav",
+              "restaurant_id": "E11774065930992251550"
+            }
+          }
+        },
+        "redEnvelope": {
+          "entranceType": 1,
+          "iconUrl": "https://gw.alicdn.com/tfs/TB1zl0dfCR26e4jSZFEXXbwuXXa-60-66.png",
+          "jumpLink": "eleme://complexLayer?pageId=Redpack&selectedTab=0&requestParams=%7B%22eleStoreId%22%3A%22E11774065930992251550%22%2C%22couponVersion%22%3A%22v2%22%2C%22latitude%22%3A34.747506%2C%22headerType%22%3A%22Redpack%22%2C%22storeId%22%3A%22E11774065930992251550%22%2C%22selectedTab%22%3A0%2C%22longitude%22%3A113.625024%7D&utParams=%7B%22restaurant_id%22%3A%22E11774065930992251550%22%7D",
+          "type": 0
+        },
+        "search": {
+          "iconUrl": "https://img.alicdn.com/imgextra/i3/O1CN01ksp9qw27FKvCQl3Ap_!!6000000007767-2-tps-84-84.png",
+          "jumpLink": "eleme://search?restaurant_id=E11774065930992251550&search_type=1",
+          "text": "想吃什么搜一搜",
+          "type": 0,
+          "userTrack": {
+            "click": {
+              "control_name": "click_search",
+              "spm_c": "search",
+              "spm_d": "1"
+            },
+            "bizParams": {
+              "action_type": "addfav",
+              "restaurant_id": "E11774065930992251550"
+            }
+          }
+        }
+      },
+      "storeHeadPoster": {
+        "avid": "342289421188",
+        "bizType": 2,
+        "headImage": "103D90A48FA947F6BC04DF28CEE5116Apng",
+        "userTrack": {
+          "exposure_name": "exposure_headpicture",
+          "click_name": "click_headpicture",
+          "spm_d": "1",
+          "spm_c": "headpicture",
+          "bizParams": {
+            "type": "2",
+            "avid": "342289421188",
+            "restaurant_id": "E11774065930992251550",
+            "headpicture_type": "1"
+          }
+        },
+        "videoCoverPicUrl": "https://img.alicdn.com/imgextra/i4/6000000007245/O1CN01BZU5hq23OGE1wK0Bn_!!6000000007245-0-tbvideo.jpg",
+        "videoUrl": "http://koubei-auth.alicdn.com/edc9cea903e3f2db/kvCw7hD7JvUrwVBnuol/7MFK7smkkS0bOoZ1uQE_342289421188_mp4_264_hd_aliyun.mp4?auth_key=1648120172-0-0-8098ee3cff7913bddb04dbb95fbe9cbd&w=1280&h=720&e=hd&t=2112661316478609719087123e9875"
+      },
+      "storeTheme": {
+        "backgroundColor": "#FFFFFFFF",
+        "cartType": 0,
+        "collocationThreshold": 1,
+        "preventTireConfigDTO": {
+          "allActionsInAllShops": 100,
+          "limitedHours": 24,
+          "oneActionInAllShops": 100,
+          "oneActionInOneShop": 1,
+          "shopHash": "7811fe35079a6db6882f5c1bf52a1639",
+          "shouldApply": true
+        },
+        "priceColor": "#FF4B33",
+        "secondThemeColor": "#1402B6FD",
+        "themeColor": "#02B6FD"
+      },
+      "storeMiniAppTab": [
+        {
+          "bizCode": "cell",
+          "enableScrollToTop": true,
+          "key": "menu_page",
+          "order": 1,
+          "pageType": 2,
+          "sceneCode": "ELEME_SHOP_DETAIL_MENU",
+          "scheme": "eleme://tabContainer/shopDetail/menu?restaurant_id=E11774065930992251550",
+          "showFooter": true,
+          "title": "点餐",
+          "type": "0",
+          "userTrack": {
+            "tab": {
+              "spm_d": "1",
+              "control_name": "click_tab",
+              "spm_c": "tab",
+              "bizParams": {
+                "restaurant_id": "E11774065930992251550",
+                "tab_name": "点餐"
+              }
+            }
+          }
+        },
+        {
+          "bizCode": "cell",
+          "enableScrollToTop": false,
+          "key": "comment_page",
+          "order": 2,
+          "pageType": 0,
+          "scheme": "eleme://tabContainer/shopDetail/comment?new_shop_detail=true&restaurant_id=E11774065930992251550",
+          "showFooter": false,
+          "subTitle": "4.8",
+          "title": "评价",
+          "type": "0",
+          "userTrack": {
+            "tab": {
+              "spm_d": "2",
+              "control_name": "click_tab",
+              "spm_c": "tab",
+              "bizParams": {
+                "restaurant_id": "E11774065930992251550",
+                "tab_name": "评价"
+              }
+            }
+          }
+        },
+        {
+          "bizCode": "cell",
+          "enableScrollToTop": false,
+          "key": "store_story_page",
+          "order": 3,
+          "pageType": 0,
+          "scheme": "eleme://tabContainer/shopDetail/business?restaurant_id=E11774065930992251550",
+          "showFooter": false,
+          "subTitle": "故事",
+          "title": "商家",
+          "type": "0",
+          "userTrack": {
+            "tab": {
+              "spm_d": "3",
+              "control_name": "click_tab",
+              "spm_c": "tab",
+              "bizParams": {
+                "restaurant_id": "E11774065930992251550",
+                "tab_name": "商家"
+              }
+            }
+          }
+        },
+        {
+          "bizCode": "cell",
+          "enableScrollToTop": false,
+          "key": "piece_order",
+          "order": 100,
+          "pageType": 1,
+          "pindanTabDTO": {
+            "hasPindan": false
+          },
+          "scheme": "eleme://web?url=https%3A%2F%2Ftb.ele.me%2Fwow%2Fa%2Fact%2Feleme%2Fdailygroup%2F682%2Fwupr%3Fwh_pid%3Ddaily-205223%26restaurant_id%3DE11774065930992251550%26geohash%3Dww0v9te4y",
+          "showFooter": false,
+          "title": "好友拼单",
+          "type": "1",
+          "userTrack": {
+            "mul_buy": {
+              "spm_d": "4",
+              "control_name": "click_mul_buy",
+              "spm_c": "mul_buy",
+              "bizParams": {
+                "restaurant_id": "E11774065930992251550"
+              }
+            }
+          }
+        }
+      ],
+      "storeHeadBusinessInfo": null
+    }
+  },
+  "ret": [
+    "SUCCESS::调用成功"
+  ],
+  "v": "1.0"
+}

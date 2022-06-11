@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link href="../../../swiper/swiper-bundle.css" rel="stylesheet">
+	<script src="../../../swiper/swiper-bundle.js"></script>
+	<style>
+		.swiper {
+			width: 400px;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+<div class="swiper">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide"><img src="img1.jpg"></div>
+		<div class="swiper-slide"><img src="img2.jpg"></div>
+		<div class="swiper-slide"><img src="img3.jpg"></div>
+		<div class="swiper-slide"><img src="img4.jpg"></div>
+		<div class="swiper-slide"><img src="img5.jpg"></div>
+		<div class="swiper-slide"><img src="img6.jpg"></div>
+		<div class="swiper-slide"><img src="img7.jpg"></div>
+	</div>
+</div>
+<div class="swiper-pagination"></div>
+<div class="swiper-button-prev"></div>
+<div class="swiper-button-next"></div>
+</body>
+</html>
+
+<script>
+	var mySwiper = new Swiper('.swiper', {
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		initialSlide: 2,
+		speed: 2000,
+		loop: true,
+		autoplay: {
+			delay: 1000,
+		},
+		pagination: {
+			el: '.swiper-pagination',
+		},
+	});
+</script>

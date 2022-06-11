@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>for循环练习2</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+<script>
+	document.write('<ul>');
+	for (var i = 1; i <= 8; i++) {
+		document.write('*');
+		document.write(`
+            <li style="color: red">
+                <p>555</p>
+            </li>
+        `);
+	}
+	document.write('</ul>');
+
+	var arr = ['red', 'blue', 'green', 'pink', 'yellow'];
+
+	//  for (var j = 0; j < arr.length; j++){
+	//     console.log(arr[j])
+	// }
+
+	for (var j in arr) {  // j数组的索引
+		console.log(arr[j]);
+	}
+
+	var obj = {
+		name: 'xiaozhang',
+		are: 18,
+	};
+	// for (var n = 0; n < obj.length; n++){
+	//     console.log(obj[n])
+	// }
+
+	for (var n in obj) {
+		console.log(obj[n]);
+	}
+</script>
+</body>
+</html>

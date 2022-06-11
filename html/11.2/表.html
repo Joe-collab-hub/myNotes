@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		body {
+			background-color: mediumspringgreen;
+		}
+
+		#box {
+			width: 500px;
+			height: 500px;
+			background-color: white;
+			margin: 100px auto;
+			border-radius: 100%;
+			position: relative;
+		}
+
+		#bot-1 {
+			width: 460px;
+			height: 460px;
+			background-color: deepskyblue;
+			border-radius: 100%;
+			position: absolute;
+			top: 20px;
+			left: 20px;
+		}
+
+		#bot-2 {
+			width: 20px;
+			height: 20px;
+			background-color: black;
+			border-radius: 100%;
+			position: absolute;
+			top: 220px;
+			left: 220px;
+		}
+
+		#t-1, #t-2, #t-3 {
+			width: 5px;
+			border-top-right-radius: 100%;
+			border-top-left-radius: 100%;
+			position: absolute;
+			left: 227.5px;
+		}
+
+		#t-1 {
+			height: 150px;
+			transform-origin: 2.5px 80%;
+			background-color: hotpink;
+			top: 110px;
+			animation: a 216000s linear infinite;
+		}
+
+		@keyframes a {
+			0% {
+				-webkit-transform: rotate(0deg)
+			}
+			50% {
+				-webkit-transform: rotate(180deg)
+			}
+			100% {
+				-webkit-transform: rotate(360deg)
+			}
+		}
+
+		#t-2 {
+			height: 205px;
+			transform-origin: 2.5px 85%;
+			background-color: lightgreen;
+			top: 55px;
+			animation: b 3600s linear infinite;
+		}
+
+		@keyframes b {
+			0% {
+				-webkit-transform: rotate(0deg)
+			}
+			50% {
+				-webkit-transform: rotate(180deg)
+			}
+			100% {
+				-webkit-transform: rotate(360deg)
+			}
+		}
+
+		#t-3 {
+			height: 230px;
+			top: 30px;
+			transform-origin: 2.5px 87.5%;
+			background-color: paleturquoise;
+			animation: c 60s linear infinite;
+		}
+
+		@keyframes c {
+			0% {
+				-webkit-transform: rotate(0deg)
+			}
+			50% {
+				-webkit-transform: rotate(180deg)
+			}
+			100% {
+				-webkit-transform: rotate(360deg)
+			}
+		}
+
+		#w-1, #w-2, #w-3, #w-4 {
+			width: 50px;
+			height: 50px;
+			text-align: center;
+			font-size: 40px;
+			font-weight: bold;
+			font-family: 微软雅黑;
+			position: absolute;
+		}
+
+		#w-1 {
+			left: 205px;
+		}
+
+		#w-2 {
+			top: 205px;
+		}
+
+		#w-3 {
+			left: 205px;
+			top: 410px;
+		}
+
+		#w-4 {
+			left: 410px;
+			top: 205px;
+		}
+	</style>
+</head>
+<body>
+<div id="box">
+	<div id="bot-1">
+		<div id="t-1"></div>
+		<div id="t-2"></div>
+		<div id="t-3"></div>
+		<div id="w-1">12</div>
+		<div id="w-2">9</div>
+		<div id="w-3">6</div>
+		<div id="w-4">3</div>
+		<div id="bot-2"></div>
+	</div>
+</div>
+</body>
+</html>

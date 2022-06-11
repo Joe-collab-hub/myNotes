@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        div {
+            width: 1000px;
+            height: 50px;
+            margin: 20px auto;
+            background-color: #76b0df;
+        }
+
+        #bot {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            /*position: relative;*/
+
+        }
+        .l{
+            position: static !important;
+        }
+
+        #bot > li {
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        #bot > li:hover {
+            font-weight: bold;
+        }
+
+        .box>ul{
+            position: absolute;
+            background-color: #76b0df;
+            padding: 10px 0;
+            bottom: -50px;
+        }
+        .box1 {
+            display: none;
+        }
+        .box2 {
+            display: flex;
+            justify-content: space-between;
+        }
+        .box:hover ul{
+            display: flex;
+        }
+        .l{
+            position: static;
+        }
+
+        p{
+            width: 0;
+            height: 0;
+            border: 10px solid;
+            position: relative;
+            border-color: transparent transparent #76b0df;
+            /*bottom: -10px;*/
+            /*left: 40px;*/
+            margin: -10px auto 0;
+        }
+        .p1{
+            display: none;
+        }
+        .p2{
+            display: block;
+        }
+        .box:hover p{
+            display: block;
+        }
+        p:after {
+            content: "";
+            width: 0;
+            height: 0;
+            border: 8px solid;
+            position: absolute;
+            border-color: transparent transparent #fff;
+            bottom: -10px;
+            left: -8px;
+        }
+
+        #bot > .box > ul > li {
+            width: 80px;
+            height: 20px;
+            font-size: 12px;
+            line-height: 20px;
+            background-color: #76b0df;
+            color: #2a629b;
+            font-weight: normal;
+            position: relative;
+            border-right: 1px solid #2a629b;
+        }
+        .z{
+            border-right: 0 !important;
+        }
+        #bot > .box > ul > li:hover{
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul id="bot">
+        <li>站长之家</li>
+        <li class="box">行业咨询</li>
+        <li class="box">站长在线</li>
+        <li class="box">网站运营</li>
+        <li class="box">设计在线</li>
+        <li class="box">网络编程</li>
+        <li class="box">联盟咨询</li>
+        <li class="box">服务器</li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    let div = document.getElementsByTagName("div")[0];
+    let box = document.getElementsByClassName("box");
+    let bot = document.getElementById("bot");
+
+    let arr = [
+        ["的风景和", "第三季度", "当你离开","巅峰时刻", "疯狂的事", "是的方法", "放声大哭", "大师风范"],
+        ["地方不能", "多看几遍", "上的飞机","的数据库", "够咯考虑", "热狗结果"],
+        ["浮动空间", "放牛砍柴", "就会反馈","登记户口", "发的时刻"],
+        ["多少分呢", "巅峰时刻", "的风景和","的复活节", "大幅高开"],
+        ["上的飞机", "打开i积分", "和地方的","大家风范", "高房价破", "大幅高开", "功放开关"],
+        ["范德萨发", "九零三零", "放声大哭","的空间和"],
+        ["巅峰时刻", "上的飞机", "皮购房款","点燃烽火", "大佛颇多", "代课老师", "克雷分布", "感到快乐", "放假咯的"],
+
+    ]
+    function fun1(ul, i,p) {
+        box[i].onmouseover = function () {
+            ul.classList.add("box2");
+            p.classList.add("p2");
+            p.classList.remove("p1")
+            ul.classList.remove("box1");
+        }
+    }
+
+    function fun2(ul, i,p) {
+        box[i].onmouseout = function () {
+            setTimeout(function (){
+                ul.classList.add("box1");
+                ul.classList.remove("box2");
+                p.classList.add("p1");
+                p.classList.remove("p2");
+
+            },500)
+        }
+    }
+
+    let num = div.offsetLeft+div.offsetWidth;
+
+    for (let i = 0; i < box.length; i++) {
+        let ul = document.createElement("ul");
+        let p = document.createElement("p");
+        ul.classList.add("clearfix");
+        ul.classList.add("box1");
+        box[i].appendChild(p);
+        p.classList.add("p1")
+        fun1(ul, i,p);
+        for (let j=0;j<arr[i].length;j++){
+            let li = document.createElement("li");
+            if(j===arr[i].length-1){
+                li.classList.add("z")
+                li.innerHTML= arr[i][j];
+
+            } else {
+                li.innerHTML= arr[i][j];
+            }
+
+            ul.appendChild(li);
+        }
+        box[i].appendChild(ul);
+        let num1 = box[i].offsetLeft+arr.length*81-1
+        if (num-num1>=0){
+            ul.style.left = "0";
+        } else {
+            // ul.classList.add("l")
+            ul.style.right = "0";
+        }
+        fun2(ul,i,p);
+    }
+</script>

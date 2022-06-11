@@ -1,0 +1,67 @@
+<!--
+  ~ Time:2022/3/15 12:21 21
+  ~ Name:画字.html
+  ~ Path:html5/画
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		canvas {
+			border: 1px solid red;
+		}
+
+
+	</style>
+</head>
+<body>
+<canvas width="2000" height="1000"></canvas>
+</body>
+<script>
+	const canvasDom = document.querySelector('canvas');
+	const context = canvasDom.getContext('2d');
+	let isFirst = true;
+	context.lineWidth = 580;
+	context.lineCap = 'round'
+	context.lineJoin = 'round'
+	canvasDom.onmousedown = function () {
+		canvasDom.onmousemove = function (event) {
+			const x = event.offsetX;
+			const y = event.offsetY;
+			if (isFirst) {
+				context.moveTo(x, y);
+				isFirst = false;
+			} else {
+				context.lineTo(x, y);
+				context.stroke();
+			}
+		};
+	};
+	document.onmouseup = function () {
+		canvasDom.onmousemove = null;
+		isFirst = true;
+	};
+</script>
+</html>

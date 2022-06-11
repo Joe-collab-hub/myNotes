@@ -1,0 +1,35 @@
+<!--
+  ~ Time:2022/3/11 11:05 01
+  ~ Name:webWorker的线程沟通.html
+  ~ Path:html5
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+
+</head>
+<body>
+
+</body>
+<script>
+	const childWorker = new Worker('./计算1到100000能被3整除的和.js');
+	console.log(childWorker);
+	// 接收子线程的信息
+	childWorker.onmessage = function (result) {
+		//  result：子线程发送的数据对象
+		console.log('主线程接收的数据',result.data);  // 子线程发送的数据
+	};
+
+	// 向子线程发送数据
+	childWorker.postMessage(6000);
+	childWorker.postMessage(8000);
+</script>
+</html>

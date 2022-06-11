@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span>省</span>
+<select name="province"></select>
+<span style="margin-left: 50px">市</span>
+<select name="city"></select>
+
+</body>
+</html>
+<script>
+    let province = document.getElementsByName("province")[0];
+    let city = document.getElementsByName("city")[0];
+
+    let cities = ["-请选择-", "北京", "河北", "河南"];
+    let counts = [
+        ["-请选择-"],
+        ["-请选择-", "东城区", "西城去", "朝阳区"],
+        ["-请选择-", "承德市", "石家庄", "唐山市", "保定市"],
+        ["-请选择-", "郑州", "安阳", "濮阳市", "三门峡", "信阳市"],
+    ]
+
+    for (let i = 0; i < cities.length; i++) {
+        let option1 = document.createElement("option");
+        option1.innerText = cities[i];
+        province.appendChild(option1);
+    }
+    province.onchange = function () {
+        let num = this.selectedIndex;
+        console.log(num)
+        city.innerHTML = ""
+        for (let i = 0; i < counts[num].length; i++) {
+            let option2 = document.createElement("option");
+            option2.innerText = counts[num][i];
+            city.appendChild(option2)
+        }
+    }
+    province.onchange();
+
+</script>

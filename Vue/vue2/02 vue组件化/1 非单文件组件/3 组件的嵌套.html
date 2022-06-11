@@ -1,0 +1,98 @@
+<!--
+  ~ Time:2022/4/8 16:04 50
+  ~ Name:3 组件的嵌套.html
+  ~ Path:Vue/02 vue组件化/1 非单文件组件
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>组件的嵌套</title>
+	<script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+<!--	<app></app>-->
+</div>
+</body>
+<script>
+	Vue.config.productionTip = false;
+
+	// 创建student组件
+	const student = Vue.extend({
+		template: `
+			<div>
+			<h1>学校名称：{{ name }}</h1>
+			<h1>学校地址：{{ address }}</h1>
+			</div>
+		`,
+		data () {
+			return {
+				name: '尚硅谷',
+				address: '北京昌平',
+			};
+		},
+	});
+	// 创建school组件
+	const school = Vue.extend({
+		template: `
+			<div>
+			<h1>学校名称：{{ name }}</h1>
+			<h1>学校地址：{{ age }}</h1>
+			<student></student>
+			</div>
+		`,
+		data () {
+			return {
+				name: '张三',
+				age: 18,
+			};
+		},
+		components:{
+			student
+		}
+	});
+	// 创建hello组件
+	const hello = Vue.extend({
+		template: `
+			<h1>{{ mvg }}</h1>
+		`,
+		data () {
+			return {
+				mvg: '欢迎来到Vue',
+			};
+		},
+	});
+
+	// 创建app组件
+	const app = Vue.extend({
+		template:`
+		<div>
+		<hello></hello>
+		<school></school>
+		</div>
+		`,
+		components: {
+			hello,
+			school,
+		},
+	});
+
+	const vm = new Vue({
+		el: '#root',
+		template:`
+		<app></app>
+		`,
+		components: {
+			app,
+		},
+
+	});
+</script>
+</html>

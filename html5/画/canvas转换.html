@@ -1,0 +1,50 @@
+<!--
+  ~ Time:2022/3/16 11:40 59
+  ~ Name:canvas转换.html
+  ~ Path:html5/画
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equi v="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>canvas转换</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		canvas {
+			border: 1px solid red;
+		}
+
+
+	</style>
+</head>
+<body>
+<canvas width="500" height="500"></canvas>
+</body>
+<script>
+	// 转换可以对画布进行平移，旋转，缩放操作
+
+	const canvasDom = document.querySelector('canvas');
+	const context = canvasDom.getContext('2d');
+
+
+</script>
+</html>

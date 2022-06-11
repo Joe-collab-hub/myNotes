@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #bot {
+            height: 200px;
+            display: flex;
+        }
+
+        #box {
+            width: 350px;
+            height: 350px;
+            border: 1px solid;
+            position: relative;
+            cursor: move;
+            background: url("1.jpg") no-repeat;
+            background-size: contain;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 255, 0, 0.44);
+            position: absolute;
+            display: none;
+        }
+
+        #box:hover .box1 {
+            display: block;
+        }
+
+        #imgs {
+            width: 600px;
+            height: 600px;
+            background: url("1.jpg") no-repeat;
+            background-size: 1050px 1050px;
+            border: 1px solid;
+            display: none;
+        }
+
+        #box:hover + #imgs {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="bot">
+    <div id="box">
+        <div class="box1"></div>
+    </div>
+    <div id="imgs"></div>
+</div>
+
+</body>
+</html>
+<script>
+    let box = document.getElementById("box");
+    let box1 = box.getElementsByTagName("div")[0];
+    let imgs = document.getElementById("imgs");
+    box.onmousemove = function (event) {
+        var e = event || window.event;
+        let y = e.clientY - this.offsetTop;
+        if (x <= box1.offsetWidth / 2) {
+            box1.style.left = 0;
+            imgs.style.backgroundPositionX = 0;
+        } else if (x >= box.offsetWidth - box1.offsetWidth / 2) {
+            box1.style.left = box.offsetWidth - box1.offsetWidth + "px";
+            imgs.style.backgroundPositionX = -(box.offsetWidth - box1.offsetWidth) * 3 + "px";
+        } else {
+            box1.style.left = x - box1.offsetWidth / 2 + "px";
+            imgs.style.backgroundPositionX = -(x - box1.offsetWidth / 2) * 3 + "px";
+        }
+        if (y <= box1.offsetHeight / 2) {
+            box1.style.top = 0;
+            imgs.style.backgroundPositionY = 0;
+        } else if (y >= box.offsetHeight - box1.offsetHeight / 2) {
+            box1.style.top = box.offsetHeight - box1.offsetHeight + "px"
+            imgs.style.backgroundPositionY = -(box.offsetHeight - box1.offsetHeight) * 3 + "px";
+        } else {
+            box1.style.top = y - box1.offsetHeight / 2 + "px";
+            imgs.style.backgroundPositionY = -(y - box1.offsetHeight / 2) * 3 + "px";
+        }
+    }
+</script>

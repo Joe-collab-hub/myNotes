@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>break和continue</title>
+</head>
+<body>
+<script>
+	/*
+	   break关键字可以用来退出switch或循环语句
+	   不能在if语句中使用break和continue
+
+	   break关键字，会立即终止高他最近的循环语句
+
+	   continue关键字可以用来跳过当次循环
+	   同样continue也只会对高他最近的循环语句起作用
+
+	   测试程序的性能
+	   在程序执行前，开启计时器
+	   console.time("计时器的名字")可以用来开启一个计时器
+	   他需要一个字符作为参数，这个字符串将会作为计时器的识标
+	   终止计时器
+	   console.timeEnd("计时器的名字")用来停止计时器
+	   他需要跟开启计时用一个字符作为参数，这个字符串将会作为计时器的识标
+	*/
+
+
+
+	// for (var i = 0; i < 5; i++){
+	//     console.log("@外部循环" + i)
+	//     for (var j = 0; j < 5; j++){
+	//         break;
+	//         console.log("内部循环" + j);
+	//     }
+	// }
+
+	/*
+	可以为循环语句创建一个label，来识标当前循环
+	label:循环语句
+	*/
+	/*
+	outer:
+	for (var i = 0; i < 5; i++){
+		console.log("@外部循环" + i)
+		for (var j = 0; j < 5; j++){
+			break outer;
+			console.log("内部循环" + j);
+		}
+	}
+	 */
+	console.time('test');
+	for (var i = 0; i < 5; i++) {
+		console.log('@外部循环' + i);
+		for (var j = 0; j < 5; j++) {
+			console.log('内部循环' + j);
+		}
+	}
+	console.timeEnd('test');
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!--
+  ~ Time:2022/2/26 10:14 53
+  ~ Name:post请求.html
+  ~ Path:js/笔记/09.js
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+
+</head>
+<body>
+<form action="http://192.168.107.2:3000/laoguo-post?" method="get">
+	<input type="text" name="name">
+	<input type="submit">
+</form>
+</body>
+<script>
+	// 使用get请求，参数是跟在ulr后面的。这样导致数据不太安全，
+	// 并且浏览器对于ulr的长度使用做了限制，因此get请求方式的参数是由限制的
+	// post可以使用post请求传递更多的参数
+	const xhr = new XMLHttpRequest();  // 先声明对象
+	// post请求同样可以1使用ulr传递参数
+	xhr.open('post', 'http://192.168.107.2:3000/laoguo-post?name=张三&age=18', false);
+	// 设置请求头
+	xhr.setRequestHeader('Content-Type','application/json');
+
+	var obj = {
+		sex:'男',
+		school:'智游'
+	}
+	// post请求可以在请求中传递参数
+	xhr.send(obj);
+	console.log(xhr.responseText);
+</script>
+</html>

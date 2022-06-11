@@ -1,0 +1,83 @@
+<!--
+  ~ Time:2022/3/11 12:08 24
+  ~ Name:聊天室.html
+  ~ Path:html5
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		ul {
+			width: 500px;
+			height: 500px;
+			overflow: hidden;
+		}
+
+
+	</style>
+</head>
+<body>
+<label for="nameDom">姓名：</label>
+<input type="text" id="nameDom">
+<br>
+<button>进入</button>
+<ul></ul>
+</body>
+<script>
+	// 存储姓名
+	let useName = '';
+	// 1、建立服务器连接、
+	const socket = new WebSocket('ws://192.168.107.2:5000');
+	let nameDom = document.getElementById('nameDom');
+	// 2、建立监听信息事件
+	socket.onmessage = function (result) {
+		const data = JSON.parse(result.data);
+		let li = document.createElement('li');
+		li.innerText = `${data.name}：${data.text}`;
+		document.getElementsByTagName('ul')[0].prepend(li);
+	};
+	// 3、监听连接成功事件
+	socket.onopen = function () {
+		// 连接成功，给按钮绑定点击事件
+		document.getElementsByTagName('button')[0].onclick = function () {
+			if (useName === '') {
+				// 说明当前还未进入
+				useName = nameDom.value; // 存储用户姓名
+				document.getElementsByTagName('label')[0].innerText = '信息：'; // 修改label内容
+				nameDom.value = '';  // 清空输入框
+				this.innerText = '发送';  // 修改按钮内容
+			} else {
+				// 发送信息
+				socket.send(JSON.stringify({
+					name: useName,
+					text: nameDom.value,
+				}));
+			}
+
+		};
+	};
+
+</script>
+</html>

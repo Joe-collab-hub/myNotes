@@ -1,0 +1,341 @@
+/**
+  * Time:2022/3/18 14:45 53
+  * Name:index.css
+  * Path:html5/饿了么/css
+  * ProjectName:前端
+  * Author:突然
+  *
+  *  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  */
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+*::placeholder {
+	cursor: pointer;
+}
+
+a {
+	color: #000;
+}
+
+label, button {
+	user-select: none;
+	/*pointer-events:none;*/
+}
+
+input {
+	padding: .1rem 0 .1rem .1rem;
+	font: 500 .8rem YouYuan;
+}
+
+button {
+	cursor: pointer;
+}
+
+/*-------以上为默认设置（The above is the default setting）--------*/
+body{
+	background-color: #008fff;
+}
+body > svg {
+	position: absolute;
+	top: 0;
+	z-index: -9999;
+}
+
+header {
+	width: 90vw;
+	height: 6vh;
+	padding: 0 5vw;
+	background-color: #008fff;
+}
+
+#location {
+	width: 60%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#location-name {
+	width: 85%;
+	font-size: 20px;
+	color: #fff;
+	margin-left: 2vw;
+	font-weight: bold;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+#location > svg {
+	width: 6%;
+	height: 50%;
+}
+
+nav {
+	width: 90vw;
+	height: 6vh;
+	background-color: #008fff;
+	padding: 0 5vw;
+	display: flex;
+	align-items: center;
+	position: sticky;
+	top: 0;
+	border-top: 1px solid #008fff;
+}
+
+nav > div {
+	width: 100%;
+	height: 70%;
+	background-color: #fff;
+	display: flex;
+}
+
+nav > div > a {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+nav > div > a > svg {
+	width: 10%;
+	height: 50%;
+}
+
+nav > div > a > span {
+	color: #999999;
+}
+
+main {
+	width: 100vw;
+	padding-bottom: 5vh;
+	background-color: #fff;
+}
+
+#classify {
+	width: 100%;
+	height: 22vh;
+	display: flex;
+	justify-content: left;
+}
+
+#classify > li {
+	width: 20%;
+	height: 10vh;
+	text-align: center;
+	margin-top: 1.5vh;
+}
+
+#classify > li > img {
+	width: 60%;
+}
+
+#classify > li > p {
+	font-size: 3.5vw;
+	color: #666666
+}
+
+#meal {
+	width: 90vw;
+	height: 15vh;
+	padding: 0 5vw;
+	background-color: #f5f5f5;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#meal > div {
+	width: 40%;
+}
+
+#meal > div > p {
+	font-size: 3.5vw;
+	line-height: 3vh;
+	color: #666666;
+}
+
+#meal > div > div {
+	font-size: 3.5vw;
+	font-weight: bold;
+	line-height: 3vh;
+	color: #af8260;
+}
+
+#meal > img {
+	width: 35vw;
+}
+
+#merchant {
+	width: 90vw;
+	padding: 2vh 5vw;
+}
+
+#merchant > p {
+	width: 20vw;
+	font-size: 4vw;
+	text-align: center;
+	position: relative;
+	margin: auto;
+}
+
+#merchant > p:before {
+	content: "";
+	width: 5vw;
+	height: 0;
+	border: 1px solid #ccc;
+	position: absolute;
+	left: -7vw;
+	top: 2.5vw;
+}
+
+#merchant > p:after {
+	content: "";
+	width: 5vw;
+	height: 0;
+	border: 1px solid #ccc;
+	position: absolute;
+	right: -7vw;
+	top: 2.5vw;
+}
+
+#sort-1 {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 2vh;
+}
+
+#sort > svg {
+	width: 2vw;
+	height: 2vh;
+}
+
+#screen > svg {
+	width: 3vw;
+	height: 2vh;
+}
+
+#not {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+#not > img {
+	width: 65%;
+}
+
+#not > div {
+	width: 40%;
+	text-align: center;
+}
+
+#not > div > p:nth-of-type(1) {
+	font-size: 4vw;
+	line-height: 4vh;
+}
+
+#not > div > p:nth-of-type(2) {
+	font-size: 3vw;
+	line-height: 4vh;
+}
+
+#not > div > a >div {
+	width: 100%;
+	height: 4vh;
+	background-color: #56d176;
+	color: #fff;
+	font-size: 1vw;
+	line-height: 4vh;
+}
+
+footer {
+	width: 100%;
+	height: 6vh;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	border-top: 1px solid #ccc;
+	background-color: #fff;
+}
+
+footer > ul {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+footer > ul > li {
+	width: 20%;
+	height: 100%;
+	text-align: center;
+}
+footer > ul > li>a{
+	width: 100%;
+	height: 100%;
+}
+footer > ul > li > a > p {
+	font-size: 1vw;
+}
+
+.index-footerTabIcon_1EbB8wS {
+	width: 50%;
+	height: 50%;
+	margin-top: 0.5vh;
+}
+#store{
+	width: 100%;
+}
+#store>li{
+	width: 100%;
+}
+#store>li>a{
+	width: 100%;
+	padding: 5vw 0;
+	display: flex;
+	justify-content: space-between;
+}
+#store>li>a>img{
+	width: 20vw;
+	height: 20vw;
+}
+#store>li>a>div{
+	width: 65vw;
+}
+#store>li>a>div>div{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 3vw;
+	font-size: 1vw;
+	color: #666666;
+}
+#store>li>a>div>div>h3{
+	font-size: 4vw;
+	color: #000;
+}
+.evaluate{
+	display: flex;
+	
+	align-items: center;
+}
+.evaluate{
+	height: 2.5vw;
+}
+#store>li>div>p{
+	font-size: 1vh;
+	width: 3em;
+	padding: 0 1vw;
+	border: 1px solid #ccc;
+}

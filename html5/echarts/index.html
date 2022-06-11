@@ -1,0 +1,105 @@
+<!--
+  ~ Time:2022/3/11 15:32 05
+  ~ Name:index.html
+  ~ Path:html5/echarts
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		#main {
+			width: 600px;
+			height: 300px;
+			border: 1px solid;
+		}
+
+
+	</style>
+	<script src="echarts.js"></script>
+
+</head>
+<body>
+<div id="main"></div>
+</body>
+<script>
+	// 初始化图表，告诉echarts将图标渲染在那个元素内
+	const main = echarts.init(document.getElementById('main'));
+	// 使用setOption配置图表
+	main.setOption({
+		title: {
+			text: '我的第一个图表',  //  \n表示换行
+			show: true, //是否显示标题
+			link: 'https://www.baidu.com/', // 配置link将标题变成超链接
+			left: 50, // 设置标题距离左侧的位置
+			top: 10, // 设置标题距离顶部的位置
+		},
+		legend: {  // 图列
+			type: 'scroll',
+			data: ['销量', '1', '2', '3', '4 ', '5', '6'],
+			left: 300
+		},
+		xAxis: {  // x轴的数据
+			data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子'],
+		},
+		yAxis: { // y轴的数据
+		},
+		series: [
+			{
+				name: '销量',
+				type: 'bar',
+				data: [5, 20, 36, 10, 10, 20],
+			},
+			{
+				name: '1',
+				type: 'bar',
+				data: [5, 20, 36, 10, 10, 20],
+			},
+			{
+				name: '2',
+				type: 'bar',
+				data: [5, 20, 36, 10, 10, 20],
+			},
+			{
+				name: '3',
+				type: 'bar',
+				data: [5, 20, 36, 10, 10, 20],
+			}, {
+				name: '4',
+				type: 'bar',
+				data: [5, 20, 36, 10, 10, 20],
+			}, {
+				name: '5',
+				type: 'bar',
+				data: [5, 20, 36, 10, 10, 20],
+			}, {
+				name: '6',
+				type: 'bar',
+				data: [5, 20, 36, 10, 10, 20],
+			},
+
+		],
+	});
+</script>
+</html>

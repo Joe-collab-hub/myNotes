@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // var arr = [5 , 6 , 0 , 1 ];
+    // arr.forEach(function (a,b,c) {
+    //     console.log(a,b,c);
+    // })
+
+    var a = [10 , 20 , 30 , 5]
+
+    // 查找数组的第一个奇数
+
+    var num = a.find(function (value){
+        return value % 2 === 1;
+    })
+
+    console.log(num);
+
+    // 查找数组的第一个大于十的偶数
+
+    var num1 = a.find(function (value) {
+        return value % 2 === 0 && value > 10;
+    })
+    console.log(num1)
+
+</script>
+</body>
+</html>

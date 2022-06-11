@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>好友</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        #bot {
+            width: 200px;
+            margin: 100px auto;
+            background-color: #c6faf1;
+        }
+
+        .box {
+            width: 100%;
+            /*height: 30px;*/
+            line-height: 30px;
+            color: black;
+        }
+
+        .box > div {
+            width: 100%;
+            display: flex;
+            border-bottom: 1px solid #cccccc;
+        }
+
+        .box > div > img {
+            width: 20px;
+            height: 20px;
+            margin-top: 5px;
+        }
+
+        .ul1 {
+            height: 0;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .ul2 {
+            height: auto;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        ul > li {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            line-height: 50px;
+        }
+
+        ul > li > img {
+            width: 30px;
+            height: 30px;
+            margin-top: 10px;
+            border-radius: 100%;
+            padding-right: 10px;
+        }
+
+        /*.box:hover ul {*/
+        /*    height: auto;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<!--
+    <div id="bot">
+        <a href="#" class="box">
+            <div>
+                <img src="you.png">
+                <p>我的好友</p>
+            </div>
+            <ul>
+                <li>
+                    <img src="touxiang.png">
+                    <div>vbnn</div>
+                </li>
+                <li>
+                    <img src="touxiang.png">
+                    <div>vbnn</div>
+                </li>
+                <li>
+                    <img src="touxiang.png">
+                    <div>vbnn</div>
+                </li>
+                <li>
+                    <img src="touxiang.png">
+                    <div>vbnn</div>
+                </li>
+                <li>
+                    <img src="touxiang.png">
+                    <div>vbnn</div>
+                </li>
+            </ul>
+        </a>
+        <a href="#" class="box">
+            <div>
+                <img src="you.png">
+                <p>我的同事</p>
+            </div>
+        </a>
+    </div>
+
+-->
+</body>
+</html>
+<script>
+
+    const label = () => {
+        let body = document.getElementsByTagName("body")[0];
+        let div = document.createElement("div");
+        let id = document.createAttribute("id");
+        id.value = "bot";
+        div.setAttributeNode(id);
+        body.appendChild(div);
+
+        let arr = ["我的好友", "我的同事"];
+
+        for (let i = 0; i < arr.length; i++) {
+            let a = document.createElement("a");
+            let bot_a_class = document.createAttribute("class");
+            let bot_a_href = document.createAttribute("href");
+            bot_a_class.value = "box";
+            bot_a_href.value = "#";
+            a.setAttributeNode(bot_a_href);
+            a.setAttributeNode(bot_a_class);
+            div.appendChild(a);
+            let a_div = document.createElement("div");
+            a.appendChild(a_div)
+            let img = document.createElement("img");
+            let src = document.createAttribute("src");
+            let img_class = document.createAttribute("class");
+            src.value = "you.png";
+            img_class.value = "tu";
+            img.setAttributeNode(src);
+            img.setAttributeNode(img_class);
+            a_div.appendChild(img);
+            let a_div_p = document.createElement("p");
+            a_div_p.innerHTML = arr[i]
+            a_div.appendChild(a_div_p)
+        }
+    }
+
+    label();
+
+    const friends = (arr, a) => {
+
+        let ul = document.createElement("ul");
+        a.appendChild(ul);
+        for (let i = 0; i < arr.length; i++) {
+            let li = document.createElement("li");
+            ul.appendChild(li);
+            let img = document.createElement("img");
+            let src = document.createAttribute("src");
+            src.value = "touxiang.png";
+            img.setAttributeNode(src)
+            li.appendChild(img);
+            let li_p = document.createElement("p");
+            li_p.innerHTML = arr[i]
+            li.appendChild(li_p)
+        }
+    }
+
+    const fun = (a,img) => {
+
+
+        a.onclick = function () {
+            let ul = a.getElementsByTagName("ul")[0];
+            img.src = "you.png"
+            let ul_class = document.createAttribute("class");
+            ul_class.value = "ul1"
+            ul.setAttributeNode(ul_class)
+            a.onclick = function () {
+                img.src = "xia.png"
+                ul_class.value = "ul2";
+                fun(a,img);
+            }
+        }
+    }
+
+
+    let a = document.getElementsByTagName("a")[0];
+
+    a.onclick = function () {
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8];
+        friends(arr, a);
+        let img = a.getElementsByClassName("tu")[0];
+        img.src = "xia.png"
+        fun(a,img);
+    }
+
+    let a1 = document.getElementsByTagName("a")[1];
+
+    a1.onclick = function () {
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8];
+        friends(arr, a1);
+        let img = a1.getElementsByClassName("tu")[0];
+        img.src = "xia.png"
+        fun(a1,img);
+    }
+
+</script>

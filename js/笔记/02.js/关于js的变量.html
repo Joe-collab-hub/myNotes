@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关于js的变量</title>
+</head>
+<body>
+<script>
+    /*
+    回顾Java中的变量：
+        1、Java中怎样定义变量？
+            数据类型 变量名；
+            例如：
+                int i;
+                double d;
+                boolean flag;
+        2、Java中的变量怎样赋值？
+            使用“=”运算符进行赋值运算，（“=”运算符右边先执行，将右边执行的结果赋予值给左边的变量。）
+            变量名 = 值；
+            例如：
+                i = 10;
+                d = 3.14;
+                flag = fals;
+        3、Java语言是一种强类型语言，强类型怎样理解？
+            Java语言存在编译阶段，假设有代码，int i；
+            那么在Java中有一个特点是，Java程序编译阶段就已经确定了
+            i变量的数据类型，该i变量的数据类型在编译阶段是int类型；
+            那么这个变量到最终内存释放，一直都是int类型，不可能变成
+            其他类型
+                { int i = 10；
+                  double d = i； }
+                  （这句代码是声明一个新的变量d，double类型，把i保存的值传给d；i还是int类型）
+            byte short int long float double boolea char
+            字节符是 1 2 4 8 4 8 1 2
+
+            i = “abc”;这行代码编译的时候会报错，因为i变量的数据类型是int类型，不能是字符串，不能将字符串赋给i,
+
+            java 中要求变量声明必要是什么类型，以后永远都是这种类型，不可变。编译期强行固定变量的数据类型，
+            称之为强类型语言
+
+            public void sum (int a, int b){}
+            sum(?,?);
+
+
+
+
+    js当中的变量？
+        怎么声明变量？
+            var 变量名；
+        怎么给变量赋值？
+            变量名 = 值；
+    js是一种弱类型语言，没有编译阶段，一个变量可以随意赋值，赋什么类型的值都行。
+        var i = 100;
+        i = false;
+        i = "abc";
+        i = new Object();
+        i = 3.14;
+
+
+    重点：js是一种弱类型编程语言
+     */
+
+    //在js当中，当一个变量没有手动赋值的时候，系统默认赋值undefined
+    var i;
+    // undefined 在js中是一个值
+    alert("i =" + i);  //i =undefined
+    alert(undefined);
+    var k = undefined;
+    alert("k =" + k);
+
+
+    //一个没有声明变量定义，直接访问？
+    //alert(age); //这是一个语法的错误： age is not defined （变量age不存在，不能这样写。）
+
+    var a, b, c = 200;
+    alert("a =" + a);
+    alert("b =" + b);
+    alert("c =" + c);
+
+    a = false;
+    alert(a);
+
+    a = "abc";
+    alert(a);
+
+    a = 1.2;
+    alert(a)
+</script>
+</body>
+</html>

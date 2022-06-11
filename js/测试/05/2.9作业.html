@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+        }
+
+        #bot {
+            width: 200px;
+            height: 160px;
+            background-color: #c6faf1;
+            /*position: absolute;*/
+            margin-left: 200px;
+            margin-top: 200px;
+            cursor: move;
+            position: relative;
+        }
+
+        #bot > div {
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        #box-1 {
+            text-align: right;
+            background-color: pink;
+            color: #fff;
+        }
+
+        #box-2, #box-3, #box-4 {
+            margin-left: 20px;
+        }
+
+        a {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div id="bot">
+    <div id="box-1"><a href="#">点击回放拖拽</a></div>
+        <div id="box-2"><span>是否在拖拽：</span><span>否</span></div>
+        <div id="box-3"><span>横坐标：</span><span>200</span></div>
+        <div id="box-4"><span>纵坐标：</span><span>200</span></div>
+</div>
+</body>
+</html>
+<script>
+
+    let bot = document.getElementById("bot");
+    let a = document.getElementsByTagName("a")[0];
+    let box_2 = document.getElementById("box-2");
+    let box_3 = document.getElementById("box-3");
+    let box_4 = document.getElementById("box-4");
+    let span_1 = box_2.getElementsByTagName("span")[1];
+    let span_2 = box_3.getElementsByTagName("span")[1];
+    let span_3 = box_4.getElementsByTagName("span")[1];
+
+    let arr = [];
+    bot.onmousedown = function (e) {
+        span_1.innerText="是"
+        var e = e || window.event;
+        var diffX = e.clientX - this.offsetLeft;
+        var diffY = e.clientX - this.offsetTop;
+
+        document.onmousemove = function (e) {
+            var e = e || window.event;
+            var moveX = e.clientX - diffX;
+            var moveY = e.clientY - diffY;
+            bot.style.marginLeft = moveX + "px";
+            bot.style.marginTop = moveY + "px";
+            span_2.innerText = moveX;
+            span_3.innerText = moveY;
+
+            arr.push({X: moveX, Y: moveY});
+        }
+        document.onmouseup = function () {
+            span_1.innerText="否"
+            this.onmousemove = null;
+            this.onmouseup = null;
+
+        }
+    }
+
+    a.onclick = function () {
+        var timer = setInterval(function () {
+            if (arr.length > 0) {
+                var oData = arr.pop();
+                console.log(oData)
+                bot.style.marginLeft = oData.X + 'px';
+                bot.style.marginTop = oData.Y + 'px';
+                span_2.innerText = oData.X;
+                span_3.innerText = oData.Y;
+            } else {
+                clearInterval(timer);
+            }
+        }, 10);
+    }
+
+
+</script>

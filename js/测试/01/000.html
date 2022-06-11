@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = 20;
+    var b = 30;
+    var c = 10;
+
+       //     21   31    20    32    21    31    20    30
+   // var c = a++ + b++ + a-- + ++b + ++a + b-- + --a + --b;
+        //   20   30    21    32    21    32    20    30
+
+
+        //    21    31    20   19    18    30    29     17    18   28    29
+    //var d = a++ + b++ + a-- - --a + a-- + b-- - --b + a-- + a++ + b-- + b++;
+        //  20    30    21    19    19    31    29    18    17    29    28
+   // document.write(c)
+   // document.write(d)
+
+    //       19     31    20    19    32   18    31
+    //var n = --a + b++ - a++ * --a - b++ - --a + --b ;
+    //       19 +  30  -  19  *  19  -  31  -  18  +   31
+    //document.write(n)
+
+    var m = a++ + ++b + c++ + a-- + c-- + a-- + b-- - --b + ++a * c++ - a++ % b++ + a-- + c++;
+    document.write(m)
+</script>
+</body>
+</html>

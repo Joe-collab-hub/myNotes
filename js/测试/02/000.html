@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var storage = 100;
+    do {
+        var option = prompt('请输入您要的操作：' + '\n' + '1.存钱' + '\n' + '2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出') - 0;
+        switch (option) {
+            case 1:
+                money = prompt('请输入您要存的钱数：') - 0;
+                storage += money;
+                alert(storage);
+                break;
+            case 2:
+                var getOut = prompt('请输入您要取的钱数：') - 0;
+                storage -= getOut;
+                if (storage < 0) {
+                    alert('您的余额不足');
+                } else {
+                    alert(storage);
+                }
+                break;
+            case 3:
+                    alert(storage);
+                    break;
+            case 4:
+                alert("正在退出！");
+                break;
+            default:
+                alert("请输入正确选项！")
+        }
+    } while (option !== 4)
+
+</script>
+</body>
+</html>

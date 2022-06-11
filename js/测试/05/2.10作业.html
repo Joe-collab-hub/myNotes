@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #999999;
+        }
+
+        #bot {
+            width: 200px;
+            height: 200px;
+
+            margin: 200px auto;
+        }
+
+        p {
+            font-size: 100px;
+            color: #5dd5c8;
+            text-align: center;
+        }
+
+        .z {
+            color: red;
+            animation: cartoon 300ms linear;
+        }
+
+        @keyframes cartoon {
+            0% {
+                margin-left: -5px;
+            }
+            10% {
+                margin-left: 10px;
+            }
+            20% {
+                margin-left: -10px;
+            }
+            30% {
+                margin-left: 10px;
+            }
+            40% {
+                margin-left: -10px;
+            }
+            50% {
+                margin-left: 10px;
+            }
+            60% {
+                margin-left: -10px;
+            }
+            70% {
+                margin-left: 10px;
+            }
+            80% {
+                margin-left: -10px;
+            }
+            90% {
+                margin-left: 10px;
+            }
+            100% {
+                margin-left: 0;
+            }
+        }
+
+        .box {
+            color: #31c27c;
+        }
+    </style>
+</head>
+<body>
+<div id="bot">
+    <p></p>
+    <div class="box">
+        <span>您的成绩：</span><br>
+        <span style="margin-left: 50px">正确：</span>
+        <span></span><br>
+        <span style="margin-left: 50px">错误：</span>
+        <span style="color: red">0个</span>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    let arr = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"];
+    let p = document.getElementsByTagName("p")[0];
+    let span1 = document.getElementsByTagName("span")[2];
+    let span2 = document.getElementsByTagName("span")[4];
+    let num1 = 0
+    let num2 = 0
+
+
+    function fun1() {
+        p.classList.remove("z")
+    }
+    
+    function fun() {
+        let a = parseInt(Math.random() * 26);
+        p.innerText = arr [a];
+        span1.innerText = num1 + "个";
+        document.onkeydown = function (event) {
+            if (65 <= event.keyCode && event.keyCode <= 90) {
+                // num++
+                if (event.keyCode === arr[a].charCodeAt()) {
+                    num1++
+                    fun()
+                } else {
+                    num2++
+                    p.classList.add("z");
+                    span2.innerText = num2 + "个";
+                    setTimeout('fun1()',500)
+                }
+            }
+        }
+    }
+
+    fun()
+</script>

@@ -1,0 +1,84 @@
+<!--
+  ~ Time:2022/4/5 14:58 38
+  ~ Name:13 key的原理.html
+  ~ Path:Vue/dey01
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>列表过滤</title>
+	<script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<h2>人员列表</h2>
+	<input type="text" placeholder="请输入名字" v-model="keyWord">
+	<ul>
+		<li v-for="(p,index) of filPersons" :key="p.id">
+			{{ p.name }}-{{ p.age }}-{{ p.sex }}
+		</li>
+	</ul>
+</div>
+</body>
+<script>
+	Vue.config.productionTip = false;
+
+	// watch 写法
+	/* const vm = new Vue({
+		el: '#root',
+		data () {
+			return {
+				keyWord: '',
+				persons: [
+					{ id: '001', name: '马冬梅', age: 18, sex: '女' },
+					{ id: '002', name: '周冬雨', age: 19, sex: '女' },
+					{ id: '003', name: '周杰伦', age: 21, sex: '男' },
+					{ id: '004', name: '林俊杰', age: 22, sex: '男' },
+				],
+				filPersons:[]
+			};
+		},
+		watch: {
+			keyWord :{
+				immediate: true,
+				handler(val) {
+					return this.filPersons = this.persons.filter((p) => {
+						return p.name.indexOf(val) !== -1;
+					});
+				},
+			}
+		},
+	}); */
+
+	// computed 写法
+		const vm = new Vue({
+			el: '#root',
+			data () {
+				return {
+					keyWord: '',
+					persons: [
+						{ id: '001', name: '马冬梅', age: 18, sex: '女' },
+						{ id: '002', name: '周冬雨', age: 19, sex: '女' },
+						{ id: '003', name: '周杰伦', age: 21, sex: '男' },
+						{ id: '004', name: '林俊杰', age: 22, sex: '男' },
+					],
+				};
+			},
+			computed:{
+				filPersons(){
+					return this.persons.filter((p) => {
+						return p.name.indexOf(this.keyWord) !== -1;
+					});
+				}
+			}
+	
+		});
+</script>
+</html>

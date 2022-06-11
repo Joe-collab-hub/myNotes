@@ -1,0 +1,285 @@
+<!--
+  ~ Time:2022/3/11 19:06 14
+  ~ Name:index.html
+  ~ Path:html5/英雄联盟作业
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>作业</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		#bot {
+			width: 980px;
+			height: 500px;
+			border: 1px solid;
+			position: relative;
+		}
+
+		#background {
+			width: 100%;
+			height: 100%;
+			background: url("img/ld.jpg") no-repeat center;
+		}
+
+		#hero {
+			width: 120px;
+			position: absolute;
+			top: 70px;
+			left: 50px;
+		}
+
+		#hero > img {
+			width: 120px;
+			height: 120px;
+		}
+
+		#synopsis {
+			width: 720px;
+			height: 300px;
+			/* background-color: #5dd5c8; */
+			position: absolute;
+			top: 20px;
+			left: 230px;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		#icon {
+			width: 300px;
+			height: 240px;
+			background-color: rgba(0, 0, 0, 0.22);
+		}
+
+		#synopsis-1 {
+			width: 400px;
+			height: 240px;
+			color: #d0dddb;
+		}
+
+		h3 {
+			text-align: center;
+			line-height: 50px;
+		}
+
+		#skill {
+			width: 720px;
+			height: 200px;
+			position: absolute;
+			bottom: 0;
+			left: 230px;
+		}
+
+		#skill > ul {
+			width: 400px;
+			margin: auto;
+			/* background-color: #cccccc; */
+			display: flex;
+			justify-content: space-between;
+		}
+
+		#skill > ul > li {
+			width: 64px;
+			height: 64px;
+		}
+
+		.effect {
+			width: 100%;
+			height: 120px;
+			position: absolute;
+			background-color: rgba(0, 0, 0, 0.08);
+			left: 0;
+			bottom: 0;
+			color: white;
+		}
+
+		.z {
+			display: none;
+		}
+	</style>
+	<script src="homework.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+	<script src="echarts.js"></script>
+</head>
+<body>
+<div id="bot">
+	<div id="background"></div>
+	<div id="hero">
+		<img src="img/lx.jpg" alt="" data-name="瘟疫之源">
+		<img src="img/hx.png" alt="" data-name="复仇焰魂">
+		<img src="img/yx.png" alt="" data-name="疾风剑豪">
+	</div>
+	<div id="synopsis">
+		<div id="icon"></div>
+		<div id="synopsis-1">
+			<h3>瘟疫之源</h3>
+			<P>
+				虽然出身只是一只瘟疫老鼠，但图奇却靠热情成为了一位污秽的鉴赏家，他可不介意弄脏自己的爪子。他使用一把炼金动力十字弩瞄准皮城人的镀金心脏，发誓要让这些生活在上层都市的人们知道他们真实的自我究竟有多么肮脏。他总是鬼鬼祟祟蹑手蹑脚，不是在地沟区翻来翻去，就是在别的地方深挖人类的垃圾堆，寻找被丢弃的宝藏……或者是一块发霉的三明治。
+			</P>
+		</div>
+	</div>
+	<div id="skill">
+		<ul>
+			<li>
+				<img src="./img/ljb.png">
+				<div class="effect">
+					<h3>死亡毒液</h3>
+					<p>图奇的攻击会使目标感染死亡毒液，每秒造成真实伤害。</p>
+				</div>/u rasdgh
+			</li>
+			<li>
+				<img src="./img/ljQ.png">
+				<div class="effect z">
+					<h3>埋伏</h3>
+					<p>图奇进入伪装状态，持续一段短暂的时间并且移动速度得到提升。当离开伪装状态后，图奇会暂时获得攻击速度加成。<br>当一名身上带有【死亡毒液】的敌方英雄死亡时，此技能的冷却会重置。</p>
+				</div>
+
+			</li>
+			<li>
+				<img src="./img/ljW.png">
+				<div class="effect z">
+					<h3>剧毒之桶</h3>
+					<p>图奇扔出一个毒性之桶来引爆一个区域，对区域内的敌人造成减速效果，并对他们施加死亡毒液效果。</p>
+				</div>
+			</li>
+			<li>
+				<img src="./img/ljE.png">
+				<div class="effect z">
+					<h3>毒性爆发</h3>
+					<p>图奇引爆他那卑劣的毒素，对已中毒的敌人进行更为深远的蹂躏。</p>
+				</div>
+			</li>
+			<li>
+				<img src="./img/ljR.png">
+				<div class="effect z">
+					<h3>火力全开</h3>
+					<p>图奇让十字弩火力全开，快速地朝他面前射出强力且射程极远的穿刺箭头。</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+<script>
+	const main = echarts.init(document.getElementById('icon'));
+
+	main.setOption({
+		legend: {
+			data: ['瘟疫之源', '复仇焰魂', '疾风剑豪'],
+			itemGap: 20,
+			textStyle: {
+				color: '#fff',
+				fontSize: 15,
+			},
+			selectedMode: 'single',
+			bottom: 0,
+			itemStyle: {
+				color: '#f9713c',
+			},
+			itemHeight: 15,
+			itemWidth: 15,
+			icon: 'circle',
+			// selectedMode: 'single'
+		},
+		radar: {
+			radius: 60,
+			shape: 'circle',
+			indicator: [
+				{ name: '攻击', max: 10 },
+				{ name: '法术', max: 10 },
+				{ name: '防御', max: 10 },
+				{ name: '上手难度', max: 10 },
+			],
+			axisName: {
+				color: '#ecfd95',
+				fontSize: 15,
+			},
+		},
+		series: [
+			{
+				name: 'Budget vs spending',
+				type: 'radar',
+				data: [
+					{
+						value: [9, 3, 2, 6],
+						name: '瘟疫之源',
+						itemStyle: {
+							color: '#F9713C',
+						},
+					},
+					{
+						value: [2, 9, 2, 4],
+						name: '复仇焰魂',
+						itemStyle: {
+							color: '#F9713C',
+						},
+					},
+					{
+						value: [8, 4, 4, 10],
+						name: '疾风剑豪',
+						itemStyle: {
+							color: '#F9713C',
+						},
+					},
+				],
+				symbol: 'none',
+				colorBy: 'series',
+			},
+		],
+		splitLine: {
+			lineStyle: {
+				color: '#e9c265',
+			},
+		},
+	});
+
+	function fun (a) {
+		let b = a.skill;
+		$('#background').css({
+			background: `url(${a.big_img_url})`,
+		});
+		$('#synopsis-1>h3').text(a.name);
+		$('#synopsis-1>p').text(a.des);
+		for (let j = 0; j < b.length; j++) {
+			let c = b[j];
+			$('#skill>ul>li>img').eq(j).attr('src', c.img_url);
+			$('#skill>ul>li>.effect>h3').eq(j).text(c.title);
+			$('#skill>ul>li>.effect>p').eq(j).text(c.s_des);
+		}
+	}
+
+	$('#hero>img').each(function (i, el) {
+		let a = data[i];
+		$(el).click(function () {
+			fun(a, b);
+		});
+	});
+
+	$('li>img').each(function (i, el) {
+		$(el).click(function () {
+			$('.effect').addClass('z');
+			$('.effect').eq(i).removeClass('z');
+		});
+	});
+	main.on('legendseletchanged', function e () {
+		const imgDom = $(`#hero > img[data-name="${e, name}"]`);
+		console.log(imgDom);
+	});
+</script>
+</html>

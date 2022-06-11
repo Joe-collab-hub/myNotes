@@ -1,0 +1,215 @@
+/**
+  * Time:2022/3/4 21:26 36
+  * Name:index-990.css
+  * Path:html5/day1/销帮帮/css
+  * ProjectName:前端
+  * Author:突然
+  *
+  *  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  */
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+
+a:link {
+	color: #b700ff;
+}
+
+a:visited {
+	color: #0066ff;
+}
+
+a:hover {
+	color: #FF00FF;
+}
+
+a:active {
+	color: #ff8800;
+}
+
+*::selection {
+	color: #fff99a;
+	background-color: #ff961b;
+}
+
+*::placeholder {
+	font: 500 .5rem YouYuan;
+}
+
+*::placeholder {
+	cursor: pointer;
+}
+
+
+label, button {
+	user-select: none;
+	/*pointer-events:none;*/
+}
+
+input {
+	padding: .1rem 0 .1rem .1rem;
+	font: 500 .8rem YouYuan;
+}
+
+button {
+	cursor: pointer;
+}
+
+/*-------以上为默认设置（The above is the default setting）--------*/
+header{
+	height: 50px;
+	background-color: #fff;
+}
+header>div>div>img{
+	width: 150px;
+	margin-top: 8px;
+}
+.navigation{
+	display: none;
+}
+header > div > ul {
+	justify-content: right;
+}
+#register{
+	width: 30%;
+	/* display: flex; */
+	/* justify-content: space-between; */
+}
+#register>div{
+	width: 50px;
+	border: none;
+	background-color: transparent;
+	color: #ff6700;
+}
+#register3{
+	display: none;
+}
+#register>#register4{
+	width: 30px;
+	display: block;
+	float: left;
+	line-height: 10px;
+}
+#register4>i{
+	line-height: 10px;
+}
+.swiper{
+	height: 900px;
+}
+.swiper-slide > div {
+	height: 900px;
+	
+}
+
+.swiper-slide:nth-of-type(1) div {
+	background: url("../imgs/1ed707dc018f3bc6a8743b1a663980c0.jpg") no-repeat center;
+	background-size: 100% 100%;
+}
+
+.swiper-slide:nth-of-type(2) div {
+	background: url("../imgs/489dedad586fe9c09c93e9ac359f4bae.jpg") no-repeat center;
+	background-size: 100% 100%;
+}
+
+.swiper-slide:nth-of-type(3) div {
+	background: url("../imgs/9cfb8c49d29e965f764acfb92143bc4f.jpg") no-repeat center;
+	background-size: 100% 100%;
+}
+
+.swiper-slide:nth-of-type(4) div {
+	background: url("../imgs/370fde284d6ea2e0faa8e4852d8cfcb0.jpg") no-repeat center;
+	background-size: 100% 100%;
+}
+
+.swiper-slide:nth-of-type(5) div {
+	background: url("../imgs/b1de65521ee0b1f9f4312aab172516ac.jpg") no-repeat center;
+	background-size: 100% 100%;
+}
+
+.swiper-slide:nth-of-type(6) div {
+	background: url("../imgs/1ed707dc018f3bc6a8743b1a663980c0.jpg") no-repeat center;
+	background-size: 100% 100%;
+}
+
+.swiper-slide:nth-of-type(7) div {
+	background: url("../imgs/489dedad586fe9c09c93e9ac359f4bae.jpg") no-repeat center;
+	background-size: 100% 100%;
+}
+#client {
+	flex-wrap: wrap;
+	
+}
+#client > div {
+	width: 100%;
+}
+#content{
+	flex-wrap: wrap;
+}
+#content>li{
+	width: 40%;
+}
+.headline + div{
+	flex-wrap: wrap;
+	justify-content: center;
+}
+/* .platform-3{ */
+/* 	width: 450px; */
+/* 	overflow: hidden; */
+/* } */
+#performance{
+/* height: 1000px; */
+	background-size: 100% 100%;
+}
+#performance-ul{
+	flex-wrap: wrap;
+}
+#performance-ul > li{
+	width: 40%;
+}
+/* #performance-ul > li>div{ */
+/* 	font-size: 30px; */
+/* } */
+#major{
+	flex-wrap: wrap;
+}
+#major > li{
+	width: 48%;
+	height: 240px;
+}
+.major-img{
+	height: 200px;
+}
+.major-div-1{
+	height: 200px;
+}
+#brand >ul>li{
+	width: 30%;
+}
+#centre-1 {
+	flex-wrap: wrap;
+	justify-content: center;
+}
+#centre-1 > div{
+	width: 40%;
+}
+#centre-1 > ul{
+	width: 70%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+#centre-1 > ul>li{
+	width: 100%;
+}
+#centre-1 > ul>li>ul{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin: 30px auto;
+}
+#centre-1 > ul>li>ul>li{
+	padding: 5px 20px;
+}

@@ -1,0 +1,174 @@
+<!--
+  ~ Time:2022/4/7 17:46 02
+  ~ Name:123.html
+  ~ Path:Vue/作业/4.7
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		#root {
+			width: 800px;
+			margin: 100px auto;
+			position: relative;
+		}
+
+		table {
+			margin: auto;
+			text-align: center;
+			border-collapse: collapse;
+		}
+
+		hr {
+			margin: 20px 0;
+		}
+
+		tr {
+			border: 2px solid #000;
+			padding: 20px;
+		}
+
+		th {
+			border: 2px solid #000;
+			padding: 10px 20px;
+		}
+
+		td {
+			border: 2px solid #000;
+			padding: 10px 20px;
+		}
+
+		.box {
+			width: 500px;
+			margin: auto;
+			position: absolute;
+			background-color: #d6d6d6;
+		
+			left: 0;
+			right: 0;
+		}
+
+		.z {
+			background-color: #d6d6d6;
+		}
+	</style>
+	<script src="./vue.js"></script>
+</head>
+<body>
+<div id="root">
+	<button @click="conceal=true;num=-1;add1()">添加</button>
+	<table>
+		<tr class="z">
+			<th>姓名</th>
+			<th>手机号</th>
+			<th>性别</th>
+			<th>爱好</th>
+			<th>操作</th>
+		</tr>
+		<tr v-for="(arr,index) in message" :key="index" :class="index%2===1?'z':''">
+			<td>{{ arr.name }}</td>
+			<td>{{ arr.cell_phone_number }}</td>
+			<td>{{ arr.sex }}</td>
+			<td>{{ arr.hobby }}</td>
+			<td>
+				<button @click="conceal=true;num=index;amend1(index)">修改</button>
+				<button @click="deletes(index)">删除</button>
+			</td>
+		</tr>
+	</table>
+	<hr>
+	<br>
+	<div class="box" v-show="conceal">
+		<input type="text" placeholder="姓名" v-model="gather.name"><br><br>
+		<input type="text" placeholder="手机号" v-model="gather.cell_phone_number"><br><br>
+		<input type="radio" name="sex" v-model="gather.sex" value="男"> 男
+		<input type="radio" name="sex" v-model="gather.sex" value="女"> 女<br><br>
+		<input type="checkbox" v-model="gather.hobby" value="篮球"> 篮球
+		<input type="checkbox" v-model="gather.hobby" value="羽毛球"> 羽毛球
+		<input type="checkbox" v-model="gather.hobby" value="乒乓球"> 乒乓球
+		<input type="checkbox" v-model="gather.hobby" value="滑冰"> 滑冰
+		<input type="checkbox" v-model="gather.hobby" value="阅读"> 阅读
+		<input type="checkbox" v-model="gather.hobby" value="爬山"> 爬山
+		<hr>
+		<button @click="conceal=false;num===-1?add():amend();">确定</button>
+	</div>
+</div>
+</body>
+<script>
+	Vue.config.productionTip = false;
+
+	const vm = new Vue({
+		el: '#root',
+		data () {
+			return {
+				conceal: false,
+				num: -1,
+				message: [
+					{
+						name: '崔龙鑫',
+						cell_phone_number: '18638383838',
+						sex: '男',
+						hobby: ['篮球'],
+					},
+				],
+				gather: {
+					name: '',
+					cell_phone_number: '',
+					sex: '',
+					hobby: [],
+				},
+
+			};
+		},
+		methods: {
+
+			add () {
+				let arr = [this.gather.name, this.gather.cell_phone_number, this.gather.sex, this.gather.hobby];
+				if (!arr.includes('')) {
+					this.message.push(JSON.parse(JSON.stringify(this.gather)));
+				} else {
+					this.conceal = true;
+				}
+			},
+			add1 () {
+				this.gather = {
+					name: '',
+					cell_phone_number: '',
+					sex: '',
+					hobby: [],
+				};
+			},
+			deletes (index) {
+				this.message.splice(index, 1);
+			},
+			amend () {
+				this.message.splice(this.num, 1, JSON.parse(JSON.stringify(this.gather)));
+			},
+			amend1 () {
+				this.gather = JSON.parse(JSON.stringify(this.message[this.num]));
+			},
+		},
+	});
+</script>
+</html>

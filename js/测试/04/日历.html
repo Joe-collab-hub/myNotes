@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日历</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        #box {
+            width: 350px;
+            /*height: 300px;*/
+            margin: 100px auto;
+            background-color: #cccccc;
+        }
+
+        #bot-1 {
+            width: 100%;
+            height: 50px;
+            background-color: #999999;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #month {
+            margin-left: 20px;
+            line-height: 50px;
+        }
+
+        #handoff {
+            width: 50px;
+            display: flex;
+            justify-content: space-between;
+            margin-right: 20px;
+            line-height: 50px;
+            font-size: 20px;
+        }
+
+        a {
+            color: #ffffff;
+        }
+
+        ul {
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .everyday {
+            width: 14%;
+            line-height: 50px;
+        }
+
+        #day {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: left;
+        }
+
+        #day > div {
+            width: 50px;
+            text-align: center;
+            /*background-color: #31c27c;*/
+            line-height: 30px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="bot-1">
+        <div id="month"></div>
+        <div id="handoff">
+            <a href="#"> < </a>
+            <a href="#"> > </a>
+        </div>
+    </div>
+    <ul>
+        <li class="everyday">周日</li>
+        <li class="everyday">周一</li>
+        <li class="everyday">周二</li>
+        <li class="everyday">周三</li>
+        <li class="everyday">周四</li>
+        <li class="everyday">周五</li>
+        <li class="everyday">周六</li>
+    </ul>
+    <div id="day"></div>
+</div>
+</body>
+</html>
+<script>
+    let loveDate = new Date();
+    let year = loveDate.getFullYear()
+    let month = loveDate.getMonth() + 1;
+    let date = loveDate.getDate();
+    let time = loveDate.getTime();
+    const checkTime = (i) => {
+        if (i < 10) {
+            i = "0" + i
+        }
+        return i
+    };
+    const year_Month = (year, month) => {
+        month = checkTime(month);
+        document.getElementById("month").innerHTML = year + "年" + month + "月"
+    }
+
+
+    // 判断月份的天数
+    const ifYear = (year, month) => {
+        if (month !== 2) {
+            if (month === 4 || month === 6 || month === 9 || month === 11) {
+                return 30;
+            } else {
+                return 31;
+            }
+        } else {
+            if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+                return 29;
+            } else {
+                return 28;
+            }
+        }
+    }
+
+
+    // 将天数渲染到页面上
+    const showDay = (year, month, date) => {
+        year_Month(year, month);
+        let num = ifYear(year, month);
+        let loveDate = new Date(year, month - 1, 1);
+        // console.log(loveDate.getMonth())
+        let time = loveDate.getDay();
+        let day = document.getElementById("day");
+        for (let i = 0; i < time; i++) {
+            let div = document.createElement("div");
+            day.appendChild(div);
+
+        }
+        for (let j = 1; j <= num; j++) {
+            let div1 = document.createElement("div");
+            let text = document.createTextNode(j);
+            if (j === date && loveDate.getMonth() === new Date().getMonth() && loveDate.getFullYear() === new Date().getFullYear()) {
+                div1.style.color = 'red'
+            }
+            div1.appendChild(text);
+            day.appendChild(div1);
+        }
+
+    }
+
+    showDay(year, month, date);
+
+    // const click = (year, month, date) => {
+
+    // 上一月
+    let a1 = document.getElementsByTagName("a")[0];
+    a1.onclick = function () {
+        document.getElementById("day").innerHTML = "";
+        if (month > 1) {
+            month--;
+        } else {
+            year--;
+            month = 12
+        }
+        showDay(year, month, date);
+    }
+
+    // 下一月
+    let a2 = document.getElementsByTagName("a")[1];
+    a2.onclick = function () {
+        document.getElementById("day").innerHTML = "";
+        if (month < 12) {
+            month++;
+        } else {
+            year++;
+            month = 1
+        }
+        showDay(year, month, date);
+    }
+    // }
+    // click(year, month, date);
+
+</script>

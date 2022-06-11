@@ -1,0 +1,71 @@
+<!--
+  ~ Time:2022/4/28 15:07 02
+  ~ Name:1_非受控组件.html
+  ~ Path:react基础/08_ref中收集表单数据
+  ~ ProjectName:react
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>受控组件</title>
+
+</head>
+<body>
+<div id="test"></div>
+</body>
+<script src="../../js/旧版本/react.development.js"></script>
+<script src="../../js/旧版本/react-dom.development.js"></script>
+<script src="../../js/旧版本/babel.min.js"></script>
+<script type="text/babel">
+	class Login extends React.Component {
+		
+		state = {
+			username: '',
+			password: ''
+		}
+		
+		// 保存用户名
+		savePassword = (event) => {
+		  this.setState({
+		    password: event.target.value
+		  });
+		}
+		
+		// 保存密码
+		saveUsername = (event) => {
+		  this.setState({
+		    username: event.target.value
+		  });
+		}
+		
+		// 提交表单
+		handleSubmit = (event) => {
+			event.preventDefault(); // 阻止默认行为
+			const { username, password } = this.state
+			alert(`你的用户名是：${username}，密码是：${password}`)
+		};
+		
+		render () {
+			return (
+					<div>
+						<form action="https://www.baidu.com" onSubmit={this.handleSubmit}>
+							用户名：<input onChange={this.saveUsername} type="text" name="username"/><br/>
+							密码：<input onChange={this.savePassword} type="password" name="password"/><br/>
+							<button>登录</button>
+						</form>
+					</div>
+			);
+		}
+		
+	}
+	
+	ReactDOM.render(<Login/>, document.getElementById('test'));
+
+</script>
+</html>

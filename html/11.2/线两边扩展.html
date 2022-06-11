@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 70px;
+            position: relative;
+            top: 50px;
+        }
+        div:before{
+            content: "";
+            width: 0;
+            height: 5px;
+            background-color: #5dd5c8;
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transition: all 1s;
+        }
+        div:hover:before{
+            left: 0%;
+            width: 100%;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div>决定恢复</div>
+</body>
+</html>

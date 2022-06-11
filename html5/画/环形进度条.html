@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+	<style>
+		canvas {
+			border: 1px solid red;
+		}
+	</style>
+
+</head>
+<body>
+<canvas width="500" height="800"></canvas>
+</body>
+
+</html>
+<script>
+	const canvasDom = document.querySelector('canvas');//拿到画笔
+	const context = canvasDom.getContext('2d');
+
+	//绘制底层灰色圆
+	context.arc(250, 250, 150, 0, Math.PI * 2);
+	context.strokeStyle = '#ccc';
+	context.fillStyle = '#ccc';
+	context.fill();
+	context.stroke();
+
+	let deg = 0;
+	let i = 0;
+	//使用定时器累加度数
+	setInterval(function () {
+		//红色圆 表示进度
+		i++;
+		context.beginPath();
+		context.moveTo(250, 250);
+		context.strokeStyle = 'red';
+		context.arc(250, 250, 150, 0, Math.PI / 180 * i);
+		context.closePath();
+		context.fillStyle = 'red';
+		context.fill();
+		context.stroke();
+		createWhiteArc();
+
+	}, 100);
+
+	function createWhiteArc () {
+		//白色圆 盖住红色圆
+		context.beginPath();
+		context.arc(250, 250, 130, 0, Math.PI * 2);
+		context.strokeStyle = '#fff';
+		context.fillStyle = '#fff';
+		context.fill();
+		context.stroke();
+	}
+
+	createWhiteArc();
+
+
+</script>

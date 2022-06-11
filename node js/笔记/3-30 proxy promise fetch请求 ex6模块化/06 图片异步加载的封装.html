@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function loadImg(src) {
+        return new Promise(resolve => {
+            const img = new Image();
+            img.src = src;
+            img.onload = function () {
+                resolve(img);   // 调用then方法中的函数，将元素通过参数传递
+            }
+        });
+    }
+
+    loadImg('https://pic.netbian.com/uploads/allimg/220327/000925-16483109659bb3.jpg')
+        .then((img) => {
+            console.log('图片加载完成');
+            document.body.append(img);
+        });
+</script>

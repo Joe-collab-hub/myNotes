@@ -1,0 +1,82 @@
+<!--
+  ~ Time:2022/4/27 13:42 51
+  ~ Name:1_类的基本知识.html
+  ~ Path:react基础/复习
+  ~ ProjectName:react
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>类的基本知识</title>
+
+</head>
+<body>
+#
+</body>
+<script>
+	
+	/*
+		总结：
+			1、类中的构造器不是必须写的，要对实例对象进行一些初始化操作，如添加指定属性才写
+			2、如果A类继承了B类，且A类中写了构造器，那么A类构造器中的super是必须写的
+			3、类中所定义的方法，都是放在了类的原型上，供实例去那个使用
+	*/
+	
+	// 创建一个Parson类
+	class Parson {
+		// 构造器方法
+		constructor (name, age) {
+			// 构造器中的this是谁？---> 当前类的实例对象
+			this.name = name;
+			this.age = age;
+		}
+		
+		// 一般方法
+		speak () {
+			// speak方法放在了哪里？---> 类的原型对象上，供实例使用
+			// 通过Parson实例对象调用speak方法，this指向的是Parson实例对象
+			console.log(`${this.name}说：我今年${this.age}岁了`);
+		}
+	}
+	
+	/* const s1 = new Parson('张三', 18);
+	const s2 = new Parson('李四', 28);
+	console.log(s1);
+	console.log(s2);
+	s1.speak();
+	s2.speak(); */
+	
+	// 创建一个Student类，继承Parson类
+	class Student extends Parson {
+		constructor (name, age, sex) {
+			// 继承类必须写 super 方法，且 必须在最上边
+			super(name, age);
+			this.sex = sex;
+		}
+		
+		// 重写从父类继承过来的方法
+		speak () {
+			console.log(`${this.name}说：我今年${this.age}岁了,性别为${this.sex}`);
+		}
+		
+		study () {
+			console.log('我很努力的学习');
+		}
+	}
+	
+	const s1 = new Student('张三', 18, '男');
+	const s2 = new Student('李四', 28, '女');
+	console.log(s1);
+	console.log(s2);
+	s1.speak();
+	s2.speak();
+
+
+</script>
+</html>

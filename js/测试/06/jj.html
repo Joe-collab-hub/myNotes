@@ -1,0 +1,34 @@
+<!--
+  ~ Time:2022/2/25 14:11 20
+  ~ Name:jj.html
+  ~ Path:js/测试/06
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+
+</head>
+<body>
+
+</body>
+<script>
+	var name = 'The Window';
+	var object = {
+		name: 'MyObject',
+		getNameFunc: function () {
+			return function() {
+				return this.name;
+			};
+		},
+	};
+	console.log(object.getNameFunc()())
+</script>
+</html>

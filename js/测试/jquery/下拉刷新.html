@@ -1,0 +1,105 @@
+<!--
+  ~ Time:2022/3/8 14:17 00
+  ~ Name:下拉刷新.html
+  ~ Path:js/测试/jquery
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>下拉刷新</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+
+		main {
+			height: 100vh;
+			/* background-color: #5dd5c8; */
+		}
+
+		p {
+			text-align: center;
+			line-height: 50px;
+			background-color: #ddd;
+		}
+
+		li {
+			padding: 8px;
+			border: 1px solid #eee;
+		}
+
+	</style>
+	<script src="iscroll4.js"></script>
+</head>
+<body>
+<main id="box">
+	<div>
+		<p>下拉刷新</p>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</div>
+</main>
+</body>
+<script>
+
+	const p = document.getElementsByTagName('p')[0];
+	const ul = document.getElementsByTagName('ul')[0];
+
+	const listScroll = new iScroll('box', {
+		y: -50,  // 初始位置
+		vScrollbar:false,
+		// momentum:false,
+		onScrollMove: function () {  //内容滚动的回调函数
+			if (this.y > 100) {
+				// 是文字变成 松开刷新
+				p.innerText = '松开刷新';
+				this.minScrollY = 0; // 设置回弹位置为0
+			} else {
+				p.innerText = '下拉刷新';
+				this.minScrollY = -50;
+			}
+		},
+		onScrollEnd: function () { // 监听滚动结束
+			if (this.y === 0) {
+				// 这里执行刷新
+				p.innerText = '正在刷新';
+				// 模拟网络请求，两秒后添加内容到ul中
+				setTimeout(function () {
+					for (let i = 0; i < 5; i++) {
+						const li = document.createElement('li');
+						li.innerText = Math.random();
+						ul.prepend(li);
+					}
+					this.refresh();
+					p.innerText = '刷新成功';
+					this.minScrollY = -50;
+					this.scrollTo(0, -50, 1000);
+				}.bind(this), 2000);
+			}
+		},
+	});
+	listScroll.minScrollY = -50;  // 最小滚动位置
+</script>
+</html>

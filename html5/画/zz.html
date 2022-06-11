@@ -1,0 +1,33 @@
+<!--
+  ~ Time:2022/3/17 10:46 49
+  ~ Name:文件下载.html
+  ~ Path:2022/3.17
+  ~ ProjectName:学习
+  ~ Author:lenovo
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+
+</head>
+<body>
+<a href="">1</a>
+<a href="画图板.html" download="1.html">2</a>
+<button>zzz</button>
+</body>
+
+</html>
+<script>
+	document.querySelector('button').onclick = function () {
+		let aDom = document.querySelector('a');
+		aDom.download = '111';
+		aDom.click();
+		aDom = null;
+	};
+</script>

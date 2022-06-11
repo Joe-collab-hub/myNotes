@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // http://www.kuwo.cn/api/www/bang/bang/musicList?bangId=93&pn=1&rn=30&httpsStatus=1&reqId=1fafa6a0-affb-11ec-b777-4d80ee1b1b68
+
+    // fetch函数，用于发送ajax请求
+    // 参数1：请求的路径
+    // 参数2：对象(可选)对请求做一些配置，详见36行
+    // 返回值：promise实例
+    fetch("http://127.0.0.1:3000/kuwo/api/www/bang/bang/musicList?bangId=93&pn=1&rn=30&httpsStatus=1&reqId=1fafa6a0-affb-11ec-b777-4d80ee1b1b68")
+        .then(res => {
+            console.log('成功', res);
+            return res.json(); // 解析响应的数据，返回一个promise对象，我们将这个promise返回，就可以在下面的then方法中取到数据
+        })
+        .then(data => {
+            console.log('请求数据为', data);
+        })
+        .catch(err => {
+            console.log('失败', err);
+        });
+
+
+    // 发送post请求需要对请求做一些配置
+    fetch('http://127.0.0.1:3000/kuwo/api/www/register/regSms?reqId=84aa9040-affd-11ec-b54a-fff4dcb56272&httpsStatus=1', {
+        method: 'POST',   // 请求方式  GET POST PUT DELETE
+        headers: {  // 请求头配置
+            "Content-Type": "application/json;charset=UTF-8",
+        },
+        body: JSON.stringify({ // 请求体，需要和 Content-Type 相匹配
+            mobile: "17638921093",
+            verifyCode: "63np",
+            verifyCodeToken: "c5bc3ab2c08c4a14abfc462d29b82bbf"
+        })
+    })
+        .then(res => {
+            console.log('post完成', res);
+            return res.json(); // 解析响应的数据，返回一个promise对象，我们将这个promise返回，就可以在下面的then方法中取到数据
+        })
+        .then(data => {
+            console.log('注册数据为', data);
+        })
+
+</script>

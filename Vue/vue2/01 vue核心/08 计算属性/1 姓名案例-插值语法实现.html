@@ -1,0 +1,39 @@
+<!--
+  ~ Time:2022/4/3 17:03 48
+  ~ Name:姓名案例-插值语法实现.html
+  ~ Path:VUE/dey01/08 计算属性
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>姓名案例-插值语法实现</title>
+	<script src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+	性：<input type="text" v-model="firstName"><br><br>
+	名：<input type="text" v-model="lastName"><br><br>
+	全名：<span>{{ firstName.slice(0,3) }}-{{ lastName }}</span>
+</div>
+</body>
+<script>
+	Vue.config.productionTip = false;
+
+	const vm = new Vue({
+		el: '#root',
+		data () {
+			return {
+				firstName: '张',
+				lastName: '三',
+			};
+		},
+	});
+</script>
+</html>

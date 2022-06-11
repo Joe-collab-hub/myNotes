@@ -1,0 +1,79 @@
+<!--
+  ~ Time:2022/3/14 14:12 08
+  ~ Name:百度地图.html
+  ~ Path:html5/echarts
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>百度地图</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
+		li {
+			cursor: pointer;
+			position: relative;
+		}
+
+		/*-------以上为默认设置（The above is the default setting）--------*/
+		#box {
+			height: 800px;
+		}
+
+
+	</style>
+	<script src="./echarts.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+<body>
+
+</body>
+<div id="box"></div>
+</html>
+<script>
+	// 初始化容器
+	const myEcharts = echarts.init(document.getElementById('box'));
+
+	$.get('./china.json', function (geoJson) {
+		// 调用 registerMap 注册地图
+		// 参数一：地图名称
+		// 参数二： 地图的数据 geoJson
+		echarts.registerMap('china', geoJson);
+		// 模拟数据
+		const values = geoJson.features.map(function (v) {
+			return {
+				name: v.properties.name,
+				value: Math.floor(Math.random() * 100000),
+			};
+		});
+		//配置图表
+		myEcharts.setOption({
+			tooltip: {}, // 悬浮窗
+			series: [
+				{
+					name: '全国人口普查',
+					type: 'map', // type指定map类型
+					map: 'china', // 配置使用的地图名称
+					data: values,
+					itemStyle:{
+						color:'red'
+					}
+				},
+			],
+		});
+	});
+
+
+</script>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="index.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            width: 960px;
+            margin: 10px auto 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        #bot{
+            width: 220px;
+            margin-bottom: 20px;
+            border: 1px solid #e6e6e6;
+        }
+        #bot:hover{
+            box-shadow: 0 5px 10px silver;
+            transition: all 100ms;
+        }
+        img{
+            width: 220px;
+        }
+        #Models{
+            font-size: 15px;
+            color: #333333;
+            margin-top: 5px;
+        }
+        #Models:hover{
+            color: #ff5517;
+        }
+        #Price{
+            color: #ff5517;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        #kilometer{
+            font-size: 13px;
+            color: #999999;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        p{
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    document.write("<div id='box'>")
+    for (let i = 0; i < arr.length; i++) {
+        document.write(
+            `<div id="bot">
+                <img src="${arr[i].img}" alt="">
+                <p id="Models">&nbsp;${arr[i].Models}</p>
+                <p id="Price">￥${arr[i].Price}</p>
+                <p id="kilometer">${arr[i].kilometer}</p>
+            </div>`
+        )
+    }
+    document.write("</div>")
+</script>

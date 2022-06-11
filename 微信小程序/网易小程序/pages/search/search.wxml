@@ -1,0 +1,54 @@
+<!--pages/search/search.wxml-->
+<view class="searchContainer">
+    <!--  头部导航区  -->
+    <view class="header">
+        <view class="searchInput">
+            <text class="iconfont icon-search .searchIcon"></text>
+            <input
+                    type="text"
+                    value="{{searchData}}"
+                    placeholder="{{ placeholderContainer}}"
+                    placeholder-class="placeholder"
+                    bindinput="headerInputChange"
+            />
+            <view class="delete" bindtap="getDelete">X</view>
+        </view>
+        <text class="cancel" bindtap="getSearch">搜索</text>
+    </view>
+
+    <block wx:if="{{searchContent.length}}">
+        <!--  搜索内容区域  -->
+        <view class="showSearchContent">
+            <view class="searchContent">搜索内容：{{searchData}}</view>
+            <view class="searchList">
+                <view class="searchItem" wx:for="{{searchContent}}" wx:key="id" id="{{item.name}}" bindtap="addSearch">
+                    <text class="iconfont icon-search"></text>
+                    <text class="content">{{item.name}}</text>
+                </view>
+            </view>
+        </view>
+    </block>
+
+    <block wx:else>
+        <!--  历史记录  -->
+        <view class="history" wx:if="{{historyList.length}}">
+            <view class="title">搜索历史</view>
+            <view class="historyItem" wx:for="{{historyList}}" wx:key="item">{{item}}</view>
+            <view class="iconfont icon-shanchu delete" bindtap="deleteSave"></view>
+        </view>
+
+        <!--  热搜榜  -->
+        <view class="hotContainer">
+            <view class="title">热搜榜</view>
+            <!--  热搜列表  -->
+            <view class="hotList">
+                <view class="hotItem {{index<=2?'hotItemWeight':''}}" wx:for="{{hotList}}" wx:key="searchWord">
+                    <text class="order">{{index + 1}}</text>
+                    <text>{{item.searchWord}}</text>
+                    <image wx:if="{{item.iconUrl}}" src="{{item.iconUrl}}"></image>
+                </view>
+            </view>
+        </view>
+    </block>
+
+</view>

@@ -1,0 +1,31 @@
+<!--
+  ~ Time:2022/2/26 10:03 47
+  ~ Name:模糊查询.html
+  ~ Path:js/笔记/09.js
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Title</title>
+
+</head>
+<body>
+
+</body>
+<script>
+	// 使用get请求访问数据，可以在ulr后面拼接查询字母，来向服务器传递信息
+	const xhr = new XMLHttpRequest();  // 先声明对象
+	// 在路经中使用？分割，后面的是查询字符串，格式化
+	// key=value&key1=value1&key-=value2
+	xhr.open('get', 'http://192.168.107.2:3000/laoguo-get?name=张三&age=18', false);
+	xhr.send(); // 发送请求
+	console.log(xhr.responseText); // 服务器响应的数据
+</script>
+</html>

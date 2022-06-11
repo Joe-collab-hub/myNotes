@@ -1,0 +1,250 @@
+<!--
+  ~ Time:2022/2/28 10:46 18
+  ~ Name:酷狗接口.html
+  ~ Path:js/酷我
+  ~ ProjectName:前端
+  ~ Author:突然
+  ~
+  ~  Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>酷狗接口</title>
+	<link rel="stylesheet" href="./css/index.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+	<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js.map"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+</head>
+<body>
+<header>
+	<div>
+		<img src="imgs/1.png">
+		<ul>
+			<li style="background-color: #ffe443">发现音乐</li>
+			<li>下载客户端</li>
+			<li>音乐线场</li>
+			<li>VIP会员</li>
+			<li>酷我畅听</li>
+			<li>酷我音乐</li>
+			<li>更多</li>
+		</ul>
+		<div>
+			<input type="text" placeholder="搜索音乐/MV/歌单/歌手">
+			<span>登录</span>
+			<span>/</span>
+			<span>注册</span>
+		</div>
+	</div>
+</header>
+<div id="bot">
+	<ul class="recommend" style="margin-left: 200px">
+		<li id="recommend">推荐</li>
+		<li id="seniority">排行榜</li>
+		<li id="singer">歌手</li>
+		<li id="song">歌单</li>
+		<li id="MV">MV</li>
+	</ul>
+	<nav>
+		<div class="swiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><img src="imgs/1635395354301_.png"></div>
+				<div class="swiper-slide"><img src="imgs/1645798001291_.jpg"></div>
+				<div class="swiper-slide"><img src="imgs/1644679344626_.jpg"></div>
+			</div>
+
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+		</div>
+	</nav>
+</div>
+<audio autoplay="autoplay">
+	<source src="" type="audio/mp3"/>
+</audio>
+</body>
+<script>
+	$('input').keyup(function (e) {
+		if (e.keyCode === 13) {
+			getMvList($(this).val());
+		}
+	});
+
+	function getMvList (key) {
+		$.get(
+				`http://39.96.88.57:9090/api/www/search/searchMvBykeyWord?key=${key}`,
+				function (data) {
+					console.log(data);
+					console.log(data.data.mvlist);
+					createEl(data.data.mvlist, key);
+				});
+	}
+
+	function createEl (arr, key) {
+		console.log(arr);
+		$('#bot').html(`<div id="q">
+						<input type="text" value="${key}">
+					</div>
+					<div id="w">
+						<h2 style="line-height: 50px">搜索结果</h2>
+						<ul class="recommend" style="margin-left: 30px">
+							<li>推荐</li>
+							<li>排行榜</li>
+							<li>歌手</li>
+							<li>歌单</li>
+							<li>MV</li>
+						</ul>
+					</div>
+					<div id="e">
+						<div style="background-color: #ffe443"><img src="imgs/24gl-play.png">播放列表</div>
+						<div><img src="imgs/xihuan.png">收藏</div>
+						<div><img src="imgs/xiazai.png">下载歌曲</div>
+					</div>
+					<ul id="header">
+						<li class="box1">序号</li>
+						<li class="box2">歌曲</li>
+						<li class="box3">歌手</li>
+						<li class="box4">专辑</li>
+						<li class="box5">时长</li>
+					</ul>
+					`);
+		let ul = $('<ul id="content"></ul>');
+		arr.forEach(function (el, i) {
+			console.log(i);
+			console.log(el);
+
+			fun(i, ul, el);
+		});
+		$('#bot').append(ul);
+	}
+
+	function fun (i, ul, el) {
+		if (i % 2 === 0) {
+			var li = $(`<li style="background-color: #fff">${fun1(i, el)}</li>`);
+			li.mouseleave(function () {
+				li.css({
+					backgroundColor: '#fff',
+				});
+			});
+		} else {
+			var li = $(`<li style="background-color: #fafafa">${fun1(i, el)}</li>`);
+			li.mouseleave(function () {
+				li.css({
+					backgroundColor: '#fafafa',
+				});
+			});
+		}
+		fun3(li, el);
+		ul.append(li);
+	}
+
+	function fun1 (i, el) {
+		return `<div class="box1">
+					<span>${i + 1}</span>
+				</div>
+				<div class="box2">
+					<img src="${el.pic}">
+				<span>${el.name}</span>
+				</div>
+				<div class="box3"><span>${el.artist}</span></div>
+				<div class="box4"><span>${el.album}</span></div>
+				<div class="box5"><span>${el.songTimeMinutes}</span></div>`;
+	}
+
+	function fun3 (li, el) {
+		li.mouseenter(function () {
+			li.css({
+				backgroundColor: '#f5f5f5',
+			});
+			li.append(`<div class="box6">
+							<img onclick="getMvUrl(${el.id})" src="imgs/24gl-play.png" alt="">
+							<img src="imgs/tianjia.png" alt="">
+							<img src="imgs/xihuan.png" alt="">
+							<img src="imgs/xiazai.png" alt="">
+						</div>`);
+		});
+		li.mouseleave(function () {
+			$('.box6').remove();
+		});
+	}
+
+	function getMvUrl (id) {
+		console.log(id);
+		$.get(
+				`http://39.96.88.57:9090/api/v1/www/music/playUrl?&type=mv&httpsStatus=1&mid=${id}`,
+				function (data) {
+					$('source').attr('src', data.data.url);
+				},
+		);
+	}
+</script>
+<script>
+	$('#recommend').click(function () {
+		$('#bot').html(`<ul class="recommend" style="margin-left: 200px">
+							<li id="recommend">推荐</li>
+							<li id="seniority">排行榜</li>
+							<li id="singer">歌手</li>
+							<li id="song">歌单</li>
+							<li id="MV">MV</li>
+						</ul>
+						<nav>
+							<div class="swiper">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><img src="imgs/1635395354301_.png"></div>
+									<div class="swiper-slide"><img src="imgs/1645798001291_.jpg"></div>
+									<div class="swiper-slide"><img src="imgs/1644679344626_.jpg"></div>
+								</div>
+
+								<div class="swiper-button-prev"></div>
+								<div class="swiper-button-next"></div>
+							</div>
+						</nav>
+					`);
+	});
+
+	$('#singer').click(function (e) {
+		$('#bot').html(`<ul class="recommend" style="margin-left: 200px">
+							<li id="recommend">推荐</li>
+							<li id="seniority">排行榜</li>
+							<li id="singer">歌手</li>
+							<li id="song">歌单</li>
+							<li id="MV">MV</li>
+						</ul>
+					`);
+
+	});
+	$('#seniority').click(function () {
+
+		// $.get(
+		// 		`2.25作业`,false
+		// 		// function (data) {
+		// 		// 	console.log(data);
+		// 		// 	createEl(data.data.mvlist, key);
+		// 		// });
+		// )
+	})
+</script>
+<script>
+	var mySwiper = new Swiper('.swiper', {
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		initialSlide: 2,
+		speed: 2000,
+		loop: true,
+		autoplay: {
+			delay: 1000,
+		},
+		pagination: {
+			el: '.swiper-pagination',
+		},
+	});
+</script>
+</html>
