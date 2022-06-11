@@ -14,12 +14,68 @@
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<title>1-初体验</title>
+	<style>
+		.btn {
+			background-color: #00F7DE;
+			padding: 3px 10px;
+		}
 
+
+	</style>
 </head>
 <body>
 <div class="container">
 	<h2 class="page-header">Promise 初体验</h2>
+	<button class="btn btn-primary" id="btn">点击抽奖</button>
 </div>
 </body>
+<script>
+	// 生成随机数
+	function rand (m, n) {
+		return Math.random () * (n - m + 1) + m - 1;
+	}
 
+	/*
+		点击按钮，2s后显示是否中奖（30%概率中奖）
+			若中奖弹出 恭喜
+			若为中奖弹出 再接再厉
+	 */
+
+	// 获取元素对象
+	const btn = document.getElementById ('btn');
+	btn.addEventListener ('click', function () {
+		/* setTimeout (() => {
+			let n = rand (1, 100);
+			if (n <= 30) {
+				alert ('@@@@@@恭喜中奖')
+			} else {
+				alert ('######再接再厉')
+			}
+		},1000) */
+
+		const p = new Promise ((resolve, reject) => {
+			setTimeout (() => {
+				let n = rand (1, 100);
+				if (n <= 30) {
+					resolve (n);   // 将Promise对象状态设置位【成功】
+				} else {
+					reject (n);    // 将Promise对象状态设置位【失败】
+				}
+			},1000)
+		})
+
+		p.then (
+				(res) => {
+					console.log (res)
+					alert ('@@@@@@恭喜中奖,'+ res)
+				},
+				(err) => {
+					console.log (err)
+					alert ('######再接再厉,'+err)
+				},
+		)
+
+	})
+
+</script>
 </html>
